@@ -4,7 +4,7 @@
 [project]
 name = "damply"
 version = "0.9.0"
-description = "A Quick Tool For Sorting Dicom Files"
+description = "Data Management Plan (DMP) tool made easy."
 license = "MIT"
 readme = "README.md"
 keywords = ["damply", "pixi", "python", "package"]
@@ -15,15 +15,11 @@ maintainers = [{ name = "Jermiah Joseph", email = "jermiahjoseph98@gmail.com" }]
 requires-python = ">= 3.10"
 dependencies = [
   "rich",
-  "rich-click",
-  "pydantic",
-  "textual",
-  "trogon",
-  "dataclasses-json",
-  "click-didyoumean",
+  "click",
   "matplotlib",
   "plotly",
-  "pandas", "kaleido", "pygetent",
+  "pandas",
+  "pybytesize",
 ]
 classifiers = [
   "License :: OSI Approved :: MIT License",
@@ -44,9 +40,6 @@ issues = "https://github.com/jjjermiah/damply/issues"
 [project.scripts]
 dmp = "damply.cli.main:cli"
 damplyplot = "damply.plot:main"
-
-[project.optional-dependencies]
-style = ["rich-codex"]
 
 #--------------------------------------------------------------------------------------------------#
 ############################################## PIXI ################################################
