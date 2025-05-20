@@ -1,6 +1,8 @@
+from pathlib import Path
+
 import rich_click as click
 from rich import print
-from pathlib import Path
+
 from damply.metadata import MANDATORY_FIELDS, DMPMetadata
 
 @click.command(context_settings={'help_option_names': ['-h', '--help']})
@@ -25,9 +27,11 @@ from damply.metadata import MANDATORY_FIELDS, DMPMetadata
 )
 def add_field(path: Path, field: str, value: str) -> None:
     """Add a field to the README file."""
-    
+
     if field.upper() in MANDATORY_FIELDS:
-        print(f'Error: The field {field} is a mandatory field. Use the config command to modify it.')
+        print(
+            f'Error: The field {field} is a mandatory field. Use the config command to modify it.'
+        )
         return
     try:
         metadata = DMPMetadata.from_path(path)

@@ -1,10 +1,10 @@
+from pathlib import Path
+
 import rich_click as click
 from rich import print
 
 from damply.cli.click_config import help_config
-from pathlib import Path
 from damply.metadata import MANDATORY_FIELDS, DMPMetadata
-
 
 @click.command(context_settings={'help_option_names': ['-h', '--help']})
 @click.argument(
@@ -25,7 +25,6 @@ def init(path: Path) -> None:
     if not path.exists():
         print(f'WARNING: Directory {path} does not exist. Creating it now.')
         path.mkdir(parents=True)
-
 
     try:
         metadata = DMPMetadata.from_path(path)

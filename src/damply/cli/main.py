@@ -4,16 +4,14 @@ import rich_click as click
 from rich import print
 
 from damply import __version__
+from damply.cli.add_field import add_field
+from damply.cli.audit import audit
+from damply.cli.click_config import help_config
+from damply.cli.init import init
+from damply.cli.plot import plot
 from damply.metadata import MANDATORY_FIELDS, DMPMetadata
-from damply.plot import damplyplot
 from damply.utils import whose as whose_util
 from damply.utils.alias_group import AliasedGroup
-
-from damply.cli.audit import audit
-from damply.cli.plot import plot
-from damply.cli.click_config import help_config
-from damply.cli.add_field import add_field
-from damply.cli.init import init
 
 @click.group(
     cls=AliasedGroup,
@@ -23,9 +21,9 @@ from damply.cli.init import init
 @click.version_option(__version__, prog_name='damply')
 def cli() -> None:
     """
-    A tool to interact with systems implementing the 
+    A tool to interact with systems implementing the
     Data Management Plan (DMP) standard.
-    
+
     This tool is meant to allow sys-admins to easily query and audit the metadata of their
     projects.
     """
@@ -181,9 +179,6 @@ def config(path: Path, dry_run: bool) -> None:
         console.print(metadata)
 
 
-
-
-
 @cli.command(context_settings={'help_option_names': ['-h', '--help']})
 @click.argument(
     'path',
@@ -207,10 +202,11 @@ def size(path: Path) -> None:
 
     size_dir = metadata.read_dirsize()
     from rich.console import Console
+
     console = Console()
-    
+
     console.print(
-        f"The size of [bold magenta]{path}[/bold magenta] is [bold cyan]{size_dir}[/bold cyan]"
+        f'The size of [bold magenta]{path}[/bold magenta] is [bold cyan]{size_dir}[/bold cyan]'
     )
     print(metadata)
 

@@ -1,4 +1,4 @@
-""" dmpdirs: Standardized access to project directories in data science workflows.
+"""dmpdirs: Standardized access to project directories in data science workflows.
 
 This package provides convenient access to common directories in data science projects,
 supporting two standard directory structures and handling path resolution.
@@ -13,7 +13,7 @@ Structure 1: Flat Layout (legacy DMP Structure)
 project_root/
 ├── rawdata/        # Raw input data
 ├── procdata/       # Processed/intermediate data
-├── results/        # Analysis outputs and figures  
+├── results/        # Analysis outputs and figures
 ├── workflow/       # Code organization
 │   ├── notebooks/  # Jupyter notebooks
 │   └── scripts/    # Analysis scripts
@@ -39,31 +39,31 @@ project_root/
 
 Usage:
     from dmpdirs import dirs
-    
+
     # Access paths as Path objects
     data_file = dirs.RAWDATA / "dataset.csv"
-    
+
     # Print absolute paths
     print(dirs.RAWDATA)  # e.g., /Users/username/projects/my_project/rawdata
-    
+
     # Access directory structure
     print(dirs.STRUCTURE)  # "flat" or "nested"
 """
+
 from __future__ import annotations
 
 import os
 from pathlib import Path
-from typing import Any, Dict, ClassVar
+from typing import Any, ClassVar, Dict
 
 from .exceptions import DirectoryNotFoundError
-
 
 def get_project_root() -> Path:
     """Get the project root directory."""
     # Check if the environment variable is set
-    if project_root := os.getenv("DMP_PROJECT_ROOT"):
+    if project_root := os.getenv('DMP_PROJECT_ROOT'):
         return Path(project_root).resolve()
-    elif project_root := os.getenv("PIXI_PROJECT_ROOT"):
+    elif project_root := os.getenv('PIXI_PROJECT_ROOT'):
         return Path(project_root).resolve()
 
     # If not, use the current working directory
@@ -72,128 +72,137 @@ def get_project_root() -> Path:
 
 def detect_directory_structure(root_path: Path) -> str:
     """Detect the directory structure type.
-    
+
     Args:
         root_path: Project root path
-        
+
     Returns:
         str: "flat" or "nested" indicating the detected structure
     """
     # Check if "data" directory exists and contains at least one of rawdata/procdata/results
-    data_dir = root_path / "data"
-    if data_dir.is_dir() and any((data_dir / subdir).is_dir() 
-                               for subdir in ["rawdata", "procdata", "results"]):
-        return "nested"
-    return "flat"
+    data_dir = root_path / 'data'
+    if data_dir.is_dir() and any(
+        (data_dir / subdir).is_dir() for subdir in ['rawdata', 'procdata', 'results']
+    ):
+        return 'nested'
+    return 'flat'
 
 
 class DamplyDirs:
     """Class that provides computed properties for project directories.
-    
+
     This class provides computed properties that lazily evaluate directory paths
     and raise appropriate errors if directories don't exist when accessed.
     """
+
     # Class variable to hold singleton instance
     _instance: ClassVar[DamplyDirs | None] = None
-    
+
     def __new__(cls):
         """Implement singleton pattern."""
         if cls._instance is None:
             cls._instance = super(DamplyDirs, cls).__new__(cls)
             cls._instance._initialized = False
         return cls._instance
-    
-    def __init__(self):
+
+    def __init__(self) -> None:
         """Initialize the DamplyDirs object."""
         # Skip initialization if already initialized
-        if getattr(self, "_initialized", False):
+        if getattr(self, '_initialized', False):
             return
-            
+
         # Initialize core attributes
         self._project_root = get_project_root()
         self._structure = detect_directory_structure(self._project_root)
         self._dir_cache: Dict[str, Path] = {}
         self._initialized = True
-    
+
     def _get_dir_path(self, dir_name: str) -> Path:
         """Get the path for a directory based on the project structure.
-        
+
         Args:
             dir_name: The name of the directory to get
-            
+
         Returns:
             Path object for the requested directory
-            
+
         Raises:
             DirectoryNotFoundError: If the directory doesn't exist
         """
         # Return from cache if available
         if dir_name in self._dir_cache:
             return self._dir_cache[dir_name]
-        
+
         # Calculate path based on directory name and structure
-        if dir_name == "PROJECT_ROOT":
+        if dir_name == 'PROJECT_ROOT':
             path = self._project_root
-        elif dir_name in ["RAWDATA", "PROCDATA", "RESULTS"]:
+        elif dir_name in ['RAWDATA', 'PROCDATA', 'RESULTS']:
             # Data directories depend on the structure
-            if self._structure == "nested":
-                path = self._project_root / "data" / dir_name.lower()
+            if self._structure == 'nested':
+                path = self._project_root / 'data' / dir_name.lower()
             else:
                 path = self._project_root / dir_name.lower()
-        elif dir_name in ["SCRIPTS", "NOTEBOOKS"]:
-            path = self._project_root / "workflow" / dir_name.lower()
+        elif dir_name in ['SCRIPTS', 'NOTEBOOKS']:
+            path = self._project_root / 'workflow' / dir_name.lower()
         else:
             # Common directories for both structures
             path = self._project_root / dir_name.lower()
-        
+
         # Cache the path
         self._dir_cache[dir_name] = path
-        
+
         # Check if directory exists and raise error if not
         if not path.exists():
             raise DirectoryNotFoundError(dir_name, str(path))
-            
+
         return path
-    
+
     def __getattr__(self, name: str) -> Any:
         """Get attribute for a directory name.
-        
+
         Args:
             name: The name of the directory to get
-            
+
         Returns:
             Path object for the requested directory
-            
+
         Raises:
             AttributeError: If the attribute is not a recognized directory
             DirectoryNotFoundError: If the directory doesn't exist
         """
         if name.isupper() and name in [
-            "PROJECT_ROOT", "RAWDATA", "PROCDATA", "RESULTS", 
-            "METADATA", "LOGS", "CONFIG", "SCRIPTS", "NOTEBOOKS"
+            'PROJECT_ROOT',
+            'RAWDATA',
+            'PROCDATA',
+            'RESULTS',
+            'METADATA',
+            'LOGS',
+            'CONFIG',
+            'SCRIPTS',
+            'NOTEBOOKS',
         ]:
             return self._get_dir_path(name)
         errmsg = (
             f"'{name}' is not a valid directory name. "
-            "Valid names are: PROJECT_ROOT, RAWDATA, PROCDATA, RESULTS, "
-            "METADATA, LOGS, CONFIG, SCRIPTS, NOTEBOOKS"
+            'Valid names are: PROJECT_ROOT, RAWDATA, PROCDATA, RESULTS, '
+            'METADATA, LOGS, CONFIG, SCRIPTS, NOTEBOOKS'
         )
         raise AttributeError(errmsg)
-    
+
     @property
     def STRUCTURE(self) -> str:
         """Get the detected directory structure."""
         return self._structure
-    
+
     def __getitem__(self, key: str) -> Path:
         """Allow dictionary-like access to directories.
-        
+
         Args:
             key: The name of the directory to get
-            
+
         Returns:
             Path object for the requested directory
-            
+
         Raises:
             KeyError: If the key is not a recognized directory
             DirectoryNotFoundError: If the directory doesn't exist
@@ -202,37 +211,44 @@ class DamplyDirs:
             return getattr(self, key)
         except AttributeError:
             raise KeyError(f"'{key}' is not a valid directory name")
-    
+
     def __dir__(self) -> list[str]:
         """Return list of available attributes for tab completion."""
         return [
-            "PROJECT_ROOT", "RAWDATA", "PROCDATA", "RESULTS", 
-            "METADATA", "LOGS", "CONFIG", "SCRIPTS", "NOTEBOOKS", 
-            "STRUCTURE"
+            'PROJECT_ROOT',
+            'RAWDATA',
+            'PROCDATA',
+            'RESULTS',
+            'METADATA',
+            'LOGS',
+            'CONFIG',
+            'SCRIPTS',
+            'NOTEBOOKS',
+            'STRUCTURE',
         ]
-        
+
     def __repr__(self) -> str:
         """Return a tree-like representation of the directory structure."""
-        structure_type = f"Structure: {self._structure.upper()}"
-        root_info = f"Project Root: {self._project_root}"
-        
+        structure_type = f'Structure: {self._structure.upper()}'
+        root_info = f'Project Root: {self._project_root}'
+
         # Create tree structure
-        tree = [f"DamplyDirs<{structure_type}>", root_info]
-        
+        tree = [f'DamplyDirs<{structure_type}>', root_info]
+
         for dir_name in sorted(self.__dir__()):
-            if dir_name not in ["PROJECT_ROOT","STRUCTURE"] and dir_name.isupper():
+            if dir_name not in ['PROJECT_ROOT', 'STRUCTURE'] and dir_name.isupper():
                 try:
                     path = getattr(self, dir_name)
-                    tree.append(f"{dir_name:<13}: ├── {path.relative_to(self._project_root)}")
+                    tree.append(f'{dir_name:<13}: ├── {path.relative_to(self._project_root)}')
                 except DirectoryNotFoundError:
-                    tree.append(f"{dir_name:<13}: ├── <not found>")
+                    tree.append(f'{dir_name:<13}: ├── <not found>')
 
         # Fix the last item to use └── instead of ├──
         if len(tree) > 3:
-            tree[-1] = tree[-1].replace("├──", "└──")
+            tree[-1] = tree[-1].replace('├──', '└──')
 
-        return "\n".join(tree)
+        return '\n'.join(tree)
+
 
 # Create a singleton instance that will be imported by users
 dirs = DamplyDirs()
-

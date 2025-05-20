@@ -1,14 +1,14 @@
-from damply.utils import ByteSize
-
 import datetime  # Add this import
 import re
 import stat
-from dataclasses import dataclass, field
 import subprocess
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Type
 
 import rich.repr
+
+from damply.utils import ByteSize
 
 MANDATORY_FIELDS = ['OWNER', 'DATE', 'DESC']
 
@@ -18,12 +18,16 @@ def is_file_writable(file_path: Path) -> bool:
 
     return file_path.exists() and os.access(file_path, os.W_OK)
 
+
 def get_directory_size(directory: Path) -> ByteSize:
     # may raise   subprocess.CalledProcessError
-    result = subprocess.run(['du', '-s', '-B 1', str(directory)], capture_output=True, text=True, check=True)
-    size_ =  ByteSize(int(result.stdout.split()[0])) 
-    print(f"Size in bytes: {size_.B}")
+    result = subprocess.run(
+        ['du', '-s', '-B 1', str(directory)], capture_output=True, text=True, check=True
+    )
+    size_ = ByteSize(int(result.stdout.split()[0]))
+    print(f'Size in bytes: {size_.B}')
     return size_
+
 
 @dataclass
 class DMPMetadata:
@@ -35,7 +39,6 @@ class DMPMetadata:
     readme: Path = field(default=Path().cwd() / 'README')
     size: ByteSize = field(default=None, repr=False)
     size_measured_at: datetime.datetime = field(default=None, repr=False)
-
 
     @classmethod
     def from_path(cls: Type['DMPMetadata'], path: Path) -> 'DMPMetadata':
@@ -67,10 +70,10 @@ class DMPMetadata:
                 readme = readmes[0]
         else:
             readme = path
-            
+
         if 'README' not in readme.stem.upper():
             raise ValueError('The file is not a README file.')
-        
+
         return readme
 
     def _dirsize(self) -> ByteSize:
@@ -82,19 +85,21 @@ class DMPMetadata:
     def write_dirsize(self) -> None:
         if not self.size:
             self._dirsize()
-        dirsize_str = f"{self.size.B} - {self.size_measured_at}"
+        dirsize_str = f'{self.size.B} - {self.size_measured_at}'
         self.fields['SIZE'] = dirsize_str
-        print(f"Writing size: {self.size.B}")
+        print(f'Writing size: {self.size.B}')
         self.write_to_file()
 
     def read_dirsize(self) -> ByteSize:
-        dirsize_str = self.fields.get('SIZE', None)        
+        dirsize_str = self.fields.get('SIZE', None)
         if dirsize_str:
-            print(f"using size from README: {dirsize_str}")
+            print(f'using size from README: {dirsize_str}')
             self.size = ByteSize(int(dirsize_str.split()[0]))
-            self.size_measured_at = datetime.datetime.strptime(dirsize_str.split()[2], '%Y-%m-%d-%H:%M')
-            print(f"Read size: {self.size.B}")
-            print(f"Read size measured at: {self.size_measured_at}")
+            self.size_measured_at = datetime.datetime.strptime(
+                dirsize_str.split()[2], '%Y-%m-%d-%H:%M'
+            )
+            print(f'Read size: {self.size.B}')
+            print(f'Read size measured at: {self.size_measured_at}')
             return self.size
         else:
             self.write_dirsize()
@@ -106,7 +111,7 @@ class DMPMetadata:
 
     def add_field(self, field: str, value: str) -> None:
         """Assuming the field is not already present, add it to the fields dict.
-        
+
         If the field is already present, add the value to the existing field.
 
         Args:
@@ -194,8 +199,7 @@ class DMPMetadata:
                         current_value.append(line.strip())
                     else:
                         content_lines.append(line.strip())
-            
-            
+
             if current_field:
                 metadata[current_field] = ' '.join(current_value).strip()
 

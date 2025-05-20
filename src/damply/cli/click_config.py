@@ -1,10 +1,8 @@
 import rich_click as click
 
-
 click.rich_click.STYLE_OPTIONS_TABLE_BOX = 'SIMPLE'
 click.rich_click.STYLE_COMMANDS_TABLE_SHOW_LINES = True
 click.rich_click.STYLE_COMMANDS_TABLE_PAD_EDGE = True
-
 
 
 click.rich_click.OPTION_GROUPS = {
@@ -24,8 +22,11 @@ click.rich_click.COMMAND_GROUPS = {
         },
         {
             'name': 'Audit Commands',
-            'commands': ['audit', 'plot', ],
-        }
+            'commands': [
+                'audit',
+                'plot',
+            ],
+        },
     ]
 }
 
