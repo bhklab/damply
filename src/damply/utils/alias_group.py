@@ -16,7 +16,7 @@ class AliasedGroup(click.RichGroup, DYMGroup):
 			return None
 		elif len(matches) == 1:
 			return click.Group.get_command(self, ctx, matches[0])
-		ctx.fail(f"Too many matches: {', '.join(sorted(matches))}")
+		ctx.fail(f'Too many matches: {", ".join(sorted(matches))}')
 
 	def resolve_command(self, ctx, args):
 		# always return the full command name

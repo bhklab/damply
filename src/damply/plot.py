@@ -67,7 +67,7 @@ def damplyplot(
 	df = pd.read_csv(file_path, sep='\t')
 
 	if not all(col in df.columns for col in MANDATORY_COLUMNS):
-		msg = f"The file must contain the following columns: {', '.join(MANDATORY_COLUMNS)}"
+		msg = f'The file must contain the following columns: {", ".join(MANDATORY_COLUMNS)}'
 		raise ValueError(msg)
 
 	# Filter the dataframe

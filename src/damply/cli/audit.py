@@ -1,8 +1,9 @@
 from pathlib import Path
 
 import rich_click as click
-from damply.audit import DirectoryAudit
 from rich import print
+
+from damply.audit import DirectoryAudit
 
 
 @click.command(context_settings={'help_option_names': ['-h', '--help']})

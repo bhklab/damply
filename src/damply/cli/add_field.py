@@ -1,8 +1,9 @@
 from pathlib import Path
 
 import rich_click as click
-from damply.metadata import MANDATORY_FIELDS, DMPMetadata
 from rich import print
+
+from damply.metadata import MANDATORY_FIELDS, DMPMetadata
 
 
 @click.command(context_settings={'help_option_names': ['-h', '--help']})

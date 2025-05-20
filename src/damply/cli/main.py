@@ -1,6 +1,8 @@
 from pathlib import Path
 
 import rich_click as click
+from rich import print
+
 from damply import __version__
 from damply.cli.add_field import add_field
 from damply.cli.audit import audit
@@ -10,7 +12,6 @@ from damply.cli.plot import plot
 from damply.metadata import MANDATORY_FIELDS, DMPMetadata
 from damply.utils import whose as whose_util
 from damply.utils.alias_group import AliasedGroup
-from rich import print
 
 
 @click.group(

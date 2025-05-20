@@ -1,9 +1,10 @@
 from pathlib import Path
 
 import rich_click as click
+from rich import print
+
 from damply.cli.click_config import help_config
 from damply.plot import damplyplot
-from rich import print
 
 
 @click.command(context_settings={'help_option_names': ['-h', '--help']})

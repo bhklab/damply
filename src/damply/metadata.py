@@ -165,7 +165,7 @@ class DMPMetadata:
 	def check_fields(self) -> None:
 		missing = [fld for fld in MANDATORY_FIELDS if fld not in self.fields]
 		if missing:
-			msg = f'The following fields are missing: {missing}' f' in {self.readme}'
+			msg = f'The following fields are missing: {missing} in {self.readme}'
 			raise ValueError(msg)
 
 	@classmethod
