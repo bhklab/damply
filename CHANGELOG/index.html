@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Jermiah Joseph" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Changelog - My Docs</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Changelog";
+        var mkdocs_page_input_path = "CHANGELOG.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> My Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Changelog</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#v0100-2025-05-20">v0.10.0 (2025-05-20)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#bug-fixes">Bug Fixes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#chores">Chores</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#code-style">Code Style</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#continuous-integration">Continuous Integration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#features">Features</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#refactoring">Refactoring</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v090-2024-08-20">v0.9.0 (2024-08-20)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_1">Bug Fixes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#chores_1">Chores</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#features_1">Features</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v080-2024-08-01">v0.8.0 (2024-08-01)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_2">Bug Fixes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#chores_2">Chores</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#features_2">Features</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v071-2024-07-31">v0.7.1 (2024-07-31)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_3">Bug Fixes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v070-2024-07-31">v0.7.0 (2024-07-31)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_4">Bug Fixes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#features_3">Features</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v060-2024-05-31">v0.6.0 (2024-05-31)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_5">Bug Fixes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#features_4">Features</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v050-2024-05-31">v0.5.0 (2024-05-31)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#chores_3">Chores</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#features_5">Features</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v041-2024-05-31">v0.4.1 (2024-05-31)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_6">Bug Fixes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#chores_4">Chores</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v040-2024-05-31">v0.4.0 (2024-05-31)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_7">Bug Fixes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#features_6">Features</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v030-2024-05-31">v0.3.0 (2024-05-31)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#chores_5">Chores</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#features_7">Features</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v020-2024-05-31">v0.2.0 (2024-05-31)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_8">Bug Fixes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#features_8">Features</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v011-2024-05-31">v0.1.1 (2024-05-31)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_9">Bug Fixes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v010-2024-05-31">v0.1.0 (2024-05-31)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_10">Bug Fixes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#features_9">Features</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">My Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Changelog</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/bhklab/damply/edit/master/docs/CHANGELOG.md">Edit on damply</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="changelog">CHANGELOG</h1>
+<h2 id="v0100-2025-05-20">v0.10.0 (2025-05-20)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li>
+<p>Update pypi references from '.' to './' for consistency
+  (<a href="https://github.com/bhklab/damply/commit/bc1715f7b692b5ea8f6ab239df1c698c7e419f0d"><code>bc1715f</code></a>)</p>
+</li>
+<li>
+<p>Update repository references and descriptions from jjjermiah to bhklab
+  (<a href="https://github.com/bhklab/damply/commit/ad73779b06649b2e1f173eea26f2d508b871ab15"><code>ad73779</code></a>)</p>
+</li>
+</ul>
+<h3 id="chores">Chores</h3>
+<ul>
+<li>
+<p>Comment out Test-PyPi-Installation and Publish-To-Test-PyPi jobs in CI workflow
+  (<a href="https://github.com/bhklab/damply/commit/2ed0229f43e0b0a3b46cf52a77478840afcf305b"><code>2ed0229</code></a>)</p>
+</li>
+<li>
+<p>Format and lint
+  (<a href="https://github.com/bhklab/damply/commit/5130657f3fd937dd4e0ea15079df9e1473adeac6"><code>5130657</code></a>)</p>
+</li>
+<li>
+<p>Move ruff config out and update deps
+  (<a href="https://github.com/bhklab/damply/commit/2f5a3fe4defebcb19bfcf7abc0643ce405787523"><code>2f5a3fe</code></a>)</p>
+</li>
+<li>
+<p>Reformat
+  (<a href="https://github.com/bhklab/damply/commit/7a275c772c8d86f8223c746625fc35f621fc4f05"><code>7a275c7</code></a>)</p>
+</li>
+<li>
+<p>Remove empty <strong>init</strong>.py file from dmpdirs directory
+  (<a href="https://github.com/bhklab/damply/commit/47ff2cd9916039b8397fd02141d8a1a422a657b6"><code>47ff2cd</code></a>)</p>
+</li>
+<li>
+<p>Update lockfile
+  (<a href="https://github.com/bhklab/damply/commit/aa9e4d93ceeaed09c559f2e71ff9e7af8a9675da"><code>aa9e4d9</code></a>)</p>
+</li>
+</ul>
+<h3 id="code-style">Code Style</h3>
+<ul>
+<li>Standardize indentation and formatting in whose.py
+  (<a href="https://github.com/bhklab/damply/commit/07e495f9a54c366abee030a832e7f92662a6e073"><code>07e495f</code></a>)</li>
+</ul>
+<h3 id="continuous-integration">Continuous Integration</h3>
+<ul>
+<li>
+<p>Disable fail-fast in job strategy for improved stability across OS matrix
+  (<a href="https://github.com/bhklab/damply/commit/f84c26e43579614623633649967e5aa310adf0bf"><code>f84c26e</code></a>)</p>
+</li>
+<li>
+<p>Streamline Codecov integration by removing redundant steps and ensuring coverage tracking
+  (<a href="https://github.com/bhklab/damply/commit/eb1fdef4fa4f776d0c5d26a243863dd23fa02831"><code>eb1fdef</code></a>)</p>
+</li>
+<li>
+<p>Update actions versions
+  (<a href="https://github.com/bhklab/damply/commit/5e341a83e909251f756d33eebf4d16b59759aa24"><code>5e341a8</code></a>)</p>
+</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li>
+<p>Add dmpdirs module for standardized project directory access
+  (<a href="https://github.com/bhklab/damply/commit/dc324e612f72d4cde802377dd9ae98d421705afd"><code>dc324e6</code></a>)</p>
+</li>
+<li>
+<p>Add dmpdirs module for standardized project directory access
+  (<a href="https://github.com/bhklab/damply/commit/0eeb8c58a35ae3b81c41a843567092acc76931f5"><code>0eeb8c5</code></a>)</p>
+</li>
+<li>
+<p>Update dependencies and refactor codebase
+  (<a href="https://github.com/bhklab/damply/commit/6b9905c1acf8e09d60b3812f3206b909d38178c1"><code>6b9905c</code></a>)</p>
+</li>
+<li>
+<p>Added <code>pybytesize</code> dependency to <code>pyproject.toml</code>. - Refactored <code>DirectoryAudit</code> to use
+  <code>path.stat()</code> instead of <code>os.stat()</code>. - Enhanced documentation in <code>DamplyDirs</code> class for better
+  clarity on usage and available directories. - Renamed <code>DirectoryNotFoundError</code> to
+  <code>DirectoryNameNotFoundError</code> for better accuracy. - Updated import statement for <code>ByteSize</code> to use
+  the new package location. - Refactored <code>damplyplot</code> function to improve variable naming and
+  clarity. - Removed obsolete <code>ByteSize</code> class and related tests. - Improved type hints across
+  various modules for better code clarity. - Updated exception handling in <code>whose.py</code> for better
+  error messages. - Cleaned up unused imports and improved code formatting.</p>
+</li>
+</ul>
+<h3 id="refactoring">Refactoring</h3>
+<ul>
+<li>
+<p>Comment out Codecov steps in CI workflow for clarity
+  (<a href="https://github.com/bhklab/damply/commit/368671c326a809871d7c6636ae5b90691e3753dd"><code>368671c</code></a>)</p>
+</li>
+<li>
+<p>Organize imports and improve formatting across multiple files
+  (<a href="https://github.com/bhklab/damply/commit/6d3d97af3440659f73bf8672d318ffc1327e5760"><code>6d3d97a</code></a>)</p>
+</li>
+<li>
+<p>Rename DirectoryNotFoundError to DirectoryNameNotFoundError for clarity; remove unused test
+  (<a href="https://github.com/bhklab/damply/commit/b3bd8334ad4ce25f85fab2a7e087e2dc60277013"><code>b3bd833</code></a>)</p>
+</li>
+<li>
+<p>Restore and enable Codecov steps in CI workflow for coverage tracking
+  (<a href="https://github.com/bhklab/damply/commit/6c7e4ee59544b4f1ed06c2a3df09ccfe89cbd44b"><code>6c7e4ee</code></a>)</p>
+</li>
+</ul>
+<h2 id="v090-2024-08-20">v0.9.0 (2024-08-20)</h2>
+<h3 id="bug-fixes_1">Bug Fixes</h3>
+<ul>
+<li>
+<p>Minor fixes
+  (<a href="https://github.com/bhklab/damply/commit/ed09859ed2db399600c710efaf9b34a7e130548a"><code>ed09859</code></a>)</p>
+</li>
+<li>
+<p>Minor updates
+  (<a href="https://github.com/bhklab/damply/commit/1a1d60cabf9f3987cc4ac16a01e1cd6cc18afbd0"><code>1a1d60c</code></a>)</p>
+</li>
+</ul>
+<h3 id="chores_1">Chores</h3>
+<ul>
+<li>Update
+  (<a href="https://github.com/bhklab/damply/commit/9c129ff220177921bfb1f78639f0d35129beebe0"><code>9c129ff</code></a>)</li>
+</ul>
+<h3 id="features_1">Features</h3>
+<ul>
+<li>Field adding
+  (<a href="https://github.com/bhklab/damply/commit/b9780c512425fecd20cbe7b04991ae9b05e93480"><code>b9780c5</code></a>)</li>
+</ul>
+<h2 id="v080-2024-08-01">v0.8.0 (2024-08-01)</h2>
+<h3 id="bug-fixes_2">Bug Fixes</h3>
+<ul>
+<li>
+<p>Add tests and fix common root
+  (<a href="https://github.com/bhklab/damply/commit/3cb4199966275374bbb8b5ab4a93e3a8ba695946"><code>3cb4199</code></a>)</p>
+</li>
+<li>
+<p>Merge
+  (<a href="https://github.com/bhklab/damply/commit/e6ae53385aad671164427d75edfbe1cb3c1851e4"><code>e6ae533</code></a>)</p>
+</li>
+<li>
+<p>Tests for whose command
+  (<a href="https://github.com/bhklab/damply/commit/f08d6c2de2df8a79cd7320aaada18b44c5608c82"><code>f08d6c2</code></a>)</p>
+</li>
+</ul>
+<h3 id="chores_2">Chores</h3>
+<ul>
+<li>Format and clean
+  (<a href="https://github.com/bhklab/damply/commit/26bfaf3b22ed4eaa0c51ab856ff4e1459f1617fb"><code>26bfaf3</code></a>)</li>
+</ul>
+<h3 id="features_2">Features</h3>
+<ul>
+<li>
+<p>Add basic audit
+  (<a href="https://github.com/bhklab/damply/commit/e8c307e3f5e6f5133d1efeabd18f8243f30d82e5"><code>e8c307e</code></a>)</p>
+</li>
+<li>
+<p>Added size check
+  (<a href="https://github.com/bhklab/damply/commit/219b6534ba92f42e3e734924e4c2c571c16837ae"><code>219b653</code></a>)</p>
+</li>
+<li>
+<p>Init and config subcommands
+  (<a href="https://github.com/bhklab/damply/commit/578dfdaa7ba73d5d865ab2c3a6eea2e2f059cf04"><code>578dfda</code></a>)</p>
+</li>
+<li>
+<p>Organize cli commands
+  (<a href="https://github.com/bhklab/damply/commit/e25a9664810b385404bb4f2e4ad293db9e1b15b9"><code>e25a966</code></a>)</p>
+</li>
+</ul>
+<h2 id="v071-2024-07-31">v0.7.1 (2024-07-31)</h2>
+<h3 id="bug-fixes_3">Bug Fixes</h3>
+<ul>
+<li>Update cli tool
+  (<a href="https://github.com/bhklab/damply/commit/9ea8c5a9dde55366f2014027dc753f79d9955744"><code>9ea8c5a</code></a>)</li>
+</ul>
+<h2 id="v070-2024-07-31">v0.7.0 (2024-07-31)</h2>
+<h3 id="bug-fixes_4">Bug Fixes</h3>
+<ul>
+<li>
+<p>Fix arrangement
+  (<a href="https://github.com/bhklab/damply/commit/3e94e4aff321a5b4fec8e388084565609294b56a"><code>3e94e4a</code></a>)</p>
+</li>
+<li>
+<p>Gha to not use locked
+  (<a href="https://github.com/bhklab/damply/commit/1233f00e3ad0e0404ab6513643d3be77c694800c"><code>1233f00</code></a>)</p>
+</li>
+<li>
+<p>Lint and format and cleanup
+  (<a href="https://github.com/bhklab/damply/commit/c877847d18b2f9623b1c963b6f84c7fba4cfba59"><code>c877847</code></a>)</p>
+</li>
+<li>
+<p>Update gha to not use locked pixi
+  (<a href="https://github.com/bhklab/damply/commit/189294e4883e8fbd65f794461d1ed92e95a12476"><code>189294e</code></a>)</p>
+</li>
+<li>
+<p>Update gha to not use locked pixi, add plot to cli
+  (<a href="https://github.com/bhklab/damply/commit/255e08ef8dfaa583ed8946dc41b724759409754d"><code>255e08e</code></a>)</p>
+</li>
+</ul>
+<h3 id="features_3">Features</h3>
+<ul>
+<li>Add damply plotting
+  (<a href="https://github.com/bhklab/damply/commit/dcc72e1bbcd69fe2b4cdc0e9abac8a443f06ca1e"><code>dcc72e1</code></a>)</li>
+</ul>
+<h2 id="v060-2024-05-31">v0.6.0 (2024-05-31)</h2>
+<h3 id="bug-fixes_5">Bug Fixes</h3>
+<ul>
+<li>
+<p>Lint
+  (<a href="https://github.com/bhklab/damply/commit/b0abdf46b416c20f0fb148dd59fadc70761a8815"><code>b0abdf4</code></a>)</p>
+</li>
+<li>
+<p>Lock
+  (<a href="https://github.com/bhklab/damply/commit/41683662fe792097f017e70013c73d38ded5bf34"><code>4168366</code></a>)</p>
+</li>
+</ul>
+<h3 id="features_4">Features</h3>
+<ul>
+<li>Major refactoring of cli
+  (<a href="https://github.com/bhklab/damply/commit/5998541bf75be1e7d2fcf8536d1d230dae4919bb"><code>5998541</code></a>)</li>
+</ul>
+<h2 id="v050-2024-05-31">v0.5.0 (2024-05-31)</h2>
+<h3 id="chores_3">Chores</h3>
+<ul>
+<li>Add tests
+  (<a href="https://github.com/bhklab/damply/commit/79044effb782111c2b1cbccfc21b4a77431d9f5c"><code>79044ef</code></a>)</li>
+</ul>
+<h3 id="features_5">Features</h3>
+<ul>
+<li>
+<p>Add lazy loading for images in README view
+  (<a href="https://github.com/bhklab/damply/commit/7d1e053b18f63fbc8c27e6abf813b67eb7f3955d"><code>7d1e053</code></a>)</p>
+</li>
+<li>
+<p>Add whose and file size
+  (<a href="https://github.com/bhklab/damply/commit/04772d49bb4a4ae7656dbb3bb1931a3c76ec544a"><code>04772d4</code></a>)</p>
+</li>
+</ul>
+<h2 id="v041-2024-05-31">v0.4.1 (2024-05-31)</h2>
+<h3 id="bug-fixes_6">Bug Fixes</h3>
+<ul>
+<li>
+<p>Format
+  (<a href="https://github.com/bhklab/damply/commit/e153b30f32108b0a9750f1a4b0c7e0b00116c152"><code>e153b30</code></a>)</p>
+</li>
+<li>
+<p>Update metadata table title in cli.py
+  (<a href="https://github.com/bhklab/damply/commit/a63c36bba26d880abf433cf06690faecb1537d3d"><code>a63c36b</code></a>)</p>
+</li>
+<li>
+<p>Version
+  (<a href="https://github.com/bhklab/damply/commit/ecefaafab444f70ace8a8185240d6577fe4db0a3"><code>ecefaaf</code></a>)</p>
+</li>
+</ul>
+<h3 id="chores_4">Chores</h3>
+<ul>
+<li>Update navigation links in mkdocs.yaml
+  (<a href="https://github.com/bhklab/damply/commit/931524b39f8ca9edb971c8a43b84dc858b4a2de8"><code>931524b</code></a>)</li>
+</ul>
+<h2 id="v040-2024-05-31">v0.4.0 (2024-05-31)</h2>
+<h3 id="bug-fixes_7">Bug Fixes</h3>
+<ul>
+<li>
+<p>Lint
+  (<a href="https://github.com/bhklab/damply/commit/64944d3025cc20721aa5415c882b42e737daa3da"><code>64944d3</code></a>)</p>
+</li>
+<li>
+<p>Refactor get_file_owner_full_name function for improved error handling and platform compatibility
+  (<a href="https://github.com/bhklab/damply/commit/f4fca58d63e4667f8c3fc60b51776a038757c669"><code>f4fca58</code></a>)</p>
+</li>
+</ul>
+<h3 id="features_6">Features</h3>
+<ul>
+<li>
+<p>Add cli whose
+  (<a href="https://github.com/bhklab/damply/commit/b15ec32b551533aab892b3b3227e2091c643dfe1"><code>b15ec32</code></a>)</p>
+</li>
+<li>
+<p>Update CLI help messages and add 'whose' command
+  (<a href="https://github.com/bhklab/damply/commit/620f209656ab91d5f8ae4e11608eaa6aef05e3f9"><code>620f209</code></a>)</p>
+</li>
+</ul>
+<h2 id="v030-2024-05-31">v0.3.0 (2024-05-31)</h2>
+<h3 id="chores_5">Chores</h3>
+<ul>
+<li>Delete config/.pypackage-builder-answers.yml
+  (<a href="https://github.com/bhklab/damply/commit/a04cabd468901e3b47e236a31d9eb867feea7719"><code>a04cabd</code></a>)</li>
+</ul>
+<h3 id="features_7">Features</h3>
+<ul>
+<li>
+<p>Add cli
+  (<a href="https://github.com/bhklab/damply/commit/1e825d1e71293cb46fcb8abe6498b5a695982e39"><code>1e825d1</code></a>)</p>
+</li>
+<li>
+<p>Add cli tool
+  (<a href="https://github.com/bhklab/damply/commit/077e52bf1e3c529685a631aee6978e59676b0165"><code>077e52b</code></a>)</p>
+</li>
+</ul>
+<h2 id="v020-2024-05-31">v0.2.0 (2024-05-31)</h2>
+<h3 id="bug-fixes_8">Bug Fixes</h3>
+<ul>
+<li>Tests so it makes file
+  (<a href="https://github.com/bhklab/damply/commit/69d4e54ea76ef75dde242e28261ee79b60bc2093"><code>69d4e54</code></a>)</li>
+</ul>
+<h3 id="features_8">Features</h3>
+<ul>
+<li>
+<p>Add tests and major class
+  (<a href="https://github.com/bhklab/damply/commit/569177b476047cadb22ae84d0eeb92ad1fb370ea"><code>569177b</code></a>)</p>
+</li>
+<li>
+<p>Refactor metadata.py for improved readability and maintainability
+  (<a href="https://github.com/bhklab/damply/commit/cf909e0f1824fdc9275171d10c3c2a87049521e7"><code>cf909e0</code></a>)</p>
+</li>
+</ul>
+<h2 id="v011-2024-05-31">v0.1.1 (2024-05-31)</h2>
+<h3 id="bug-fixes_9">Bug Fixes</h3>
+<ul>
+<li>Some pypi issues
+  (<a href="https://github.com/bhklab/damply/commit/c6f810ea4859a45b4d9f1b3432cca1f45dc29f30"><code>c6f810e</code></a>)</li>
+</ul>
+<h2 id="v010-2024-05-31">v0.1.0 (2024-05-31)</h2>
+<h3 id="bug-fixes_10">Bug Fixes</h3>
+<ul>
+<li>Update gitignore
+  (<a href="https://github.com/bhklab/damply/commit/97e8fde80ab3a6f38f62a231ffe5fc189983fe05"><code>97e8fde</code></a>)</li>
+</ul>
+<h3 id="features_9">Features</h3>
+<ul>
+<li>
+<p>Add docs and test
+  (<a href="https://github.com/bhklab/damply/commit/76e92ff24b5e8febb361df0f01d1d063d26ef703"><code>76e92ff</code></a>)</p>
+</li>
+<li>
+<p>Add github actions
+  (<a href="https://github.com/bhklab/damply/commit/85891c4fcd221f3c61874a2c6cec9edc059e94af"><code>85891c4</code></a>)</p>
+</li>
+<li>
+<p>First commit
+  (<a href="https://github.com/bhklab/damply/commit/8ed31c972b3ac76f4def1b02bb50c6fee84a2172"><code>8ed31c9</code></a>)</p>
+</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../about/" class="btn btn-neutral float-left" title="About"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/bhklab/damply" class="fa fa-code-fork" style="color: #fcfcfc"> damply</a>
+        </span>
+    
+    
+      <span><a href="../about/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
