@@ -3338,8 +3338,8 @@ packages:
   requires_python: '>=3.8'
 - pypi: ./
   name: damply
-  version: 0.9.0
-  sha256: df44ac743d9d292c20c5e4f9b9178dedc5f470e5c3061107de41e7d56233a4d1
+  version: 0.10.0
+  sha256: b457c1736e6ca506f7c5dd17989f377403f3ad4ef1e69d9848f341c9401120f6
   requires_dist:
   - rich
   - rich-click

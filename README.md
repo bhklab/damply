@@ -1,3 +1,9 @@
+#OWNER: Jermiah
+
+#DATE: 2025-05-20
+
+#DESC: Data Management Plan made simple
+
 
 # damply
 
@@ -46,3 +52,6 @@ The `build` feature contains the following tasks:
 
 For more details, view the [devnotes on pixi + hatch](devnotes/pixi-hatch-build.md).
 
+
+
+2025-05-20 10:04: Updated fields in README file.
