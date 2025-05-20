@@ -16,6 +16,7 @@ jobs:
         runs-on: ${{ matrix.os }}
         timeout-minutes: 15 # Consider increasing timeout
         strategy:
+            fail-fast: false
             matrix:
                 os: [ubuntu-latest, macos-latest, macos-14] # , windows-latest removed for now
                 env: ["py310", "py311", "py312"]
