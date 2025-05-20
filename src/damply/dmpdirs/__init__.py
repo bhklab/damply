@@ -56,7 +56,7 @@ import os
 from pathlib import Path
 from typing import ClassVar, Dict
 
-from .exceptions import DirectoryNotFoundError
+from .exceptions import DirectoryNameNotFoundError
 
 
 def get_project_root() -> Path:
@@ -133,7 +133,7 @@ class DamplyDirs:
 
 	Notes:
 		- Directories are resolved lazily when first accessed.
-		- DirectoryNotFoundError is raised if a requested directory doesn't exist.
+		- DirectoryNameNotFoundError is raised if a requested directory doesn't exist.
 		- The class implements the Singleton pattern; all imports reference the same instance.
 	"""
 
@@ -169,7 +169,7 @@ class DamplyDirs:
 		    Path object for the requested directory
 
 		Raises:
-		    DirectoryNotFoundError: If the directory doesn't exist
+		    DirectoryNameNotFoundError: If the directory doesn't exist
 		"""
 		# Return from cache if available
 		if dir_name in self._dir_cache:
@@ -195,7 +195,7 @@ class DamplyDirs:
 
 		# Check if directory exists and raise error if not
 		if not path.exists():
-			raise DirectoryNotFoundError(dir_name, str(path))
+			raise DirectoryNameNotFoundError(dir_name, str(path))
 
 		return path
 
@@ -210,7 +210,7 @@ class DamplyDirs:
 
 		Raises:
 		    AttributeError: If the attribute is not a recognized directory
-		    DirectoryNotFoundError: If the directory doesn't exist
+		    DirectoryNameNotFoundError: If the directory doesn't exist
 		"""
 		if name.isupper() and name in [
 			'PROJECT_ROOT',
@@ -247,7 +247,7 @@ class DamplyDirs:
 
 		Raises:
 		    KeyError: If the key is not a recognized directory
-		    DirectoryNotFoundError: If the directory doesn't exist
+		    DirectoryNameNotFoundError: If the directory doesn't exist
 		"""
 		try:
 			return getattr(self, key)
@@ -285,7 +285,7 @@ class DamplyDirs:
 					tree.append(
 						f'{dir_name:<13}: ├── {path.relative_to(self._project_root)}'
 					)
-				except DirectoryNotFoundError:
+				except DirectoryNameNotFoundError:
 					tree.append(f'{dir_name:<13}: ├── <not found>')
 
 		# Fix the last item to use └── instead of ├──
