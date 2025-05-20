@@ -64,19 +64,19 @@ def damplyplot(
 	"""
 
 	# Read the file
-	df = pd.read_csv(file_path, sep='\t')
+	audit_df = pd.read_csv(file_path, sep='\t')
 
-	if not all(col in df.columns for col in MANDATORY_COLUMNS):
+	if not all(col in audit_df.columns for col in MANDATORY_COLUMNS):
 		msg = f'The file must contain the following columns: {", ".join(MANDATORY_COLUMNS)}'
 		raise ValueError(msg)
 
 	# Filter the dataframe
-	df = df[df['size_GB'] > threshold_gb]
+	audit_df = audit_df[audit_df['size_GB'] > threshold_gb]
 
 	dirlist: DirectoryList = DirectoryList(
 		directories=[
 			Directory(directory=Path(row['abspath']), size_GB=row['size_GB'])
-			for index, row in df.iterrows()
+			for index, row in audit_df.iterrows()
 		]
 	)
 	nodes = generate_node_list(dirlist)

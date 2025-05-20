@@ -9,10 +9,10 @@ class Directory:
 	directory: Path
 	size_GB: int
 
-	def __post_init__(self):
+	def __post_init__(self) -> None:
 		self.parent = self.directory.parent
 
-	def __getitem__(self, key: str) -> Any:
+	def __getitem__(self, key: str) -> Any:  # noqa: ANN401
 		return self.__dict__[key]
 
 	def __repr__(self) -> str:
@@ -23,7 +23,7 @@ class Directory:
 class DirectoryList:
 	directories: List[Directory]
 
-	def __post_init__(self):
+	def __post_init__(self) -> None:
 		self.common_root = self.get_common_root()
 
 	def get_common_root(self) -> Path:

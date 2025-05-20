@@ -1,4 +1,3 @@
-import os
 import stat
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -20,7 +19,7 @@ class DirectoryAudit:
 
 	@classmethod
 	def from_path(cls, path: Path) -> 'DirectoryAudit':
-		stats = os.stat(path)
+		stats = path.stat()
 
 		try:
 			from pwd import getpwuid

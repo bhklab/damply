@@ -1,13 +1,12 @@
 """Custom exceptions for the dmpdirs package."""
 
 
-class DirectoryNotFoundError(Exception):
-	"""Exception raised when a required project directory does not exist."""
+class DirectoryNameNotFoundError(Exception):
+	"""Exception raised when a required project directory name is not found in the config."""
 
-	def __init__(self, directory_name, directory_path) -> None:
+	def __init__(self, directory_name: str) -> None:
 		self.directory_name = directory_name
-		self.directory_path = directory_path
 		message = (
-			f"Project directory '{directory_name}' does not exist at '{directory_path}'"
+			f"Project directory name '{directory_name}' not found in configuration"
 		)
 		super().__init__(message)

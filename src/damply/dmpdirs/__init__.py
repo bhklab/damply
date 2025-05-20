@@ -54,7 +54,7 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
-from typing import Any, ClassVar, Dict
+from typing import ClassVar, Dict
 
 from .exceptions import DirectoryNotFoundError
 
@@ -94,12 +94,53 @@ class DamplyDirs:
 
 	This class provides computed properties that lazily evaluate directory paths
 	and raise appropriate errors if directories don't exist when accessed.
+
+	Usage:
+		# Import the pre-instantiated singleton
+		from damply.dmpdirs import dirs
+
+		# Access directory paths as Path objects
+		rawdata_path = dirs.RAWDATA
+		config_file = dirs.CONFIG / "settings.yaml"
+
+		# Get the detected directory structure ("flat" or "nested")
+		structure = dirs.STRUCTURE
+
+		# Use dictionary-like access (alternative syntax)
+		results_dir = dirs["RESULTS"]
+
+		# Print directory structure representation
+		print(dirs)  # Displays a tree-like visualization
+
+	Available directories:
+		- PROJECT_ROOT: Root directory of the project
+		- RAWDATA: Raw input data directory
+		- PROCDATA: Processed/intermediate data directory
+		- RESULTS: Analysis outputs directory
+		- METADATA: Dataset descriptions directory
+		- LOGS: Log files directory
+		- CONFIG: Configuration files directory
+		- SCRIPTS: Analysis scripts directory
+		- NOTEBOOKS: Jupyter notebooks directory
+
+	Attributes:
+		STRUCTURE: Returns the detected directory structure ("flat" or "nested").
+
+	Methods:
+		__getitem__(key): Access directories using dictionary-like syntax.
+		__dir__(): Returns list of available attributes for tab completion.
+		__repr__(): Returns a tree-like representation of the directory structure.
+
+	Notes:
+		- Directories are resolved lazily when first accessed.
+		- DirectoryNotFoundError is raised if a requested directory doesn't exist.
+		- The class implements the Singleton pattern; all imports reference the same instance.
 	"""
 
 	# Class variable to hold singleton instance
 	_instance: ClassVar[DamplyDirs | None] = None
 
-	def __new__(cls):
+	def __new__(cls) -> DamplyDirs:
 		"""Implement singleton pattern."""
 		if cls._instance is None:
 			cls._instance = super(DamplyDirs, cls).__new__(cls)
@@ -158,7 +199,7 @@ class DamplyDirs:
 
 		return path
 
-	def __getattr__(self, name: str) -> Any:
+	def __getattr__(self, name: str) -> Path:
 		"""Get attribute for a directory name.
 
 		Args:
@@ -191,7 +232,7 @@ class DamplyDirs:
 		raise AttributeError(errmsg)
 
 	@property
-	def STRUCTURE(self) -> str:
+	def STRUCTURE(self) -> str:  # noqa: N802
 		"""Get the detected directory structure."""
 		return self._structure
 
@@ -210,9 +251,9 @@ class DamplyDirs:
 		"""
 		try:
 			return getattr(self, key)
-		except AttributeError:
+		except AttributeError as ae:
 			msg = f"'{key}' is not a valid directory name"
-			raise KeyError(msg)
+			raise KeyError(msg) from ae
 
 	def __dir__(self) -> list[str]:
 		"""Return list of available attributes for tab completion."""

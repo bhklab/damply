@@ -7,8 +7,7 @@ from pathlib import Path
 from typing import Type
 
 import rich.repr
-
-from damply.utils import ByteSize
+from bytesize import ByteSize
 
 MANDATORY_FIELDS = ['OWNER', 'DATE', 'DESC']
 

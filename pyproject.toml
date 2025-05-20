@@ -24,6 +24,7 @@ dependencies = [
     "pandas",
     "kaleido",
     "pygetent",
+    "pybytesize>=0.8.1,<0.9",
 ]
 classifiers = [
     "License :: OSI Approved :: MIT License",
