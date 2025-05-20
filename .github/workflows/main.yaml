@@ -19,7 +19,7 @@ jobs:
             fail-fast: false
             matrix:
                 os: [ubuntu-latest, macos-latest, macos-14] # , windows-latest removed for now
-                env: ["py310", "py311", "py312"]
+                env: ["py313", "py311", "py312"]
 
         steps:
             - uses: actions/checkout@v4
