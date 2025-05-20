@@ -1,9 +1,9 @@
 
 # damply
 
-[![codecov](https://codecov.io/gh/jjjermiah/damply/graph/badge.svg?token=tCcajRIGz9)](https://codecov.io/gh/jjjermiah/damply)
-[![CI-CD](https://github.com/jjjermiah/damply/actions/workflows/main.yaml/badge.svg)](https://github.com/jjjermiah/damply/actions/workflows/main.yaml)
-[![CodeFactor](https://www.codefactor.io/repository/github/jjjermiah/damply/badge)](https://www.codefactor.io/repository/github/jjjermiah/damply)
+[![codecov](https://codecov.io/gh/bhklab/damply/graph/badge.svg?token=tCcajRIGz9)](https://codecov.io/gh/bhklab/damply)
+[![CI-CD](https://github.com/bhklab/damply/actions/workflows/main.yaml/badge.svg)](https://github.com/bhklab/damply/actions/workflows/main.yaml)
+[![CodeFactor](https://www.codefactor.io/repository/github/bhklab/damply/badge)](https://www.codefactor.io/repository/github/bhklab/damply)
 
 [![pixi-badge](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/prefix-dev/pixi/main/assets/badge/v0.json&style=flat-square)](https://github.com/prefix-dev/pixi)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&style=flat-square)](https://github.com/pre-commit/pre-commit)

@@ -1,11 +1,11 @@
 # Changes here will be overwritten by Copier
 _commit: v0.3.2
-_src_path: gh:jjjermiah/PyPackageBuilder
+_src_path: gh:bhklab/PyPackageBuilder
 author_email: jermiahjoseph98@gmail.com
 author_full_name: Jermiah Joseph
 build_backend: hatch
 git_init: true
-github_username: jjjermiah
+github_username: bhklab
 package_description: A Quick Tool For Sorting Dicom Files
 package_name: pydicomsorter
 pixi_install: false
