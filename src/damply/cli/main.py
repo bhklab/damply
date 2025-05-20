@@ -11,11 +11,9 @@ from damply.cli.init import init
 from damply.cli.plot import plot
 from damply.metadata import MANDATORY_FIELDS, DMPMetadata
 from damply.utils import whose as whose_util
-from damply.utils.alias_group import AliasedGroup
 
 
 @click.group(
-	cls=AliasedGroup,
 	name='damply',
 	context_settings={'help_option_names': ['-h', '--help']},
 )
