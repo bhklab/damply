@@ -116,11 +116,11 @@ ruff = ">=0.11.10,<0.12"
 pre-commit = ">=4.2.0,<5"
 
 [tool.pixi.feature.style.tasks.lint]
-cmd = "ruff check --config=config/ruff.toml src"
+cmd = "ruff check src"
 inputs = ["src", "config/ruff.toml"]
 
 [tool.pixi.feature.style.tasks.format]
-cmd = "ruff format --config=config/ruff.toml src"
+cmd = "ruff format src"
 inputs = ["src", "config/ruff.toml"]
 
 ############################################## DOCS ################################################

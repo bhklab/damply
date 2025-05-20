@@ -3630,7 +3630,7 @@ packages:
 - pypi: ./
   name: damply
   version: 0.9.0
-  sha256: 447149638c8615d0cb611c607b153cdfc563847ad7b55321f89f9ae94aadef7e
+  sha256: 793f7d7cefabe7e4c10873d60bee46f724f7aa2f58cf90e885c95091c1d25807
   requires_dist:
   - rich
   - rich-click
