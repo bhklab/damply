@@ -4,7 +4,7 @@
 [project]
 name = "damply"
 version = "0.9.0"
-description = "A Quick Tool For Sorting Dicom Files"
+description = "Data Management Plan made simple."
 license = "MIT"
 readme = "README.md"
 keywords = ["damply", "pixi", "python", "package"]
@@ -35,11 +35,11 @@ classifiers = [
 ]
 
 [project.urls]
-homepage = "https://github.com/jjjermiah/damply"
-repository = "https://github.com/jjjermiah/damply"
-documentation = "https://jjjermiah.github.io/damply/"
-changelog = "https://github.com/jjjermiah/damply/blob/main/docs/CHANGELOG.md"
-issues = "https://github.com/jjjermiah/damply/issues"
+homepage = "https://github.com/bhklab/damply"
+repository = "https://github.com/bhklab/damply"
+documentation = "https://bhklab.github.io/damply/"
+changelog = "https://github.com/bhklab/damply/blob/main/docs/CHANGELOG.md"
+issues = "https://github.com/bhklab/damply/issues"
 
 [project.scripts]
 dmp = "damply.cli.main:cli"
