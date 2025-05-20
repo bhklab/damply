@@ -36,38 +36,14 @@ jobs:
               run: |
                   pixi run -e ${{ matrix.env }} test
 
-            - name: Upload coverage report artifact to be used by Codecov
-                # only upload if matrix.os is ubuntu-latest and matrix.python-version is 3.12
-              if: matrix.os == 'ubuntu-latest'
-              uses: actions/upload-artifact@v4
+            - name: Use Codecov to track coverage
+              uses: codecov/codecov-action@v3
               with:
-                name: coverage-report
-                path: coverage-report
-
-      ################################################################################################
-      # Codecov: Run codecov to check coverage
-      ################################################################################################
-    Code-Coverage:
-        needs: Unit-Tests
-        runs-on: ubuntu-latest
-        steps:
-          - name: Checkout code
-            uses: actions/checkout@v3
-
-          - name: Download coverage.xml artifact
-            uses: actions/download-artifact@v4
-            with:
-              name: coverage-report
-              path: coverage-report
-
-          - name: Use Codecov to track coverage
-            uses: codecov/codecov-action@v3
-            with:
-              token: ${{ secrets.CODECOV_TOKEN }}
-              files: ./coverage-report/coverage.xml
-              fail_ci_if_error: true
-              verbose: true
-              name: codecov-umbrella
+                token: ${{ secrets.CODECOV_TOKEN }}
+                files: ./coverage-report/coverage.xml
+                fail_ci_if_error: true
+                verbose: true
+                name: codecov-umbrella
 
     ################################################################################################
     # Ruff: Run ruff linter
