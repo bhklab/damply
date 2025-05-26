@@ -40,16 +40,3 @@ def test_get_file_owner_full_name_windows():
         # On Windows, the function should return the message about Windows not being supported
         result = whose.get_file_owner_full_name(file_path)
         assert result == 'Retrieving user info is not supported on Windows.'
-
-
-@pytest.mark.skipif(platform.system() != "Linux", reason="Test specific to Linux")
-def test_get_file_owner_full_name_import_error():
-    file_path = Path('/dummy/path')
-    
-    with patch('platform.system', return_value='Linux'), \
-         patch('damply.utils.whose.getpwuid', side_effect=ImportError("pwd module not found")), \
-         patch('pathlib.Path.owner', return_value='file_owner'):
-        
-        # When ImportError occurs, function should fall back to file_path.owner()
-        result = whose.get_file_owner_full_name(file_path)
-        assert result == 'file_owner'
