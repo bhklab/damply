@@ -3461,7 +3461,7 @@ packages:
 - pypi: ./
   name: damply
   version: 0.10.0
-  sha256: 8d036739f9fcd7d20956b39e5ed588b9e736567391e1314b3323b5b764e2aee0
+  sha256: 34fc5b1c140127aeb81a0eab5faea2547571b39784b4690a62fe26cfbe737a95
   requires_dist:
   - rich
   - rich-click
