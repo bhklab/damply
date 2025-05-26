@@ -118,13 +118,8 @@ class DamplyDirs:
             cls._instance._initialized = False
         return cls._instance
 
-    def __init__(self, strict: bool = False) -> None:
-        """Initialize the DamplyDirs object.
-        
-        Args:
-            strict: If True, raises an error when directories don't exist.
-                   If False, creates missing directories automatically.
-        """
+    def __init__(self) -> None:
+        """Initialize the DamplyDirs object (singleton)."""
         # Skip initialization if already initialized
         if getattr(self, '_initialized', False):
             return
@@ -132,7 +127,6 @@ class DamplyDirs:
         # Initialize core attributes
         self._project_root = get_project_root()
         self._dir_cache: Dict[str, Path] = {}
-        self._strict = strict
         self._initialized = True
 
     def set_strict_mode(self, strict: bool) -> None:
