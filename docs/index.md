@@ -16,25 +16,5 @@
 
 ## Overview
 
-DaMPly (Data Management Plan) is a Python module designed to streamline the process of managing and packaging directories.
-
-This tool is particularly useful for archiving project directories while leaving behind a README file to provide context and instructions for future users.
-
-## Features
-
-TODO
-
-- [ ] README Check: Verifies the presence of a README file in the specified directory.
-- [ ] User Interaction: Prompts the user for necessary information to enhance the archiving process.
-- [ ] Directory Compression: Compresses all files and sub
-
-## Development
-
-This project uses [`pixi`](https://pixi.sh) for managing the development environment.
-A set of convenient `tasks` are defined in the `pyproject.toml` file to streamline the development process.
-
-The `build` feature contains the following tasks:
-
-- `build`: Builds the package.
-- `publish-pypi`: Publishes the package to the main PYPI repository.
-- `publish-test`: Publishes the package to the TEST-PYPI repository.
+DaMPly (Data Management Plan) is a Python module designed to streamline
+the implementation and management of DMP compliant projects.

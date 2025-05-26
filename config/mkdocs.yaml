@@ -23,8 +23,14 @@ dev_addr: 127.0.0.1:8000
 
 # The layout of the navigation links
 nav:
-  - Home: index.md
-  - About: about.md
-  - Changelog: CHANGELOG.md
+    - Home: index.md
+    - DMP Directories: dmpdirs.md
+    - Changelog: CHANGELOG.md
 
-theme: readthedocs
+markdown_extensions:
+    - pymdownx.superfences
+    - pymdownx.tabbed:
+        alternate_style: true
+    - pymdownx.details
+theme:
+  name: material

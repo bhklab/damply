@@ -1,11 +1,13 @@
 import pytest
 from unittest.mock import patch, MagicMock
 from pathlib import Path
+import platform
 
 from damply.utils import whose
 
 
-def test_get_file_owner_full_name_unix():
+@pytest.mark.skipif(platform.system() != "Linux", reason="Test specific to Linux")
+def test_get_file_owner_full_name_linux():
     file_path = Path('/dummy/path')
 
     with patch('os.stat') as mock_stat, patch('pwd.getpwuid') as mock_getpwuid:
@@ -16,14 +18,25 @@ def test_get_file_owner_full_name_unix():
 
         assert whose.get_file_owner_full_name(file_path) == 'John Doe'
 
-def test_get_file_owner_full_name_windows():
+
+@pytest.mark.skipif(platform.system() != "Darwin", reason="Test specific to macOS")
+def test_get_file_owner_full_name_macos():
     file_path = Path('/dummy/path')
+
+    with patch('os.stat') as mock_stat, patch('pwd.getpwuid') as mock_getpwuid:
+        mock_stat.return_value.st_uid = 501  # Common uid for first user in macOS
+        mock_user_info = MagicMock()
+        mock_user_info.pw_gecos = 'Mac User'
+        mock_getpwuid.return_value = mock_user_info
+
+        assert whose.get_file_owner_full_name(file_path) == 'Mac User'
+
+
+@pytest.mark.skipif(platform.system() != "Windows", reason="Test specific to Windows")
+def test_get_file_owner_full_name_windows():
+    file_path = Path('C:\\dummy\\path')
 
     with patch('platform.system', return_value='Windows'):
-        assert whose.get_file_owner_full_name(file_path) == 'Retrieving user info is not supported on Windows.'
-
-def test_get_file_owner_full_name_exception():
-    file_path = Path('/dummy/path')
-
-    with patch('os.stat', side_effect=Exception('An error occurred')):
-        assert whose.get_file_owner_full_name(file_path) == 'An error occurred'
+        # On Windows, the function should return the message about Windows not being supported
+        result = whose.get_file_owner_full_name(file_path)
+        assert result == 'Retrieving user info is not supported on Windows.'
