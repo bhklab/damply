@@ -245,7 +245,8 @@ class TestWindowsSpecific:
     def test_windows_paths(self, reset_dirs_singleton, temp_project_dir):
         """Test path handling on Windows."""
         with mock.patch.dict(os.environ, {"DMP_PROJECT_ROOT": str(temp_project_dir)}):
-            test_dirs = DamplyDirs(strict=False)
+            test_dirs = DamplyDirs()
+            test_dirs.set_strict_mode(False)
             
             # On Windows, check that backslashes are handled correctly
             rawdata_dir = test_dirs.RAWDATA
