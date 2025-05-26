@@ -1,6 +1,63 @@
 # CHANGELOG
 
 
+## v0.11.0 (2025-05-26)
+
+### Bug Fixes
+
+- Add custom exception for unset environment variables
+  ([`784080a`](https://github.com/bhklab/damply/commit/784080a42b927e6f9dc5bf94b1e940ddc283e045))
+
+- Adjust test for Windows path handling to set strict mode explicitly
+  ([`57db00a`](https://github.com/bhklab/damply/commit/57db00a24484b857a5d7674942c587a4e34c75af))
+
+- Restore assertion for Windows file owner retrieval test
+  ([`9986a79`](https://github.com/bhklab/damply/commit/9986a7989e061c108d4e09d55de779753871ffba))
+
+- Update sha256 checksum for damply package version 0.10.0
+  ([`0be6951`](https://github.com/bhklab/damply/commit/0be695117bbe86d476753edc2a7cde339a29faba))
+
+### Chores
+
+- Update version and checksum in pixi.lock; modify README metadata
+  ([`b480d2b`](https://github.com/bhklab/damply/commit/b480d2babb75c0226e00dc8174a3fdc86f0a77b1))
+
+### Documentation
+
+- Clean up index.md
+  ([`3b1d489`](https://github.com/bhklab/damply/commit/3b1d489aa0f41e12f083f826c9d041e451a0541c))
+
+- Remove about page
+  ([`c960dbd`](https://github.com/bhklab/damply/commit/c960dbdd9211c08b56d8cea175d6332bf3457200))
+
+- Update to mkdocs
+  ([`6f8c456`](https://github.com/bhklab/damply/commit/6f8c456f49917d8fe8233ee3ede81f03fc40d308))
+
+### Features
+
+- Add documentation for DamplyDirs module and its usage
+  ([`74d9c79`](https://github.com/bhklab/damply/commit/74d9c7987d8bdf8affbdef12b6985c8382432b0a))
+
+- Add Windows support to CI workflow matrix
+  ([`650c192`](https://github.com/bhklab/damply/commit/650c19286021844586937c3d11ecb2b916f82c48))
+
+- Implement DamplyDirs singleton initialization and add comprehensive tests
+  ([`c48deb9`](https://github.com/bhklab/damply/commit/c48deb97837259542950c1ab6d31831ee911c31a))
+
+- Refactor damplydirs logic, include documentation, and add comprehensive tests
+  ([`cf026d4`](https://github.com/bhklab/damply/commit/cf026d4ff0351af3cc109e2d802ddc14c9b1c78e))
+
+feat: refactor damplydirs logic, include documentation, and add comprehensive tests
+
+### Refactoring
+
+- Streamline directory structure handling and improve error management
+  ([`00ad73d`](https://github.com/bhklab/damply/commit/00ad73dd79d364b7950410c39898c39c04aebd42))
+
+- Update file owner tests for platform-specific handling and improve readability
+  ([`860d04f`](https://github.com/bhklab/damply/commit/860d04fb8d1a30928c08e7633b494d1be3f7087c))
+
+
 ## v0.10.0 (2025-05-20)
 
 ### Bug Fixes
