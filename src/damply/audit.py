@@ -1,61 +1,81 @@
 import stat
-from dataclasses import dataclass
-from datetime import datetime, timezone
+from dataclasses import dataclass, asdict
+from datetime import datetime, timezone, date
 from pathlib import Path
 
 import rich.repr
 from rich import print
-
-
 @dataclass
 class DirectoryAudit:
-	path: Path
-	owner: str
-	full_name: str
-	permissions: str
-	a_time: datetime
-	m_time: datetime
-	c_time: datetime
+    path: Path
+    owner: str
+    group: str
+    full_name: str
+    permissions: str
+    last_accessed: date
+    last_modified: date
+    last_changed: date
 
-	@classmethod
-	def from_path(cls, path: Path) -> 'DirectoryAudit':
-		stats = path.stat()
+    @classmethod
+    def from_path(cls, path: Path) -> 'DirectoryAudit':
+        # resolve ~ and expand environment variables and canonicalize the path
+        path = path.expanduser().resolve()
+        if not path.exists():
+            raise FileNotFoundError(f"The path {path} does not exist.")
 
-		try:
-			from pwd import getpwuid
+        stats = path.stat()
 
-			pwuid_name = getpwuid(stats.st_uid).pw_name
-			pwuid_gecos = getpwuid(stats.st_uid).pw_gecos
-		except ImportError:
-			pwuid_name = 'Unknown'
-			pwuid_gecos = 'Unknown'
-		except KeyError:
-			pwuid_name = 'Unknown'
-			pwuid_gecos = 'Unknown'
+        try:
+            from pwd import getpwuid
+            from grp import getgrgid
 
-		return DirectoryAudit(
-			path=path,
-			owner=pwuid_name,
-			full_name=pwuid_gecos,
-			permissions=stat.filemode(stats.st_mode),
-			a_time=datetime.fromtimestamp(stats.st_atime, tz=timezone.utc),
-			m_time=datetime.fromtimestamp(stats.st_mtime, tz=timezone.utc),
-			c_time=datetime.fromtimestamp(stats.st_ctime, tz=timezone.utc),
-		)
+            pwuid_name = getpwuid(stats.st_uid).pw_name
+            pwuid_gecos = getpwuid(stats.st_uid).pw_gecos
+            group_name = getgrgid(stats.st_gid).gr_name
+        except ImportError:
+            pwuid_name = 'Unknown'
+            pwuid_gecos = 'Unknown'
+            group_name = 'Unknown'
+        except KeyError:
+            pwuid_name = 'Unknown'
+            pwuid_gecos = 'Unknown'
+            group_name = 'Unknown'
 
-	def format_date(self, date: datetime) -> str:
-		return date.strftime('%Y-%m-%d %H:%M:%S')
+        return DirectoryAudit(
+            path=path,
+            owner=pwuid_name,
+            group=group_name,
+            full_name=pwuid_gecos,
+            permissions=stat.filemode(stats.st_mode),
+            last_accessed=datetime.fromtimestamp(stats.st_atime, tz=timezone.utc).date(),
+            last_modified=datetime.fromtimestamp(stats.st_mtime, tz=timezone.utc).date(),
+            last_changed=datetime.fromtimestamp(stats.st_ctime, tz=timezone.utc).date(),
+        )
 
-	def __rich_repr__(self) -> rich.repr.Result:
-		yield 'path', self.path.absolute()
-		yield 'owner', self.owner
-		yield 'full_name', self.full_name
-		yield 'permissions', self.permissions
-		yield 'a_time', self.format_date(self.a_time)
-		yield 'm_time', self.format_date(self.m_time)
-		yield 'c_time', self.format_date(self.c_time)
+    def __rich_repr__(self) -> rich.repr.Result:
+        yield 'path', self.path.absolute()
+        yield 'owner', self.owner
+        yield 'group', self.group
+        yield 'full_name', self.full_name
+        yield 'permissions', self.permissions
+        yield 'last_accessed', self.last_accessed
+        yield 'last_modified', self.last_modified
+        yield 'last_changed', self.last_changed
+        
+    def to_dict(self) -> dict:
+        return asdict(self)
+
+    def to_json(self) -> str:
+        import json
+        return json.dumps(self.to_dict(), default=str, indent=4)
 
 
 if __name__ == '__main__':
-	audit = DirectoryAudit.from_path(Path('/cluster/projects/bhklab/projects/BTCIS'))
-	print(audit)
+    from rich import print
+    audit = DirectoryAudit.from_path(Path('/cluster/projects/bhklab/projects/BTCIS'))
+    print(audit)
+
+    print("*" * 20)
+    print(audit.to_dict())
+    print("*" * 20)
+    print(audit.to_json())
