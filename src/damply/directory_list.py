@@ -11,25 +11,10 @@ class Directory(Path):
     """Represents a directory with additional metadata."""
     size_GB: int
 
-    def __new__(cls, *args, **kwargs) -> Directory:
-        _path = Path(args[0]).expanduser().resolve()
-        if not _path.is_dir():
-            errmsg = f"Directory does not exist: {_path}"
-            raise FileNotFoundError(errmsg)
-        elif not _path.exists():
-            errmsg = f"Directory does not exist: {_path}"
-            raise FileNotFoundError(errmsg)
-        self = super().__new__(cls, _path)
-        self.size_GB = kwargs.get("size_GB", 0)
-        return self
-
     @property
     def last_modification_time(self) -> int:
-        """Returns the latest modification time of the directory and its contents."""
-        return max(
-            (f.stat().st_mtime for f in Path(self).rglob('*') if f.is_file()),
-            default=self.stat().st_mtime
-        )
+        """Returns the latest modification time of the directory"""
+        return int(self.stat().st_mtime)
 
     @property
     def last_modification_timestamp(self) -> datetime:
@@ -62,6 +47,7 @@ class DirectoryList:
     @property
     def common_root(self) -> Path:
         dirs = [directory for directory in self.directories]
+        print(dirs)
         common_path = os.path.commonpath(dirs)
         return Path(common_path)
 
@@ -84,6 +70,7 @@ class DirectoryList:
         }
 
 if __name__ == "__main__":
+    from rich import print
     directories = [
         d for d in Path('/cluster/projects/radiomics/Projects').iterdir() if d.is_dir()
     ]
