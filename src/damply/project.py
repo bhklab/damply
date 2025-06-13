@@ -8,9 +8,9 @@ import rich.repr
 from bytesize import ByteSize
 from rich import print
 
-from damply.utils import count_files, get_directory_size
 from damply.cache_dir import get_cache_dir
 from damply.logging_config import logger
+from damply.utils import count_files, get_directory_size
 
 
 @dataclass
@@ -145,7 +145,7 @@ class DirectoryAudit:
 			else None,
 		}
 
-		with open(cache_path, 'w') as f:
+		with cache_path.open('w', encoding='utf-8') as f:
 			json.dump(cache_data, f)
 
 	def _get_from_cache(self) -> bool:
@@ -162,7 +162,7 @@ class DirectoryAudit:
 		import json
 
 		try:
-			with open(cache_path, 'r') as f:
+			with cache_path.open('r', encoding='utf-8') as f:
 				cache_data = json.load(f)
 
 			# Check if the cache is for the same path
@@ -200,10 +200,11 @@ class DirectoryAudit:
 				self.size = ByteSize(cache_data['size'])
 			self.file_count = cache_data.get('file_count')
 			self.last_computed = cache_data.get('last_computed')
-			return True
 		except (json.JSONDecodeError, KeyError, ValueError):
 			# If anything goes wrong, just recompute
 			return False
+		else:
+			return True
 
 	def __rich_repr__(self) -> rich.repr.Result:
 		yield 'path', self.path.absolute()
