@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.15.0 (2025-06-13)
+
+### Features
+
+- Cleanup deps
+  ([`d7cc3c3`](https://github.com/bhklab/damply/commit/d7cc3c3443551077e0e4f3abb56015bc3f756e82))
+
+
 ## v0.14.0 (2025-06-13)
 
 ### Chores
