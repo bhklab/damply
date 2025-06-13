@@ -5,6 +5,7 @@ from pathlib import Path
 
 import rich.repr
 from rich import print
+
 @dataclass
 class DirectoryAudit:
     path: Path
@@ -65,9 +66,9 @@ class DirectoryAudit:
     def to_dict(self) -> dict:
         return asdict(self)
 
-    def to_json(self) -> str:
+    def to_json(self, indent: int = 4) -> str:
         import json
-        return json.dumps(self.to_dict(), default=str, indent=4)
+        return json.dumps(self.to_dict(), default=str, indent=indent)
 
 
 if __name__ == '__main__':
