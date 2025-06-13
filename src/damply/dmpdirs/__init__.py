@@ -51,7 +51,7 @@ from __future__ import annotations
 import os
 from pathlib import Path
 from typing import ClassVar, Dict, List
-from loguru import logger
+from damply import logger
 
 from .exceptions import DirectoryNameNotFoundError, EnvironmentVariableNotSetError
 

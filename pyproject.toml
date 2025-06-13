@@ -13,7 +13,6 @@ maintainers = [{ name = "Jermiah Joseph", email = "jermiahjoseph98@gmail.com" }]
 requires-python = ">= 3.11"
 dependencies = [
     "rich",
-    "rich-click",
     "pydantic",
     "dataclasses-json",
     "matplotlib",
@@ -40,8 +39,8 @@ changelog = "https://github.com/bhklab/damply/blob/main/docs/CHANGELOG.md"
 issues = "https://github.com/bhklab/damply/issues"
 
 [project.scripts]
-dmp = "damply.cli.main:cli"
-damplyplot = "damply.plot:main"
+damply = "damply.cli.__main__:cli"
+# damplyplot = "damply.plot:main"
 
 #--------------------------------------------------------------------------------------------------#
 ############################################## PIXI ################################################
