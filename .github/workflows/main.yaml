@@ -36,22 +36,22 @@ jobs:
               run: |
                   pixi run -e ${{ matrix.env }} test
 
-            - name: Use Codecov to track coverage
-              uses: codecov/codecov-action@v3
-              with:
-                token: ${{ secrets.CODECOV_TOKEN }}
-                files: ./coverage-report/coverage.xml
-                fail_ci_if_error: true
-                verbose: true
-                name: codecov-umbrella
+    #         - name: Use Codecov to track coverage
+    #           uses: codecov/codecov-action@v3
+    #           with:
+    #             token: ${{ secrets.CODECOV_TOKEN }}
+    #             files: ./coverage-report/coverage.xml
+    #             fail_ci_if_error: true
+    #             verbose: true
+    #             name: codecov-umbrella
 
-    ################################################################################################
+    # ################################################################################################
     # Ruff: Run ruff linter
     ################################################################################################
     Ruff:
         runs-on: ubuntu-latest
         env:
-            PIXI_ENV: "dev"
+            PIXI_ENV: "style"
         strategy:
             matrix:
                 os: [ubuntu-latest]
@@ -68,7 +68,7 @@ jobs:
                   # cache-key: pixi-ENV_${{ env.PIXI_ENV }}-
 
             - name: Run Ruff
-              run: pixi run lint --exit-zero
+              run: pixi run --environment style lint --exit-zero
 
     ################################################################################################
     # Docs: Build and deploy mkdocs documentation
