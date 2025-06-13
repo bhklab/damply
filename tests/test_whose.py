@@ -3,7 +3,7 @@ from unittest.mock import patch, MagicMock
 from pathlib import Path
 import platform
 
-from damply.utils import whose
+from damply import whose
 
 
 @pytest.mark.skipif(platform.system() != "Linux", reason="Test specific to Linux")
