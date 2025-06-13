@@ -1,6 +1,19 @@
 # CHANGELOG
 
 
+## v0.14.0 (2025-06-13)
+
+### Chores
+
+- Downgrade click version
+  ([`e63ee31`](https://github.com/bhklab/damply/commit/e63ee3118c6089901ba1b8112ce9b9df62abb23a))
+
+### Features
+
+- Add click dependency
+  ([`5fe9362`](https://github.com/bhklab/damply/commit/5fe93629c8a8a12b4df97bfe58366563df19e5f6))
+
+
 ## v0.13.0 (2025-06-13)
 
 ### Chores
