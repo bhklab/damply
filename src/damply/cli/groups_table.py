@@ -14,12 +14,13 @@ and then in each row, it will have a 1 if the user is in that group, and a 0 if 
 
 """
 
+from typing import TYPE_CHECKING, Sequence
+
 import click
-from typing import Sequence, TYPE_CHECKING
+
 from damply import logger
 
 if TYPE_CHECKING:
-	from damply.admin import GroupInfo, UserInfo
 	import pandas as pd
 
 DEFAULT_GROUPS = [
@@ -103,8 +104,10 @@ def groups_table(
 	resolved indirectly by collecting members from requested groups.
 	"""
 	logger.debug('Starting groups_table CLI tool...')
-	from rich import print
 	from itertools import chain
+
+	from rich import print
+
 	from damply.admin import GroupInfo, UserInfo
 
 	if not group_names:

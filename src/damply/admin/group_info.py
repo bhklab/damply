@@ -1,10 +1,10 @@
 import grp
-from dataclasses import dataclass, asdict
+from dataclasses import asdict, dataclass
 
 
 # custom exception for group not found
 class GroupNotFoundError(Exception):
-	def __init__(self, group_name: str):
+	def __init__(self, group_name: str) -> None:
 		super().__init__(f"Group '{group_name}' not found.")
 		self.group_name = group_name
 
@@ -33,7 +33,8 @@ class GroupInfo:
 		try:
 			group_data = grp.getgrgid(group)
 		except KeyError as e:
-			raise GroupNotFoundError(f'GID {group}') from e
+			msg = f'GID {group}'
+			raise GroupNotFoundError(msg) from e
 		else:
 			return cls(
 				name=group_data.gr_name,
@@ -59,4 +60,4 @@ def get_all_groups() -> list[GroupInfo]:
 
 
 if __name__ == '__main__':
-	from rich import print
+	pass

@@ -1,6 +1,6 @@
 import stat
-from dataclasses import dataclass, asdict
-from datetime import datetime, timezone, date
+from dataclasses import asdict, dataclass
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 import rich.repr
@@ -23,13 +23,14 @@ class DirectoryAudit:
 		# resolve ~ and expand environment variables and canonicalize the path
 		path = path.expanduser().resolve()
 		if not path.exists():
-			raise FileNotFoundError(f'The path {path} does not exist.')
+			msg = f'The path {path} does not exist.'
+			raise FileNotFoundError(msg)
 
 		stats = path.stat()
 
 		try:
-			from pwd import getpwuid
 			from grp import getgrgid
+			from pwd import getpwuid
 
 			pwuid_name = getpwuid(stats.st_uid).pw_name
 			pwuid_gecos = getpwuid(stats.st_uid).pw_gecos

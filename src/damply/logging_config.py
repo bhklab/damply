@@ -1,5 +1,6 @@
 import os
 import sys
+
 from loguru import logger
 
 # Read environment variable or default to WARNING

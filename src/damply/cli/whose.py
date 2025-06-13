@@ -1,8 +1,10 @@
 """cli entry to find the user who owns a file or directory."""
 
-import click
-from damply.admin import UserInfo
 from pathlib import Path
+
+import click
+
+from damply.admin import UserInfo
 
 
 class WindowsNotSupportedError(NotImplementedError):
@@ -34,8 +36,9 @@ def whose(path: Path, json: bool) -> None:
 	import platform
 
 	if platform.system() == 'Windows':
+		msg = "The 'whose' command is not supported on Windows. "
 		raise WindowsNotSupportedError(
-			"The 'whose' command is not supported on Windows. "
+			msg
 		)
 
 	# get the files owner

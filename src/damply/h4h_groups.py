@@ -1,3 +1,6 @@
+import sys
+
+
 def main(groups: list[str]) -> None:
 	group_members = get_group_members(groups)
 
@@ -34,7 +37,6 @@ def main(groups: list[str]) -> None:
 		writer.writerow(header)
 		writer.writerows(rows)
 
-	print("CSV file 'group_members.csv' generated successfully!")
 
 
 if __name__ == '__main__':
@@ -55,8 +57,7 @@ if __name__ == '__main__':
 			'This should be installed on H4H at /usr/lib/python3.9/site-packages/prettytable.py'
 			"Otherwise please install it by running 'pip install prettytable'."
 		)
-		print(errmsg)
-		exit()
+		sys.exit()
 
 	table = prettytable.from_csv(open('group_members.csv', 'r'))
 
@@ -68,12 +69,8 @@ if __name__ == '__main__':
 	new_header = []
 	# shorten columns like bhklab_pmcc_gyn_autosegmentation into bhklab_pmcc_gyn_auto...
 	for col in table._field_names:
-		if len(col) > 20:
-			name = col[:20] + '...'
-		else:
-			name = col
+		name = col[:20] + '...' if len(col) > 20 else col
 		new_header.append(name)
 
 	table._set_field_names(new_header)
 
-	print(table)

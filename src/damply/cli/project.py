@@ -1,4 +1,5 @@
 import pathlib
+
 import click
 
 
@@ -35,7 +36,7 @@ def project(directory: pathlib.Path | None, json: bool) -> None:
 	audit = DirectoryAudit.from_path(directory)
 
 	if json:
-		print(audit.to_json())
+		pass
 	else:
 		from rich import print as rprint
 

@@ -1,5 +1,5 @@
-from .logging_config import logger
 from .dmpdirs import dirs
+from .logging_config import logger
 
 __version__ = '0.14.0'
 

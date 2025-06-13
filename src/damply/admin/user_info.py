@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import pwd
-from dataclasses import dataclass, asdict
+from dataclasses import asdict, dataclass
 
 
 @dataclass
@@ -21,7 +21,8 @@ class UserInfo:
 		try:
 			user = pwd.getpwnam(name)
 		except KeyError:
-			raise ValueError(f"User '{name}' does not exist.")
+			msg = f"User '{name}' does not exist."
+			raise ValueError(msg)
 
 		try:
 			from damply.admin.group_info import GroupInfo
@@ -43,7 +44,8 @@ class UserInfo:
 		try:
 			user = pwd.getpwuid(uid)
 		except KeyError:
-			raise ValueError(f'User with UID {uid} does not exist.')
+			msg = f'User with UID {uid} does not exist.'
+			raise ValueError(msg)
 
 		try:
 			from damply.admin.group_info import GroupInfo
@@ -84,9 +86,10 @@ class UserInfo:
 			groups = result.stdout.strip().split(': ')[1].split()
 			return groups
 		except subprocess.CalledProcessError as e:
-			raise RuntimeError(f'Failed to get groups for user {self.name}: {e}')
+			msg = f'Failed to get groups for user {self.name}: {e}'
+			raise RuntimeError(msg)
 
-	def __repr__(self):
+	def __repr__(self) -> str:
 		return (
 			f'UserInfo(uid={self.uid}, '
 			f"name='{self.name}', "
@@ -97,4 +100,4 @@ class UserInfo:
 
 
 if __name__ == '__main__':
-	from rich import print
+	pass

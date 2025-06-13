@@ -1,8 +1,9 @@
 import click
-from damply.cli.project import project
-from damply.cli.groups_table import groups_table
-from damply.cli.whose import whose
+
 from damply import __version__
+from damply.cli.groups_table import groups_table
+from damply.cli.project import project
+from damply.cli.whose import whose
 
 
 @click.group(
