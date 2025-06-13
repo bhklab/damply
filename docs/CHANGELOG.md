@@ -1,6 +1,60 @@
 # CHANGELOG
 
 
+## v0.12.0 (2025-06-13)
+
+### Bug Fixes
+
+- Add command and close docstring
+  ([`c315c13`](https://github.com/bhklab/damply/commit/c315c136c50a753044e4938af0e4cfe54dc0be12))
+
+- Cli main error
+  ([`aa0e319`](https://github.com/bhklab/damply/commit/aa0e319ca627683b1cc82569a5ddacaeb74b58af))
+
+fix: add command and close docstring
+
+### Chores
+
+- Cleanup
+  ([`80e6016`](https://github.com/bhklab/damply/commit/80e6016097385cfd3b0cec36a535da71e9b0b677))
+
+- Fix tests
+  ([`3aa876a`](https://github.com/bhklab/damply/commit/3aa876aa081ad3d864c37aa2cf1abefa9d6ba055))
+
+- Update deps
+  ([`dd11ff0`](https://github.com/bhklab/damply/commit/dd11ff0db645f789256f03863068e1549969c86b))
+
+- Update lockfile
+  ([`9efa8be`](https://github.com/bhklab/damply/commit/9efa8beab9063c3b5d6b6d91312d8d8fbde25793))
+
+### Features
+
+- Add logging config
+  ([`06f2a33`](https://github.com/bhklab/damply/commit/06f2a3324172ad6c57bdf063ae19df0e425c3870))
+
+- Full refactor
+  ([`b8811c3`](https://github.com/bhklab/damply/commit/b8811c3001605bd0278e58eab87179966e220843))
+
+- Full refactor
+  ([`b305597`](https://github.com/bhklab/damply/commit/b3055973636327d5a16648bf63d95e94245ef0ea))
+
+feat: full refactor, simplifying CLI
+
+- Refactor to work
+  ([`b71c9cf`](https://github.com/bhklab/damply/commit/b71c9cf486ad860b2ac0899da3fdace6dc0e8773))
+
+- Small fix
+  ([`5459162`](https://github.com/bhklab/damply/commit/5459162bf5eef85df916bf696a4c60a66ba9d033))
+
+- Update directory_list mod
+  ([`6038756`](https://github.com/bhklab/damply/commit/60387569ea4750863bc0802d2b7047544456fa69))
+
+### Refactoring
+
+- Cleanup
+  ([`0aa11ee`](https://github.com/bhklab/damply/commit/0aa11eef476f90df9de47794c7467b854391d8f2))
+
+
 ## v0.11.0 (2025-05-26)
 
 ### Bug Fixes
