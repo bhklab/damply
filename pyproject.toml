@@ -13,6 +13,7 @@ maintainers = [{ name = "Jermiah Joseph", email = "jermiahjoseph98@gmail.com" }]
 requires-python = ">= 3.11"
 dependencies = [
     "rich",
+    "platformdirs>=4.3,<5",
     # "pydantic",
     # "dataclasses-json",
     # "matplotlib",
@@ -55,6 +56,9 @@ platforms = ["osx-arm64", "linux-64", "win-64", "osx-64"]
 
 # platforms = ["osx-arm64"]
 [tool.pixi.dependencies]
+
+[tool.pixi.activation.env]
+DAMPLY_LOG_LEVEL = "DEBUG"
 
 [tool.pixi.pypi-dependencies]
 damply = { path = ".", editable = true }
@@ -157,13 +161,6 @@ hatch = "*"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
-
-
-
-
-
-
-
 
 [tool.pixi.feature.build.tasks]
 # Builds the package
