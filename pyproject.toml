@@ -13,12 +13,11 @@ maintainers = [{ name = "Jermiah Joseph", email = "jermiahjoseph98@gmail.com" }]
 requires-python = ">= 3.11"
 dependencies = [
     "rich",
-    "pydantic",
-    "dataclasses-json",
-    "matplotlib",
-    "plotly",
+    # "pydantic",
+    # "dataclasses-json",
+    # "matplotlib",
+    # "plotly",
     "pandas",
-    "pygetent",
     "pybytesize>=0.8.1,<0.9",
     "loguru>=0.7.3,<0.8",
     "click>=8.2,<9",
