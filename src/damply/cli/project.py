@@ -47,7 +47,7 @@ def project(directory: pathlib.Path | None, json: bool, detailed: bool) -> None:
 		audit.compute_details(show_progress=True)
 
 	if json:
-		print(audit.to_json()) # noqa
+		print(audit.to_json())  # noqa
 	else:
 		from rich import print as rprint
 
