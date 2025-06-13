@@ -1,6 +1,7 @@
 import click
 from damply.cli.project import project
 from damply.cli.groups_table import groups_table
+from damply.cli.whose import whose
 from damply import __version__
 
 
@@ -20,3 +21,4 @@ def cli() -> None:
 
 cli.add_command(project)
 cli.add_command(groups_table)
+cli.add_command(whose)
