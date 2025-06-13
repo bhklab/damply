@@ -1,6 +1,27 @@
 # CHANGELOG
 
 
+## v0.13.0 (2025-06-13)
+
+### Chores
+
+- Deprecate old metadata
+  ([`b5349e5`](https://github.com/bhklab/damply/commit/b5349e56e6c56a3b3a1efdc947fe2b007b20517e))
+
+- Deprecate old whose
+  ([`9a82ea1`](https://github.com/bhklab/damply/commit/9a82ea1c6bd3646501dce7c4e9074e3861370622))
+
+### Documentation
+
+- Update README
+  ([`96a844e`](https://github.com/bhklab/damply/commit/96a844eef3a48623b267fb70a5d1597f97615f5b))
+
+### Features
+
+- Add whose cli entry point
+  ([`bcbe058`](https://github.com/bhklab/damply/commit/bcbe058d54b7dbe9474f4345018835513a883159))
+
+
 ## v0.12.0 (2025-06-13)
 
 ### Bug Fixes
