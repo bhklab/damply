@@ -20,9 +20,9 @@ class DirectoryAudit:
 	group: str
 	full_name: str
 	permissions: str
-	last_accessed: datetime
 	last_modified: datetime
 	last_changed: datetime
+	# last_accessed: datetime
 
 	# lazy evaluated because expensive
 	size: ByteSize | None = field(default=None, init=False)
@@ -63,7 +63,7 @@ class DirectoryAudit:
 			group=group_name,
 			full_name=pwuid_gecos,
 			permissions=stat.filemode(stats.st_mode),
-			last_accessed=datetime.fromtimestamp(stats.st_atime, tz=toronto_tz),
+			# last_accessed=datetime.fromtimestamp(stats.st_atime, tz=toronto_tz),
 			last_modified=datetime.fromtimestamp(stats.st_mtime, tz=toronto_tz),
 			last_changed=datetime.fromtimestamp(stats.st_ctime, tz=toronto_tz),
 		)
@@ -137,9 +137,9 @@ class DirectoryAudit:
 			'last_modified': self.last_modified.isoformat()
 			if self.last_modified
 			else None,
-			'last_accessed': self.last_accessed.isoformat()
-			if self.last_accessed
-			else None,
+			# 'last_accessed': self.last_accessed.isoformat()
+			# if self.last_accessed
+			# else None,
 			'last_changed': self.last_changed.isoformat()
 			if self.last_changed
 			else None,
@@ -212,7 +212,7 @@ class DirectoryAudit:
 		yield 'group', self.group
 		yield 'full_name', self.full_name
 		yield 'permissions', self.permissions
-		yield 'last_accessed', self.last_accessed.date() if self.last_accessed else None
+		# yield 'last_accessed', self.last_accessed.date() if self.last_accessed else None
 		yield 'last_modified', self.last_modified.date() if self.last_modified else None
 		yield 'last_changed', self.last_changed.date() if self.last_changed else None
 		yield 'size', self.size if self.size is not None else 'Not computed yet'
