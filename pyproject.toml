@@ -3,7 +3,7 @@
 #__________________________________________________________________________________________________#
 [project]
 name = "damply"
-version = "0.15.0"
+version = "0.16.0"
 description = "Data Management Plan made simple."
 license = "MIT"
 readme = "README.md"

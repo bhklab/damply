@@ -1,12 +1,45 @@
 # CHANGELOG
 
 
+## v0.16.0 (2025-06-13)
+
+### Bug Fixes
+
+- Merge
+  ([`f91b94a`](https://github.com/bhklab/damply/commit/f91b94a7c8f55ae6d038c8d1b4c8ea2bc26f858b))
+
+### Continuous Integration
+
+- Fix actions workflow
+  ([`b01bbcb`](https://github.com/bhklab/damply/commit/b01bbcb97f6a8015ef36d2a4252c6aeb8d2a208a))
+
+
 ## v0.15.0 (2025-06-13)
+
+### Chores
+
+- Address ruff lint error
+  ([`2782080`](https://github.com/bhklab/damply/commit/278208060c7f402a8f5d2895e25e5961c92f837e))
+
+- Fix import order
+  ([`6e4d44b`](https://github.com/bhklab/damply/commit/6e4d44b4ea149984704b2ca96663ed9c96fa9347))
+
+- Ruff format
+  ([`d686334`](https://github.com/bhklab/damply/commit/d686334a9b1a1221c499e4262962bb2b420c8e38))
+
+- Ruff lint fix
+  ([`0b3d627`](https://github.com/bhklab/damply/commit/0b3d627ce00dc3b9f8e332ba12bb76ebcfcdc05c))
+
+- Suppress ruff lint
+  ([`f203986`](https://github.com/bhklab/damply/commit/f2039867b7d19c7dd08232f6269ee25d66785aac))
 
 ### Features
 
 - Cleanup deps
   ([`d7cc3c3`](https://github.com/bhklab/damply/commit/d7cc3c3443551077e0e4f3abb56015bc3f756e82))
+
+- Update deps and style env
+  ([`28954d4`](https://github.com/bhklab/damply/commit/28954d4c255144a114f41496fb184142beb6882d))
 
 
 ## v0.14.0 (2025-06-13)
