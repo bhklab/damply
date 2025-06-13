@@ -15,4 +15,8 @@ def cli() -> None:
     projects.
     
     To enable logging, set the env variable `DAMPLY_LOG_LEVEL`.
-   
+    """
+    pass
+
+cli.add_command(project)
+cli.add_command(groups_table)
