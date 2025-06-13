@@ -37,9 +37,7 @@ def whose(path: Path, json: bool) -> None:
 
 	if platform.system() == 'Windows':
 		msg = "The 'whose' command is not supported on Windows. "
-		raise WindowsNotSupportedError(
-			msg
-		)
+		raise WindowsNotSupportedError(msg)
 
 	# get the files owner
 	file_owner = path.stat().st_uid

@@ -207,14 +207,18 @@ def build_group_membership_table(
 
 	if not keep_extra_groups:
 		keep_cols = {'name', 'realname', 'uid', 'default_group', *all_requested_groups}
-		group_data_df = group_data_df[[col for col in group_data_df.columns if col in keep_cols]]
+		group_data_df = group_data_df[
+			[col for col in group_data_df.columns if col in keep_cols]
+		]
 
 	# otherwise, keep all groups
 	# however, the first columns should be the requested groups,
 	# the rest should be sorted alphabetically
 	else:
 		# Sort the columns to have requested groups first, then others alphabetically
-		requested_cols = [col for col in group_data_df.columns if col in all_requested_groups]
+		requested_cols = [
+			col for col in group_data_df.columns if col in all_requested_groups
+		]
 		other_cols = sorted(set(group_data_df.columns) - set(requested_cols))
 		group_data_df = group_data_df[
 			['name', 'realname', 'uid', 'default_group'] + requested_cols + other_cols
