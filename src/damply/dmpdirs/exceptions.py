@@ -20,6 +20,6 @@ class EnvironmentVariableNotSetError(Exception):
 		self.var_name = var_name
 		message = (
 			f"Environment variable '{var_name}' is not set. "
-			f"Please set it or use non-strict mode to use default paths."
+			f'Please set it or use non-strict mode to use default paths.'
 		)
 		super().__init__(message)

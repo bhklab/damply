@@ -68,4 +68,4 @@ if __name__ == '__main__':
 	project_dir = Path('/cluster/projects/bhklab/projects/BTCIS')
 	symlinks = find_symlinks(project_dir)
 	for _symlink in symlinks:
-		print(f"Symlink: {str(_symlink.path)} -> Target: {str(_symlink.target)}")
+		print(f'Symlink: {str(_symlink.path)} -> Target: {str(_symlink.target)}')
