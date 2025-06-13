@@ -1,14 +1,14 @@
 import stat
 from dataclasses import asdict, dataclass, field
-from datetime import date, datetime, timezone, timedelta
-from zoneinfo import ZoneInfo
+from datetime import date, datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import rich.repr
-from rich import print
 from bytesize import ByteSize
+from rich import print
 
-from damply.utils import get_directory_size, count_files
+from damply.utils import count_files, get_directory_size
 
 
 @dataclass

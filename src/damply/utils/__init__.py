@@ -1,6 +1,8 @@
 from __future__ import annotations
+
 import subprocess
 from pathlib import Path
+
 from bytesize import ByteSize
 from rich.progress import Progress, SpinnerColumn, TextColumn
 
@@ -56,11 +58,8 @@ if __name__ == '__main__':
 	import sys
 
 	if len(sys.argv) != 2:
-		print('Usage: python directory_size.py <directory_path>')
 		sys.exit(1)
 	directory_path = Path(sys.argv[1])
 	if not directory_path.is_dir():
-		print(f'The path {directory_path} is not a valid directory.')
 		sys.exit(1)
 	size = get_directory_size(directory_path, show_progress=True)
-	print(f'Size of {directory_path}: {size}')
