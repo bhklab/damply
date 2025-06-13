@@ -128,7 +128,7 @@ def groups_table(
 	# print([u.to_dict() for u in user_info_db])
 	user_dicts = [u.to_dict() for u in user_info_db]
 
-	df = build_group_membership_table(
+	group_data_df = build_group_membership_table(
 		user_dicts=user_dicts,
 		requested_groups=group_names,
 		keep_extra_groups=keep_extra_groups,
@@ -137,7 +137,7 @@ def groups_table(
 	if csv:
 		logger.debug('Outputting table as CSV...')
 		# print the csv to stdout
-		print(df.to_csv(index=False))
+		print(group_data_df.to_csv(index=False))
 	else:
 		# Pretty-print the DataFrame using Rich
 		from rich.console import Console
@@ -145,10 +145,10 @@ def groups_table(
 
 		console = Console()
 		table = Table(show_lines=True)
-		for col in df.columns:
+		for col in group_data_df.columns:
 			table.add_column(str(col))
 
-		for _, row in df.iterrows():
+		for _, row in group_data_df.iterrows():
 			table.add_row(*[str(x) for x in row])
 
 		console.print(table)
@@ -191,33 +191,33 @@ def build_group_membership_table(
 	).fillna(0)
 
 	# Base user metadata
-	df = pd.DataFrame(user_dicts).drop(columns='groups')
-	df = df.merge(df_groups, on='name', how='left').fillna(0)
+	group_data_df = pd.DataFrame(user_dicts).drop(columns='groups')
+	group_data_df = group_data_df.merge(df_groups, on='name', how='left').fillna(0)
 
 	logger.debug('Processing group columns...')
 	# Ensure binary columns
 	group_cols = [
 		col
-		for col in df.columns
+		for col in group_data_df.columns
 		if col not in {'name', 'uid', 'realname', 'default_group'}
 	]
 
 	logger.debug('Post-processing group columns...')
-	df[group_cols] = df[group_cols].astype(int)
+	group_data_df[group_cols] = group_data_df[group_cols].astype(int)
 
 	if not keep_extra_groups:
 		keep_cols = {'name', 'realname', 'uid', 'default_group', *all_requested_groups}
-		df = df[[col for col in df.columns if col in keep_cols]]
+		group_data_df = group_data_df[[col for col in group_data_df.columns if col in keep_cols]]
 
 	# otherwise, keep all groups
 	# however, the first columns should be the requested groups,
 	# the rest should be sorted alphabetically
 	else:
 		# Sort the columns to have requested groups first, then others alphabetically
-		requested_cols = [col for col in df.columns if col in all_requested_groups]
-		other_cols = sorted(set(df.columns) - set(requested_cols))
-		df = df[
+		requested_cols = [col for col in group_data_df.columns if col in all_requested_groups]
+		other_cols = sorted(set(group_data_df.columns) - set(requested_cols))
+		group_data_df = group_data_df[
 			['name', 'realname', 'uid', 'default_group'] + requested_cols + other_cols
 		]
 
-	return df
+	return group_data_df
