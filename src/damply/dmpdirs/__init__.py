@@ -142,7 +142,7 @@ class DamplyDirs:
 		"""
 		self._strict = strict
 
-	def _get_dir_path(self, dir_name: str) -> Path:
+	def _get_dir_path(self, dir_name: str) -> Path: # noqa: PLR0912
 		"""Get the path for a directory based on environment variables or default paths.
 
 		Args:
