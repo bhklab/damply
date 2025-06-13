@@ -12,6 +12,14 @@ import click
 	default=False,
 	show_default=True,
 )
+@click.option(
+	'--force',
+	'-f',
+	help='Force recomputation of size and file count, ignoring cached values.',
+	is_flag=True,
+	default=False,
+	show_default=True,
+)
 @click.argument(
 	'directory',
 	type=click.Path(
@@ -30,11 +38,17 @@ import click
 	is_flag=True,
 	help='Output the audit information in JSON format.',
 )
-def project(directory: pathlib.Path | None, json: bool, detailed: bool) -> None:
+
+def project(directory: pathlib.Path | None, json: bool, detailed: bool, force: bool = False) -> None:
 	"""Display information about the current project.
 
 	DIRECTORY is the path to the project directory,
 	if not provided, the current working directory will be used.
+	
+	This command caches directory size and file count calculations to improve performance.
+	By default, it will use cached values if available and if the directory hasn't been
+	modified since the cache was created. Use --force to bypass the cache and recalculate
+	all values.
 	"""
 	from damply.project import DirectoryAudit
 
@@ -44,7 +58,7 @@ def project(directory: pathlib.Path | None, json: bool, detailed: bool) -> None:
 	audit = DirectoryAudit.from_path(directory)
 
 	if detailed:
-		audit.compute_details(show_progress=True)
+		audit.compute_details(show_progress=True, force=force)
 
 	if json:
 		print(audit.to_json())  # noqa
