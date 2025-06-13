@@ -40,7 +40,6 @@ issues = "https://github.com/bhklab/damply/issues"
 
 [project.scripts]
 damply = "damply.cli.__main__:cli"
-dmpgroups = "damply.cli.groups_table:groups_table"
 # damplyplot = "damply.plot:main"
 
 #--------------------------------------------------------------------------------------------------#

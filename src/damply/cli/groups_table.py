@@ -15,7 +15,7 @@ and then in each row, it will have a 1 if the user is in that group, and a 0 if 
 """
 import click
 from typing import Sequence, TYPE_CHECKING
-from loguru import logger
+from damply import logger
 if TYPE_CHECKING:
     from damply.admin import GroupInfo, UserInfo
     import pandas as pd
