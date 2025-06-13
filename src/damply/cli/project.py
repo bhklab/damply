@@ -38,13 +38,14 @@ import click
 	is_flag=True,
 	help='Output the audit information in JSON format.',
 )
-
-def project(directory: pathlib.Path | None, json: bool, detailed: bool, force: bool = False) -> None:
+def project(
+	directory: pathlib.Path | None, json: bool, detailed: bool, force: bool = False
+) -> None:
 	"""Display information about the current project.
 
 	DIRECTORY is the path to the project directory,
 	if not provided, the current working directory will be used.
-	
+
 	This command caches directory size and file count calculations to improve performance.
 	By default, it will use cached values if available and if the directory hasn't been
 	modified since the cache was created. Use --force to bypass the cache and recalculate
