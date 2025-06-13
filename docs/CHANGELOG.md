@@ -1,6 +1,17 @@
 # CHANGELOG
 
 
+## v0.17.0 (2025-06-13)
+
+### Chores
+
+- Merge
+  ([`3a7017b`](https://github.com/bhklab/damply/commit/3a7017b2e778998f526be65cca608e65cbbcbb71))
+
+- Update lockfile
+  ([`b78ce26`](https://github.com/bhklab/damply/commit/b78ce267eb47316f95e369d075970633fc645f3c))
+
+
 ## v0.16.0 (2025-06-13)
 
 ### Bug Fixes
@@ -8,10 +19,50 @@
 - Merge
   ([`f91b94a`](https://github.com/bhklab/damply/commit/f91b94a7c8f55ae6d038c8d1b4c8ea2bc26f858b))
 
+### Chores
+
+- Fix ruff lint
+  ([`573fb38`](https://github.com/bhklab/damply/commit/573fb38a6de6572d7ed5267ac4d9be729d0165e5))
+
+- Ruff format
+  ([`05d0b18`](https://github.com/bhklab/damply/commit/05d0b18ef680b0bf44a11a9b3dd466a81ef91a3e))
+
+- Ruff format
+  ([`93d71b2`](https://github.com/bhklab/damply/commit/93d71b2a7ffd93dbf09b2c9dc7d79d15a49267d0))
+
+- Ruff format
+  ([`957ebc6`](https://github.com/bhklab/damply/commit/957ebc6e3291e03729367b9601a2a750f9561158))
+
+- Ruff lint
+  ([`3886c94`](https://github.com/bhklab/damply/commit/3886c94604834e95c082c8a54e3b1e72003c8c92))
+
+- Ruff lint
+  ([`77bf13a`](https://github.com/bhklab/damply/commit/77bf13a620af4ce61b03ee52da8013323793ea35))
+
+- Update lockfile
+  ([`8946fd8`](https://github.com/bhklab/damply/commit/8946fd8659eba2814a91a18f75340893103de669))
+
 ### Continuous Integration
 
 - Fix actions workflow
   ([`b01bbcb`](https://github.com/bhklab/damply/commit/b01bbcb97f6a8015ef36d2a4252c6aeb8d2a208a))
+
+### Features
+
+- Add file count and est time zone
+  ([`dda9e24`](https://github.com/bhklab/damply/commit/dda9e24be2019ecd6ffa95edf2dbfdce1a9a9d25))
+
+- Add platformdis
+  ([`52610ef`](https://github.com/bhklab/damply/commit/52610efbda31dc580a5d3c4b87bebc6c7a0458b2))
+
+- Setup cache dir
+  ([`bf189a0`](https://github.com/bhklab/damply/commit/bf189a0e98585d2223bf12bb31f5fcf04a03bd8e))
+
+- Setup directory audit to use user cache
+  ([`08e18bf`](https://github.com/bhklab/damply/commit/08e18bf54771d2c8744e8cabf590ef78b12926b5))
+
+- Validate
+  ([`7674759`](https://github.com/bhklab/damply/commit/7674759fc4c3d8785d5e3e97dd88cc107544538c))
 
 
 ## v0.15.0 (2025-06-13)
