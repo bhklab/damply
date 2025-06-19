@@ -69,9 +69,6 @@ class DirectoryAudit:
 			last_changed=datetime.fromtimestamp(stats.st_ctime, tz=toronto_tz),
 		)
 
-		# Try to load cached data if available
-		audit._get_from_cache()
-
 		return audit
 
 	def compute_details(self, show_progress: bool = True, force: bool = False) -> None:
