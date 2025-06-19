@@ -1,6 +1,22 @@
 # CHANGELOG
 
 
+## v0.18.2 (2025-06-19)
+
+### Bug Fixes
+
+- Better handling of cache
+  ([`3b9c3bb`](https://github.com/bhklab/damply/commit/3b9c3bbde8f50721c31ba22789a11f9e3de089cc))
+
+- Wrong mmethod
+  ([`bd6d08c`](https://github.com/bhklab/damply/commit/bd6d08c304fcd569ed9c31944262aa25334e045b))
+
+### Chores
+
+- Update lockfile
+  ([`2d0fefb`](https://github.com/bhklab/damply/commit/2d0fefb6296286bdb96bc2b5542f463e05769d02))
+
+
 ## v0.18.1 (2025-06-19)
 
 ### Bug Fixes
