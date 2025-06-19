@@ -3,7 +3,7 @@ from .dmpdirs import dirs  # noqa
 
 __name__ = 'damply'
 __author__ = 'bhklab'
-__version__ = '0.17.0'
+__version__ = '0.18.0'
 
 __all__ = [
 	'logger',

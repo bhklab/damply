@@ -1,6 +1,27 @@
 # CHANGELOG
 
 
+## v0.18.0 (2025-06-19)
+
+### Bug Fixes
+
+- Remove last accessed, useless info
+  ([`22f9d52`](https://github.com/bhklab/damply/commit/22f9d52d7b70d38f6166049450b9508ac2bb98e8))
+
+### Chores
+
+- Update lockfile
+  ([`7d2b43f`](https://github.com/bhklab/damply/commit/7d2b43fd4fca7e0602147893a803d915142dfac4))
+
+### Features
+
+- Add file types and fix caching
+  ([`6514bf6`](https://github.com/bhklab/damply/commit/6514bf63188e93e096d70582d64e02bc24a5c18b))
+
+- Update default groups and refactor table building
+  ([`764d012`](https://github.com/bhklab/damply/commit/764d0121300df94ea1962aff5d563db334d42885))
+
+
 ## v0.17.0 (2025-06-13)
 
 ### Chores
