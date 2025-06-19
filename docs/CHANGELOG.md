@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.18.1 (2025-06-19)
+
+### Bug Fixes
+
+- Numbers arent suffixes
+  ([`3076b4f`](https://github.com/bhklab/damply/commit/3076b4fb3d8a979adaaf1d9b93d9131460c09647))
+
+
 ## v0.18.0 (2025-06-19)
 
 ### Bug Fixes
