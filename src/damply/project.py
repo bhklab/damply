@@ -10,7 +10,7 @@ from rich import print
 
 from damply.cache_dir import get_cache_dir
 from damply.logging_config import logger
-from damply.utils import count_files, get_directory_size
+from damply.utils import collect_suffixes, count_files, get_directory_size
 
 
 @dataclass
@@ -27,6 +27,7 @@ class DirectoryAudit:
 	# lazy evaluated because expensive
 	size: ByteSize | None = field(default=None, init=False)
 	file_count: int | None = field(default=None, init=False)
+	file_types: list[str] | None = field(default=None, init=False)
 
 	last_computed: str | None = field(default=None, init=False, repr=False)
 
@@ -83,6 +84,16 @@ class DirectoryAudit:
 		# Check if we have cached data and whether it's still valid
 		if force:
 			logger.debug('Force recompute requested, ignoring cache.')
+			# delete the cache if it exists
+			cache_path = self._get_cache_path()
+			if cache_path.exists():
+				logger.debug(f'Deleting cache file: {cache_path}')
+				cache_path.unlink()
+
+			# remove cached values
+			self.size = None
+			self.file_count = None
+			self.file_types = None
 		elif self._get_from_cache():
 			logger.debug('Cache loaded successfully.')
 			return
@@ -90,19 +101,30 @@ class DirectoryAudit:
 			logger.debug('Cache miss.')
 
 		# Compute the values and cache them
-		self.size = self.compute_size(show_progress=show_progress)
-		self.file_count = self.compute_file_count(show_progress=show_progress)
+		self.compute_size(show_progress=show_progress)
+		self.compute_file_count(show_progress=show_progress)
+		self.compute_file_types(show_progress=show_progress)
+
 		self.last_computed = datetime.now(ZoneInfo('America/Toronto')).strftime(
 			'%Y-%m-%d %H:%M:%S'
 		)
 		self._save_to_cache()
 
 	def compute_file_count(self, show_progress: bool = True) -> int:
+		"""Count files in the directory and return the count."""
 		if self.file_count is None:
 			self.file_count = count_files(
 				directory=self.path, show_progress=show_progress
 			)
 		return self.file_count
+
+	def compute_file_types(self, show_progress: bool = True) -> set[str]:
+		"""Get unique file types in the directory."""
+		if self.file_types is None:
+			self.file_types = collect_suffixes(
+				directory=self.path, show_progress=show_progress
+			)
+		return self.file_types
 
 	def compute_size(self, show_progress: bool = True) -> ByteSize:
 		if self.size is None:
@@ -134,6 +156,7 @@ class DirectoryAudit:
 			'last_computed': self.last_computed,
 			'size': str(self.size) if self.size is not None else None,
 			'file_count': self.file_count,
+			'file_types': self.file_types if self.file_types else None,
 			'last_modified': self.last_modified.isoformat()
 			if self.last_modified
 			else None,
@@ -200,6 +223,7 @@ class DirectoryAudit:
 				self.size = ByteSize(cache_data['size'])
 			self.file_count = cache_data.get('file_count')
 			self.last_computed = cache_data.get('last_computed')
+			self.file_types = cache_data.get('file_types', set())
 		except (json.JSONDecodeError, KeyError, ValueError):
 			# If anything goes wrong, just recompute
 			return False
@@ -219,6 +243,10 @@ class DirectoryAudit:
 		yield (
 			'file_count',
 			self.file_count if self.file_count is not None else 'Not computed yet',
+		)
+		yield (
+			'file_types',
+			self.file_types if self.file_types is not None else 'Not computed yet',
 		)
 
 	def to_dict(self) -> dict:
@@ -244,9 +272,10 @@ if __name__ == '__main__':
 	from rich import print
 
 	audit = DirectoryAudit.from_path(
-		Path('/cluster/projects/radiomics/Projects/IterSeg')
+		Path('/cluster/projects/radiomics/Projects/testimgtools_benchmark/results')
 	)
 	print(audit)
+	audit.compute_details(show_progress=True, force=True)
 
 	print('*' * 20)
 	print(audit.to_dict())
@@ -254,7 +283,6 @@ if __name__ == '__main__':
 	print(audit.to_json())
 
 	print('*' * 20)
-	audit.compute_size()
 	print(f'Size: {audit.size:.2f:GB}')
 
 	print('*' * 20)

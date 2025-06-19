@@ -37,21 +37,47 @@ def get_directory_size(directory: Path, show_progress: bool = True) -> ByteSize:
 
 
 def count_files(directory: Path, show_progress: bool = True) -> int:
-	if show_progress:
-		with Progress(
-			SpinnerColumn(),
-			TextColumn('[progress.description]{task.description}'),
-			transient=True,
-		) as progress:
-			task = progress.add_task(
-				f'Counting files in {str(directory.absolute())}...', total=None
-			)
-			count = sum(1 for p in directory.rglob('*') if p.is_file())
-			progress.update(task, completed=True)
-	else:
-		count = sum(1 for p in directory.rglob('*') if p.is_file())
+	count = 0
+
+	with Progress(
+		SpinnerColumn(),
+		TextColumn('[progress.description]{task.description}'),
+		transient=True,
+		disable=not show_progress,
+	) as progress:
+		task = progress.add_task(
+			f'Counting files in {str(directory.absolute())}...', total=None
+		)
+
+		for path in directory.rglob('*'):
+			if path.is_file():
+				count += 1
+
+		progress.update(task, completed=True)
 
 	return count
+
+
+def collect_suffixes(directory: Path, show_progress: bool = True) -> list[str]:
+	suffixes: set[str] = set()
+
+	with Progress(
+		SpinnerColumn(),
+		TextColumn('[progress.description]{task.description}'),
+		transient=True,
+		disable=not show_progress,
+	) as progress:
+		task = progress.add_task(
+			f'Collecting file extensions in {str(directory.absolute())}...', total=None
+		)
+
+		for path in directory.rglob('*'):
+			if path.is_file() and path.suffixes:
+				suffixes.add(''.join(path.suffixes))
+
+		progress.update(task, completed=True)
+
+	return list(suffixes)
 
 
 if __name__ == '__main__':
