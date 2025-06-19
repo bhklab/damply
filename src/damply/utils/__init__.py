@@ -73,7 +73,10 @@ def collect_suffixes(directory: Path, show_progress: bool = True) -> list[str]:
 
 		for path in directory.rglob('*'):
 			if path.is_file() and path.suffixes:
-				suffixes.add(''.join(path.suffixes))
+				valid_suffixes = [
+					suffix for suffix in path.suffixes if not any(c.isdigit() for c in suffix)
+				]
+				suffixes.add(''.join(valid_suffixes))
 
 		progress.update(task, completed=True)
 
