@@ -61,7 +61,7 @@ def project(
 	if detailed:
 		audit.compute_details(show_progress=True, force=force)
 	else:
-		audit.compute_summary(show_progress=True, force=False)
+		audit.compute_details(show_progress=True, force=False)
 
 	if json:
 		print(audit.to_json())  # noqa
