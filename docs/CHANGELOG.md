@@ -1,6 +1,30 @@
 # CHANGELOG
 
 
+## v0.23.0 (2025-06-20)
+
+### Bug Fixes
+
+- Add force option to project cli
+  ([`05c4d84`](https://github.com/bhklab/damply/commit/05c4d849736a2a9873fbb7d05fb645d29ec74ae1))
+
+### Chores
+
+- Format and lint
+  ([`1f99f38`](https://github.com/bhklab/damply/commit/1f99f3856587fca1284698b679ade8e95c934b01))
+
+- Format and lint
+  ([`3afc6af`](https://github.com/bhklab/damply/commit/3afc6aff16e243d850ee4dde9506c5a690d07cf9))
+
+### Features
+
+- Add collect_audits
+  ([`584e989`](https://github.com/bhklab/damply/commit/584e989a60af0a059127cf0be1f804d033930764))
+
+- Add collect_audits to cli
+  ([`fabeb53`](https://github.com/bhklab/damply/commit/fabeb53cc41c260d2c204ec42113e5f35ca42461))
+
+
 ## v0.22.0 (2025-06-20)
 
 ### Chores
