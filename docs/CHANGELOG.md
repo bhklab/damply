@@ -1,6 +1,19 @@
 # CHANGELOG
 
 
+## v0.22.0 (2025-06-20)
+
+### Chores
+
+- Format
+  ([`1bff79f`](https://github.com/bhklab/damply/commit/1bff79f00170db59100a555822feb40a4fe0fd18))
+
+### Features
+
+- Audit submission across both projects groups
+  ([`d6590b3`](https://github.com/bhklab/damply/commit/d6590b30f759224cadb1c48fd4404b5d109fe8d9))
+
+
 ## v0.21.0 (2025-06-20)
 
 ### Features
