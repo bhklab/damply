@@ -5,8 +5,8 @@ import click
 
 @click.command(context_settings={'help_option_names': ['-h', '--help']})
 @click.option(
-	'--force-compute-details',
-	'-f',
+	'--compute-details',
+	'-d',
 	'compute_details',
 	help='Display extra information about the project, i.e size. Takes longer to compute.',
 	is_flag=True,
@@ -24,6 +24,14 @@ import click
 	),
 	default=None,
 	required=False,
+)
+@click.option(
+    '--force',
+    '-f',
+    is_flag=True,
+    help='Force recalculation of directory size and file count, ignoring cached values.',
+    default=False,
+    show_default=True,
 )
 @click.option(
 	'--json',
@@ -55,7 +63,7 @@ def project(
 	audit = DirectoryAudit.from_path(directory)
 
 	if compute_details:
-		audit.compute_details(show_progress=True, force=True)
+		audit.compute_details(show_progress=True, force=force)
 
 	if json:
 		print(audit.to_json())  # noqa
