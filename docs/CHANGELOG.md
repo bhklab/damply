@@ -1,6 +1,25 @@
 # CHANGELOG
 
 
+## v0.20.0 (2025-06-20)
+
+### Chores
+
+- Rearrange
+  ([`c489eb5`](https://github.com/bhklab/damply/commit/c489eb5101b81ecd95ef060fa2109d87f430fcb0))
+
+- Update module imports
+  ([`797cd12`](https://github.com/bhklab/damply/commit/797cd1203cb66381e3aa5fcf7071ed773c5b59c1))
+
+### Features
+
+- Add find readme utilitiy
+  ([`bbd4fd6`](https://github.com/bhklab/damply/commit/bbd4fd66c8cf3c573f89523a4cf8ed5b0759a369))
+
+- Add find readme utilitiy to project and update cli to not show compuuted details
+  ([`bd6e1eb`](https://github.com/bhklab/damply/commit/bd6e1eb5c3b67de9cd21652edbf14a47e0d2389c))
+
+
 ## v0.19.0 (2025-06-20)
 
 ### Bug Fixes
