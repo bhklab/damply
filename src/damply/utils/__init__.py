@@ -73,7 +73,7 @@ def collect_suffixes(directory: Path, show_progress: bool = True) -> list[str]:
 
         for path in directory.rglob('*'):
             if (path.is_file() 
-                and not path.startswith('.') 
+                and not path.name.startswith('.') 
                 and path.suffixes
                 and len(path.suffixes) <= 3 # 4 suffixes is crazy
             ):
