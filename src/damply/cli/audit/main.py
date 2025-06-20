@@ -114,3 +114,148 @@ def audit(directory: Path, compute_details: bool) -> None:
     logger.info(f"Audit results saved to: {output_file}")
 
 
+
+
+@click.command("full-audit")
+@click.argument("project_group")
+@click.option(
+    '--force-compute-details',
+    '-f',
+    'compute_details',
+    help='Force the computation of details for the directory and subdirectories regardless of cache.',
+    is_flag=True,
+    default=False,
+    show_default=True,
+)
+def full_audit(project_group: str, compute_details: bool) -> None:
+    """Run a full audit for the specified project group.
+    
+    This will essentially, submit a bunch of sbatch jobs to the cluster
+    for all the directories in the project group.
+    """
+    run_full_audit(project_group, compute_details=compute_details)
+
+
+# Setup some assumptions about project groups and directories
+
+VALID_PROJECT_GROUPS = {
+    "bhklab",
+    "radiomics"
+}
+
+
+def run_full_audit(project_group: str, compute_details: bool = False,) -> None:
+    """Run a full audit for the specified project group.
+    
+    NOTE: THIS IS MEANT TO BE USED ON A COMPUTE NODE! NOT THE LOGIN NODE!
+
+    This will essentially, submit a bunch of sbatch jobs to the cluster
+    for all the directories in the project group.
+    """
+    
+    if project_group not in VALID_PROJECT_GROUPS:
+        msg = f"Invalid project group: {project_group}. Valid groups are: {', '.join(VALID_PROJECT_GROUPS)}"
+        raise InvalidProjectGroupError(msg)
+    
+    # Define the base directory for the project group
+    root = Path(f"/cluster/projects/{project_group}")
+
+    # do we have access to the base directory?
+    if not root.exists() or not root.is_dir():
+        msg = f"Base directory {root} does not exist or is not a directory."
+        raise OutsideProjectPathError(msg)
+    
+    logger.info(f"Starting full audit for project group: {project_group}")
+    # Get all directories in the project group
+    directories = get_directories(root)
+    logger.debug(f"Found {len(directories)} directories in project group {project_group}")
+
+    # get relative path for the log directory
+    try:
+        relative_path = get_parents_path(project_group, root)
+    except (InvalidProjectGroupError, OutsideProjectPathError) as e:
+        click.echo(f"Error: {e}", err=True)
+        sys.exit(1)
+
+    now = datetime.datetime.now()
+    date = now.strftime("%Y-%m-%d")
+    log_dir_base = Path(f"/cluster/projects/{project_group}/admin/audit/logs") / f"{date}" 
+
+    compute_details_arg = "--force-compute-details" if compute_details else ""
+
+    import subprocess
+    for directory in directories:
+        rel_path = get_parents_path(project_group, directory)
+        job_name = rel_path.replace("/", "_").replace(" ", "_")
+        log_dir = log_dir_base / rel_path 
+        log_dir.mkdir(parents=True, exist_ok=True)
+        cmd = [
+            "sbatch",
+            "--job-name", job_name,
+            "--output", str(log_dir / f"{job_name}_%j.out"),
+            "--time", "01:00:00",
+            "--mem", "4G",
+            "--wrap", f"damply audit {directory} {compute_details_arg}",
+        ]
+        logger.debug(f"Submitting job with command: {cmd}")
+
+        try:
+            result = subprocess.run(
+                cmd,
+                check=True,
+                capture_output=True,
+                text=True
+            )
+            logger.info(f"Job submitted successfully: {result.stdout.strip()}")
+        except subprocess.CalledProcessError as e:
+            logger.error(f"Failed to submit job for {directory}: {e.stderr.strip()}")
+            continue
+
+
+def get_directories(root: Path) -> list[Path]:
+    from itertools import product
+    ############################################################################
+    # bhklab is simple:
+    ############################################################################
+    if root.name == "bhklab":
+        # get the first level of directories in the root
+        dirs = [d for d in root.glob("*/*") if d.is_dir()]
+        # sort the directories by name
+        dirs.sort(key=lambda x: str(x))
+        logger.info(f"Found {len(dirs)} directories in {root}")
+        return dirs
+
+    ############################################################################
+
+    # radiomics is more complex:
+    ############################################################################
+    # get the first level of directories in the root
+    parents = ["InternalDatasets", "PublicDatasets"]
+
+    one_level_dirs = [d for d in root.iterdir() if d.is_dir() and d.name not in parents]
+
+
+    # we will do more complex matching for internal and public datasets
+    mids = ["srcdata", "procdata"]
+    disease_sites = ["Abdomen", "Brain", "Breast", "HeadNeck", "Lung", "MultiSite", "Pelvis", "PhantomData"]
+    matches = [
+        root / parent / mid / ds 
+        for parent, mid, ds in product(parents, mids, disease_sites)
+        if (root / parent / mid / ds).is_dir() and not (root / parent / mid / ds).is_symlink()
+    ]
+
+    # now get one level directories that are not symlinks
+    # matches = [d for d in one_level_dirs.iterdir() if not d.is_symlink()]
+    for subdir in [*one_level_dirs, *matches]:
+        if subdir.is_symlink():
+            logger.warning(f"Skipping symlinked directory: {subdir}")
+            continue
+        try:
+            matches += [d for d in subdir.iterdir() if d.is_dir() and not d.is_symlink()]
+        except PermissionError:
+            logger.warning(f"Permission denied for directory: {subdir}. Skipping.")
+            continue
+
+    # sort the matches by name
+    matches.sort(key=lambda x: str(x))
+    return matches

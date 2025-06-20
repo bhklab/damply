@@ -1,7 +1,7 @@
 import click
 
 from damply import __version__
-from damply.cli.audit import audit
+from damply.cli.audit import audit, full_audit
 from damply.cli.groups_table import groups_table
 from damply.cli.project import project
 from damply.cli.whose import whose
@@ -28,3 +28,4 @@ cli.add_command(groups_table)
 cli.add_command(whose)
 cli.add_command(project)
 cli.add_command(audit)
+cli.add_command(full_audit)
