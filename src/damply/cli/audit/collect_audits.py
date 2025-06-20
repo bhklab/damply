@@ -129,7 +129,7 @@ def flatten_tree(
 @click.argument('project_group', type=str)
 @click.option('--force', is_flag=True, help='Force collection even if summary exists')
 def collect_audits(project_group: str, force: bool = False) -> None:
-    """Collect audits for a project group."""
+    """Collect audits for a project group (after full-audit)."""
     import json
     from bytesize import ByteSize
 
