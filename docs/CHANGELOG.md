@@ -1,6 +1,17 @@
 # CHANGELOG
 
 
+## v0.21.0 (2025-06-20)
+
+### Features
+
+- Ensure working audit
+  ([`b61cbf4`](https://github.com/bhklab/damply/commit/b61cbf4fc4095e4bc05334876f8d3195400d5812))
+
+- Started audit
+  ([`58511e4`](https://github.com/bhklab/damply/commit/58511e409492b33568723ca25fe19e6346bf0f8f))
+
+
 ## v0.20.0 (2025-06-20)
 
 ### Chores
