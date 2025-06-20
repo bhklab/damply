@@ -2904,8 +2904,8 @@ packages:
   timestamp: 1747572107118
 - pypi: ./
   name: damply
-  version: 0.21.0
-  sha256: 65e22529471e06891846fed0a25cc50496e1b9b73c74911a4cad096e699f2020
+  version: 0.22.0
+  sha256: bb7dc68d2a5c411a046e88ffce7ced445460d8d7bfc3087cdb322708cd162694
   requires_dist:
   - rich
   - platformdirs>=4.3,<5

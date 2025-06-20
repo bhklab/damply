@@ -26,12 +26,12 @@ import click
 	required=False,
 )
 @click.option(
-    '--force',
-    '-f',
-    is_flag=True,
-    help='Force recalculation of directory size and file count, ignoring cached values.',
-    default=False,
-    show_default=True,
+	'--force',
+	'-f',
+	is_flag=True,
+	help='Force recalculation of directory size and file count, ignoring cached values.',
+	default=False,
+	show_default=True,
 )
 @click.option(
 	'--json',

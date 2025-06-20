@@ -1,204 +1,227 @@
 from __future__ import annotations
+
+from dataclasses import asdict, dataclass, field
 from pathlib import Path
-from damply.cli.audit.utils import (
-    OutsideProjectPathError,
-    get_parents_path
-)
-from damply.logging_config import logger
-from dataclasses import dataclass, field, asdict
-import pandas as pd
+
 import click
+import pandas as pd
+
+from damply.cli.audit.utils import OutsideProjectPathError
+from damply.logging_config import logger
 
 
 def get_latest_result_directory(project_group: str) -> Path:
-    """Get the results directory for the project group."""
-    root =  Path(f'/cluster/projects/{project_group}/admin/audit/results')
-    
-    # get all directories in the results directory
-    if not root.exists() or not root.is_dir():
-        msg = f'Results directory {root} does not exist or is not a directory.'
-        raise OutsideProjectPathError(msg)
+	"""Get the results directory for the project group."""
+	root = Path(f'/cluster/projects/{project_group}/admin/audit/results')
 
-    subdirs = [d for d in root.iterdir() if d.is_dir()]
+	# get all directories in the results directory
+	if not root.exists() or not root.is_dir():
+		msg = f'Results directory {root} does not exist or is not a directory.'
+		raise OutsideProjectPathError(msg)
 
-    # convert dates to find latest audit
-    subdirs.sort(key=lambda x: x.name, reverse=True)
+	subdirs = [d for d in root.iterdir() if d.is_dir()]
 
-    if not subdirs:
-        raise OutsideProjectPathError(f'No results directories found for {project_group}')
+	# convert dates to find latest audit
+	subdirs.sort(key=lambda x: x.name, reverse=True)
 
-    latest = subdirs[0]
-    logger.info(f'Latest results directory for {project_group}: {latest} out of {len(subdirs)} found')
-    if not latest.exists():
-        raise OutsideProjectPathError(f'No results directory found for {project_group}')
-    return latest
+	if not subdirs:
+		msg = f'No results directories found for {project_group}'
+		raise OutsideProjectPathError(
+			msg
+		)
+
+	latest = subdirs[0]
+	logger.info(
+		f'Latest results directory for {project_group}: {latest} out of {len(subdirs)} found'
+	)
+	if not latest.exists():
+		msg = f'No results directory found for {project_group}'
+		raise OutsideProjectPathError(msg)
+	return latest
+
 
 @dataclass
 class DirectoryNode:
-    path: str
-    parent: str
-    name: str
-    size: int
-    file_count: int
-    file_types: list[str]
-    owner: str
-    group: str
-    full_name: str
-    permissions: str
-    last_modified: str
-    last_changed: str
-    # last_computed: str
-    readme_path: str | None
-    metadata: dict[str, str]
-    depth: int = field(default=0, init=False)
-    children: list[DirectoryNode] = field(default_factory=list)
+	path: str
+	parent: str
+	name: str
+	size: int
+	file_count: int
+	file_types: list[str]
+	owner: str
+	group: str
+	full_name: str
+	permissions: str
+	last_modified: str
+	last_changed: str
+	# last_computed: str
+	readme_path: str | None
+	metadata: dict[str, str]
+	depth: int = field(default=0, init=False)
+	children: list[DirectoryNode] = field(default_factory=list)
 
-    def __post_init__(self):
-        """Calculate the depth from the root directory."""
-        root = Path(self.path).anchor
-        self.depth = len(Path(self.path).relative_to(root).parts)
+	def __post_init__(self) -> None:
+		"""Calculate the depth from the root directory."""
+		root = Path(self.path).anchor
+		self.depth = len(Path(self.path).relative_to(root).parts)
 
-    @classmethod
-    def from_dict(cls, data: dict) -> DirectoryNode:
-        """Create a DirectoryNode from a dictionary."""
-        # parent should be calculated as relative to after the 3rd slash
-        try:
-            p = Path(data['path'])
-            return cls(
-                path=p.as_posix(),
-                parent=p.parent.relative_to(Path(*p.parts[0:4])).as_posix(),
-                name=p.name,
-                size=data['size'],
-                file_count=data['file_count'],
-                file_types=data['file_types'],
-                owner=data['owner'],
-                group=data['group'],
-                full_name=data['full_name'],
-                permissions=data['permissions'],
-                last_modified=data['last_modified'],
-                last_changed=data['last_changed'],
-                readme_path=data.get('readme_path'),
-                metadata=data.get('metadata', {}),
-            )
-        except KeyError as e:
-            exising_keys = ', '.join(data.keys())
-            msg = f'Missing key in data: {e}. Existing keys: {exising_keys}'
-            raise KeyError(msg) from e
+	@classmethod
+	def from_dict(cls, data: dict) -> DirectoryNode:
+		"""Create a DirectoryNode from a dictionary."""
+		# parent should be calculated as relative to after the 3rd slash
+		try:
+			p = Path(data['path'])
+			return cls(
+				path=p.as_posix(),
+				parent=p.parent.relative_to(Path(*p.parts[0:4])).as_posix(),
+				name=p.name,
+				size=data['size'],
+				file_count=data['file_count'],
+				file_types=data['file_types'],
+				owner=data['owner'],
+				group=data['group'],
+				full_name=data['full_name'],
+				permissions=data['permissions'],
+				last_modified=data['last_modified'],
+				last_changed=data['last_changed'],
+				readme_path=data.get('readme_path'),
+				metadata=data.get('metadata', {}),
+			)
+		except KeyError as e:
+			exising_keys = ', '.join(data.keys())
+			msg = f'Missing key in data: {e}. Existing keys: {exising_keys}'
+			raise KeyError(msg) from e
 
 
 def build_tree(entry: dict[str, object]) -> DirectoryNode:
-    root_data = entry["source_directory"]["data"]
-    root_node = DirectoryNode.from_dict(root_data)
+	root_data = entry['source_directory']['data']
+	root_node = DirectoryNode.from_dict(root_data)
 
-    for dir_entry in entry.get("directories", {}).values():
-        if dir_entry["status"] == "ok":
-            child_data = dir_entry["data"]
-            child_node = DirectoryNode.from_dict(child_data)
-            root_node.children.append(child_node)
+	for dir_entry in entry.get('directories', {}).values():
+		if dir_entry['status'] == 'ok':
+			child_data = dir_entry['data']
+			child_node = DirectoryNode.from_dict(child_data)
+			root_node.children.append(child_node)
 
-    return root_node
+	return root_node
+
 
 def flatten_tree(
-        node: DirectoryNode,
-        ignore_keys: list[str] = None,
-        metadata_keys: list[str] = ["OWNER", "DESC", "EMAIL", "DATE"]
-    ) -> list[dict]:
-    """Flatten tree into list of dicts (for DataFrame export)."""
-    flat = [asdict(node)]
-    for child in node.children:
-        flat.extend(flatten_tree(child))
-    if not ignore_keys:
-        return flat
-    for node in flat:
-        # since metadata is a dictionary, remove it, and then insert it by
-        # combining the key with the parent key
-        if 'metadata' in node and node['metadata']:
-            for key, value in node['metadata'].items():
-                if key in metadata_keys:
-                    # create a new key with the prefix 'metadata_'
-                    node[f'meta.{key}'] = value
-            del node['metadata']
-        
-        for key in ignore_keys:
-            if key in node:
-                del node[key]
-    return flat
+	root_node: DirectoryNode,
+	ignore_keys: list[str] = None,
+	metadata_keys: list[str] = None,
+) -> list[dict]:
+	"""Flatten tree into list of dicts (for DataFrame export)."""
+	if metadata_keys is None:
+		metadata_keys = ['OWNER', 'DESC', 'EMAIL', 'DATE']
+	flat = [asdict(root_node)]
+	for child in root_node.children:
+		flat.extend(flatten_tree(child))
+	if not ignore_keys:
+		return flat
+	for node in flat:
+		# since metadata is a dictionary, remove it, and then insert it by
+		# combining the key with the parent key
+		if 'metadata' in node and node['metadata']:
+			for key, value in node['metadata'].items():
+				if key in metadata_keys:
+					# create a new key with the prefix 'metadata_'
+					node[f'meta.{key}'] = value
+			del node['metadata']
+
+		for key in ignore_keys:
+			if key in node:
+				del node[key]
+	return flat
 
 
 @click.command()
 @click.argument('project_group', type=str)
 @click.option('--force', is_flag=True, help='Force collection even if summary exists')
 def collect_audits(project_group: str, force: bool = False) -> None:
-    """Collect audits for a project group (after full-audit)."""
-    import json
-    from bytesize import ByteSize
+	"""Collect audits for a project group (after full-audit)."""
+	import json
 
-    logger.info(f'Collecting audits for project group: {project_group}')
-    latest_results_dir = get_latest_result_directory(project_group)
+	from bytesize import ByteSize
 
-    summary_path = latest_results_dir / 'audit_summary.csv'
+	logger.info(f'Collecting audits for project group: {project_group}')
+	latest_results_dir = get_latest_result_directory(project_group)
 
-    if summary_path.exists() and not force:
-        logger.info(f'Summary already exists at {summary_path}, skipping collection.')
+	summary_path = latest_results_dir / 'audit_summary.csv'
 
-        # just print it so that it can be piped to another command!
-        click.echo(summary_path.as_posix())
-        return
-    
-    audit_jsons = list(latest_results_dir.rglob('audit.json'))
-    if not audit_jsons:
-        logger.warning('No audit.json files found')
-        return
+	if summary_path.exists() and not force:
+		logger.info(f'Summary already exists at {summary_path}, skipping collection.')
 
-    forest = []
-    skipped = []
-    for path in audit_jsons:
-        try:
-            entry = json.loads(path.read_text())
-		    # Skip if source_directory has an error
-            if entry.get("source_directory", {}).get("status") != "ok":
-                skipped.append(path)
-                continue
-            tree = build_tree(entry)
-            forest.append(tree)
-        except Exception as e:
-            logger.error(f'Failed to process {path}: {e}')
+		# just print it so that it can be piped to another command!
+		click.echo(summary_path.as_posix())
+		return
 
-    logger.info(f'Processed {len(forest)} audit trees, skipped {len(skipped)} entries')
+	audit_jsons = list(latest_results_dir.rglob('audit.json'))
+	if not audit_jsons:
+		logger.warning('No audit.json files found')
+		return
 
-    ignore_keys = [
-        'children', 
-        # idk what else to ignore rn 
-    ]
+	forest = []
+	skipped = []
+	for path in audit_jsons:
+		try:
+			entry = json.loads(path.read_text())
+			# Skip if source_directory has an error
+			if entry.get('source_directory', {}).get('status') != 'ok':
+				skipped.append(path)
+				continue
+			tree = build_tree(entry)
+			forest.append(tree)
+		except Exception as e:
+			logger.error(f'Failed to process {path}: {e}')
 
-    # Optional: flatten all trees to a DataFrame
-    flattened = [row for tree in forest for row in flatten_tree(tree, ignore_keys=ignore_keys)]
-    df = pd.DataFrame(flattened)
+	logger.info(f'Processed {len(forest)} audit trees, skipped {len(skipped)} entries')
 
-    # add column for GB size from "size" column
-    if 'size' in df.columns:
-        df['size_gb'] = df['size'].apply(lambda x: f"{ByteSize(x):.2f:GB}")
+	ignore_keys = [
+		'children',
+		# idk what else to ignore rn
+	]
 
+	# Optional: flatten all trees to a DataFrame
+	flattened = [
+		row for tree in forest for row in flatten_tree(tree, ignore_keys=ignore_keys)
+	]
+	audit_df = pd.DataFrame(flattened)
 
-    # reorder cols this order for better readability
-    cols = [
-        'path', 'parent', 'name', 'size', 'size_gb', 'file_count', 
-        'owner', 'group', 'full_name', 'permissions',
-        'last_modified', 'last_changed', 'readme_path', 
-        'meta.OWNER', 'meta.DESC', 'meta.EMAIL', 'meta.DATE',
-        'file_types',
-    ]
-    df = df[cols]
+	# add column for GB size from "size" column
+	if 'size' in audit_df.columns:
+		audit_df['size_gb'] = audit_df['size'].apply(lambda x: f'{ByteSize(x):.2f:GB}')
 
-    # just echo the csv path
-    df.to_csv(summary_path, index=False)
-    logger.info(f'Summary written to {summary_path.as_posix()}')
+	# reorder cols this order for better readability
+	cols = [
+		'path',
+		'parent',
+		'name',
+		'size',
+		'size_gb',
+		'file_count',
+		'owner',
+		'group',
+		'full_name',
+		'permissions',
+		'last_modified',
+		'last_changed',
+		'readme_path',
+		'meta.OWNER',
+		'meta.DESC',
+		'meta.EMAIL',
+		'meta.DATE',
+		'file_types',
+	]
+	audit_df = audit_df[cols]
 
-    # just print it so that it can be piped to another command!
-    click.echo(summary_path.as_posix())
+	# just echo the csv path
+	audit_df.to_csv(summary_path, index=False)
+	logger.info(f'Summary written to {summary_path.as_posix()}')
 
-
+	# just print it so that it can be piped to another command!
+	click.echo(summary_path.as_posix())
 
 
 if __name__ == '__main__':
-    collect_audits()  # Run the CLI command when this script is executed directly
+	collect_audits()  # Run the CLI command when this script is executed directly

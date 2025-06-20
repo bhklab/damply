@@ -276,6 +276,3 @@ def get_directories(root: Path) -> list[Path]:
 	# sort the matches by name
 	matches.sort(key=lambda x: str(x))
 	return matches
-
-
-
