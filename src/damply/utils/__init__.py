@@ -5,7 +5,16 @@ from pathlib import Path
 
 from bytesize import ByteSize
 from rich.progress import Progress, SpinnerColumn, TextColumn
+from .find_readme import find_readme, parse_readme
 
+
+__all__ = [
+    'get_directory_size',
+    'count_files',
+    'collect_suffixes',
+    'find_readme',
+    'parse_readme',
+]
 
 def get_directory_size(directory: Path, show_progress: bool = True) -> ByteSize:
     if show_progress:
