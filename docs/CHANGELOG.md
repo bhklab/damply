@@ -1,6 +1,24 @@
 # CHANGELOG
 
 
+## v0.19.0 (2025-06-20)
+
+### Bug Fixes
+
+- Limit suffixes to 3 parts
+  ([`2432717`](https://github.com/bhklab/damply/commit/2432717b6f69378c1581196f7c9780d80c9c4d49))
+
+### Chores
+
+- Add packaging
+  ([`485fba7`](https://github.com/bhklab/damply/commit/485fba723b74db4053933613708b5dac79279e32))
+
+### Features
+
+- Validate against package version
+  ([`53259a6`](https://github.com/bhklab/damply/commit/53259a64ecd6bb67b937e973ec6cfbb82a45669e))
+
+
 ## v0.18.2 (2025-06-19)
 
 ### Bug Fixes
