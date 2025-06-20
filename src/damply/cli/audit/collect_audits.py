@@ -26,9 +26,7 @@ def get_latest_result_directory(project_group: str) -> Path:
 
 	if not subdirs:
 		msg = f'No results directories found for {project_group}'
-		raise OutsideProjectPathError(
-			msg
-		)
+		raise OutsideProjectPathError(msg)
 
 	latest = subdirs[0]
 	logger.info(
