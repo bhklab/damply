@@ -53,9 +53,6 @@ def project(
 
     if compute_details:
         audit.compute_details(show_progress=True, force=True)
-    else:
-        # just try loading cache
-        audit.compute_details(show_progress=True, force=False)
 
     if json:
         print(audit.to_json())  # noqa

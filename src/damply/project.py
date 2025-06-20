@@ -10,7 +10,7 @@ from rich import print
 
 from damply.cache_dir import get_cache_dir
 from damply.logging_config import logger
-from damply.utils import collect_suffixes, count_files, get_directory_size
+from damply.utils import collect_suffixes, count_files, get_directory_size, find_readme, parse_readme
 from damply import __version__
 
 
@@ -23,7 +23,8 @@ class DirectoryAudit:
     permissions: str
     last_modified: datetime
     last_changed: datetime
-    # last_accessed: datetime
+    readme_path: Path | None = field(default=None)
+    metadata: dict[str, str] = field(default_factory=dict, init=False)
 
     # lazy evaluated because expensive
     size: ByteSize | None = field(default=None, init=False)
@@ -32,6 +33,13 @@ class DirectoryAudit:
 
     last_computed: str | None = field(default=None, init=False, repr=False)
 
+    def __post_init__(self):
+        # parse readme file if it exists
+        if not self.readme_path:
+            return
+        self.metadata = parse_readme(self.readme_path)
+
+
     @classmethod
     def from_path(cls, path: Path) -> 'DirectoryAudit':
         # resolve ~ and expand environment variables and canonicalize the path
@@ -39,6 +47,9 @@ class DirectoryAudit:
         if not path.exists():
             msg = f'The path {path} does not exist.'
             raise FileNotFoundError(msg)
+        elif not path.is_dir():
+            msg = f'The path {path} is not a directory.'
+            raise NotADirectoryError(msg)
 
         stats = path.stat()
 
@@ -65,11 +76,10 @@ class DirectoryAudit:
             group=group_name,
             full_name=pwuid_gecos,
             permissions=stat.filemode(stats.st_mode),
-            # last_accessed=datetime.fromtimestamp(stats.st_atime, tz=toronto_tz),
             last_modified=datetime.fromtimestamp(stats.st_mtime, tz=toronto_tz),
             last_changed=datetime.fromtimestamp(stats.st_ctime, tz=toronto_tz),
+            readme_path=find_readme(path),
         )
-
         return audit
 
     def compute_details(self, show_progress: bool = True, force: bool = False) -> None:
@@ -197,7 +207,8 @@ class DirectoryAudit:
                 cache_path.unlink()
                 return False
 
-            # Check if the cache is for the same path
+            # Check if the cache is for the same path 
+            # this would be wild to not be the same right now
             if cache_data.get('path') != str(self.path.absolute()):
                 return False
 
@@ -260,6 +271,8 @@ class DirectoryAudit:
             'file_types',
             self.file_types if self.file_types is not None else 'Not computed yet',
         )
+        yield 'readme_path', self.readme_path if self.readme_path else 'No README found'
+        yield 'metadata', self.metadata if self.metadata else 'No metadata found in README'
 
     def to_dict(self) -> dict:
         result = {}
