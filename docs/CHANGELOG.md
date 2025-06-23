@@ -1,6 +1,22 @@
 # CHANGELOG
 
 
+## v0.25.0 (2025-06-23)
+
+### Chores
+
+- Update lockfile
+  ([`5e51e82`](https://github.com/bhklab/damply/commit/5e51e82467c9313ef55b33d15e920c6b8cabd828))
+
+### Features
+
+- Update ci
+  ([`c1e3248`](https://github.com/bhklab/damply/commit/c1e3248d9f656da34a9a05da7a003a86b7348433))
+
+- Update ci
+  ([`8e82a4c`](https://github.com/bhklab/damply/commit/8e82a4c8d96bb030ccb04550f74d766131ef095d))
+
+
 ## v0.24.0 (2025-06-23)
 
 ### Bug Fixes
