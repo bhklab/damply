@@ -5,6 +5,7 @@ from damply.cli.audit import audit, collect_audits, full_audit
 from damply.cli.groups_table import groups_table
 from damply.cli.project import project
 from damply.cli.whose import whose
+from damply.plot import plot
 
 
 @click.group(
@@ -30,3 +31,4 @@ cli.add_command(project)
 cli.add_command(audit)
 cli.add_command(full_audit)
 cli.add_command(collect_audits)
+cli.add_command(plot)

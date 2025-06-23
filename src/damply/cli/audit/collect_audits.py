@@ -54,6 +54,7 @@ def get_latest_result_directory(project_group: str) -> Path:
 @dataclass
 class DirectoryNode:
 	path: str
+	parent_path: str
 	parent: str
 	name: str
 	size: int
@@ -84,6 +85,7 @@ class DirectoryNode:
 			p = Path(data['path'])
 			return cls(
 				path=p.as_posix(),
+				parent_path=p.parent.as_posix(),
 				parent=p.parent.relative_to(Path(*p.parts[0:4])).as_posix(),
 				name=p.name,
 				size=data['size'],
@@ -104,9 +106,12 @@ class DirectoryNode:
 			raise KeyError(msg) from e
 
 
-def build_tree(entry: dict[str, object]) -> DirectoryNode:
+def build_tree(entry: dict[str, object], keep_children: bool) -> DirectoryNode:
 	root_data = entry['source_directory']['data']
 	root_node = DirectoryNode.from_dict(root_data)
+	if not keep_children:
+		# if source_only is True, we only want the root node
+		return root_node
 
 	for dir_entry in entry.get('directories', {}).values():
 		if dir_entry['status'] == 'ok':
@@ -148,9 +153,22 @@ def flatten_tree(
 
 @click.command()
 @click.argument('project_group', type=str)
-@click.option('--force', is_flag=True, help='Force collection even if summary exists')
-def collect_audits(project_group: str, force: bool = False) -> None:
-	"""Collect audits for a project group (after full-audit)."""
+@click.option(
+	'--force', '-f', is_flag=True, help='Force collection even if summary exists'
+)
+@click.option(
+	'--keep-children',
+	is_flag=True,
+	help='Only collect source directories (aka higher level directories only)',
+)
+def collect_audits(
+	project_group: str, force: bool = False, keep_children: bool = False
+) -> None:
+	"""Collect audits for a project group (after full-audit).
+
+	keep_children: If
+
+	"""
 	import json
 
 	from bytesize import ByteSize
@@ -158,7 +176,7 @@ def collect_audits(project_group: str, force: bool = False) -> None:
 	logger.info(f'Collecting audits for project group: {project_group}')
 	latest_results_dir = get_latest_result_directory(project_group)
 
-	summary_path = latest_results_dir / 'audit_summary.csv'
+	summary_path = latest_results_dir / f'{project_group}-audit_summary.csv'
 
 	if summary_path.exists() and not force:
 		logger.info(f'Summary already exists at {summary_path}, skipping collection.')
@@ -167,7 +185,7 @@ def collect_audits(project_group: str, force: bool = False) -> None:
 		click.echo(summary_path.as_posix())
 		return
 
-	audit_jsons = list(latest_results_dir.rglob('audit.json'))
+	audit_jsons = list(set(latest_results_dir.rglob('audit.json')))
 	if not audit_jsons:
 		logger.warning('No audit.json files found')
 		return
@@ -181,7 +199,7 @@ def collect_audits(project_group: str, force: bool = False) -> None:
 			if entry.get('source_directory', {}).get('status') != 'ok':
 				skipped.append(path)
 				continue
-			tree = build_tree(entry)
+			tree = build_tree(entry, keep_children=keep_children)
 			forest.append(tree)
 		except Exception as e:
 			logger.error(f'Failed to process {path}: {e}')
@@ -207,7 +225,9 @@ def collect_audits(project_group: str, force: bool = False) -> None:
 	# reorder cols this order for better readability
 	cols = [
 		'path',
+		'parent_path',
 		'parent',
+		'depth',
 		'name',
 		'size',
 		'size_gb',
@@ -226,6 +246,27 @@ def collect_audits(project_group: str, force: bool = False) -> None:
 		'file_types',
 	]
 	audit_df = audit_df[cols]
+
+	# drop duplicates based on all columns except 'file_types'
+	audit_df = audit_df.drop_duplicates(
+		subset=[col for col in cols if col != 'file_types']
+	)
+
+	# get duplicated rows based on 'path' and 'name' (this is a problem!!!)
+	duplicates = audit_df.duplicated(subset=['path', 'name'], keep=False)
+	if duplicates.any():
+		logger.warning(
+			'Found duplicated rows based on "path" and "name". '
+			'These will be kept in the summary.'
+		)
+
+		duplicates = audit_df[duplicates]
+		logger.info(f'Number of duplicated rows: {len(duplicates)}')
+
+	# sort the DataFrame by 'path' and 'name' for better readability
+	audit_df = audit_df.sort_values(
+		by=['path'], key=lambda x: x.str.lower(), ascending=True
+	).reset_index(drop=True)
 
 	# just echo the csv path
 	audit_df.to_csv(summary_path, index=False)
