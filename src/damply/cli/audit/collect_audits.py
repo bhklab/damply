@@ -188,7 +188,8 @@ def collect_audits(project_group: str, force: bool = False) -> None:
 
 	# add column for GB size from "size" column
 	if 'size' in audit_df.columns:
-		audit_df['size_gb'] = audit_df['size'].apply(lambda x: f'{ByteSize(x):.2f:GB}')
+        # bytesize .GB helper function to convert bytes to GB
+		audit_df['size_gb'] = audit_df['size'].apply(lambda x: f'{ByteSize(x).GB:.5f}')
 
 	# reorder cols this order for better readability
 	cols = [
