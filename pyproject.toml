@@ -17,12 +17,14 @@ dependencies = [
     # "pydantic",
     # "dataclasses-json",
     # "matplotlib",
-    "plotly>=6.1.0,<7",
     "pandas",
     "pybytesize>=0.8.1,<0.9",
     "loguru>=0.7.3,<0.8",
     "click>=8.2,<9",
-    "packaging>=25.0"
+    "packaging>=25.0",
+    # needed for plotting:
+    "plotly>=6.1.0,<7",
+    "kaleido>=1.0.0"
 ]
 classifiers = [
     "License :: OSI Approved :: MIT License",
