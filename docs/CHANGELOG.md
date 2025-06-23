@@ -1,6 +1,28 @@
 # CHANGELOG
 
 
+## v0.23.1 (2025-06-23)
+
+### Bug Fixes
+
+- Update size_gb calculation to use ByteSize helper for better precision
+  ([`aac73fb`](https://github.com/bhklab/damply/commit/aac73fb4e223eda9d0f2f792f0c4327c8fcc4dac))
+
+### Chores
+
+- Add plotly and kaleido dependencies for enhanced plotting capabilities
+  ([`558b173`](https://github.com/bhklab/damply/commit/558b173a08bcc4f809e21a514d2e3cdcd1d720a0))
+
+- Reintroduced plotly dependency with version constraints. - Added kaleido for static image
+  generation in plots.
+
+- Add plotly dependency
+  ([`0e98480`](https://github.com/bhklab/damply/commit/0e984808cd963bb0793b3bf00efe3e2bcb09da7d))
+
+- Setup plot module
+  ([`2b33cf5`](https://github.com/bhklab/damply/commit/2b33cf5d027a5482265263de65795209cd464307))
+
+
 ## v0.23.0 (2025-06-20)
 
 ### Bug Fixes
