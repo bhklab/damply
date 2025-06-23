@@ -130,13 +130,21 @@ def audit(directory: Path, compute_details: bool) -> None:
 	default=False,
 	show_default=True,
 )
-def full_audit(project_group: str, compute_details: bool) -> None:
+@click.option(
+	'--sbatch-time',
+	'-t',
+	'job_time',
+	help='Time limit for each sbatch job (default: 01:00:00)',
+    default='01:00:00',
+    show_default=True,
+)
+def full_audit(project_group: str, compute_details: bool, job_time: str) -> None:
 	"""Run a full audit for the specified project group.
 
 	This will essentially, submit a bunch of sbatch jobs to the cluster
 	for all the directories in the project group.
 	"""
-	run_full_audit(project_group, compute_details=compute_details)
+	run_full_audit(project_group, compute_details=compute_details, job_time=job_time)
 
 
 # Setup some assumptions about project groups and directories
@@ -144,7 +152,7 @@ def full_audit(project_group: str, compute_details: bool) -> None:
 VALID_PROJECT_GROUPS = {'bhklab', 'radiomics'}
 
 
-def run_full_audit(project_group: str, compute_details: bool = False) -> None:
+def run_full_audit(project_group: str, compute_details: bool = False, job_time: str = '01:00:00') -> None:
 	"""Run a full audit for the specified project group.
 
 	NOTE: THIS IS MEANT TO BE USED ON A COMPUTE NODE! NOT THE LOGIN NODE!
@@ -201,7 +209,7 @@ def run_full_audit(project_group: str, compute_details: bool = False) -> None:
 			'--output',
 			str(log_dir / f'{job_name}_%j.out'),
 			'--time',
-			'01:00:00',
+            job_time,
 			'--mem',
 			'4G',
 			'--wrap',
