@@ -30,7 +30,7 @@ jobs:
                   environments: ${{ matrix.env }}
                   pixi-version: v0.48.1
                   cache: true
-                  locked: false # wont be the same because of the tag
+                  locked: true # wont be the same because of the tag
 
             - name: Run pytest
               run: |
@@ -64,7 +64,7 @@ jobs:
                   environments: ${{ env.PIXI_ENV }}
                   pixi-version: v0.48.1
                   cache: true
-                  locked: false
+                  locked: true
                   # cache-key: pixi-ENV_${{ env.PIXI_ENV }}-
 
             - name: Run Ruff
