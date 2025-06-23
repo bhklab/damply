@@ -1,6 +1,33 @@
 # CHANGELOG
 
 
+## v0.24.0 (2025-06-23)
+
+### Bug Fixes
+
+- Lint
+  ([`747eed0`](https://github.com/bhklab/damply/commit/747eed0a7276dbf43279d9e95e87c974b693bc30))
+
+- Only cache invalidate on major version upgrade
+  ([`533469b`](https://github.com/bhklab/damply/commit/533469bc768f5aa72df14db658ea7ba80a8b3df0))
+
+- Update sbatch to use DEBUG logging
+  ([`6adbe63`](https://github.com/bhklab/damply/commit/6adbe63dc2df3be79d1a768dcc6ac34e31755948))
+
+### Chores
+
+- Format and lint
+  ([`575e099`](https://github.com/bhklab/damply/commit/575e099542ba0e8a2c26ddebc55d3be656bdab43))
+
+### Features
+
+- Add ability to specify job time when running full-audit
+  ([`c2dc630`](https://github.com/bhklab/damply/commit/c2dc63058e4a779082bdaafe8f2824f378535d2d))
+
+- Functioning collect-audit and plot
+  ([`9ad2749`](https://github.com/bhklab/damply/commit/9ad2749764ca77a690104f8ab6190e04a501ff7c))
+
+
 ## v0.23.1 (2025-06-23)
 
 ### Bug Fixes
