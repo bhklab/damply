@@ -185,7 +185,7 @@ class DirectoryAudit:
 		with cache_path.open('w', encoding='utf-8') as f:
 			json.dump(cache_data, f)
 
-	def _get_from_cache(self) -> bool: # noqa: PLR0911
+	def _get_from_cache(self) -> bool:  # noqa: PLR0911
 		"""
 		Try to load data from cache if it's newer than the last modified date.
 
