@@ -11,7 +11,15 @@ from damply.logging_config import logger
 
 
 def get_latest_result_directory(project_group: str) -> Path:
-	"""Get the results directory for the project group."""
+	"""Get the results directory for the project group.
+
+	Directory name should be in the format: YYYY-MM-DD
+
+	If the date is older than 7 days, raise a warning that
+	the results may be outdated.
+	"""
+	from datetime import datetime
+
 	root = Path(f'/cluster/projects/{project_group}/admin/audit/results')
 
 	# get all directories in the results directory
@@ -32,9 +40,14 @@ def get_latest_result_directory(project_group: str) -> Path:
 	logger.info(
 		f'Latest results directory for {project_group}: {latest} out of {len(subdirs)} found'
 	)
-	if not latest.exists():
-		msg = f'No results directory found for {project_group}'
-		raise OutsideProjectPathError(msg)
+	# check if the latest directory is older than 7 days
+	latest_date = datetime.strptime(latest.name, '%Y-%m-%d')
+	if (datetime.now() - latest_date).days > 7:
+		logger.warning(
+			f'The latest results directory {latest} is older than 7 days. '
+			'Results may be outdated. Consider re-running the full-audit.'
+		)
+
 	return latest
 
 
@@ -188,7 +201,7 @@ def collect_audits(project_group: str, force: bool = False) -> None:
 
 	# add column for GB size from "size" column
 	if 'size' in audit_df.columns:
-        # bytesize .GB helper function to convert bytes to GB
+		# bytesize .GB helper function to convert bytes to GB
 		audit_df['size_gb'] = audit_df['size'].apply(lambda x: f'{ByteSize(x).GB:.5f}')
 
 	# reorder cols this order for better readability

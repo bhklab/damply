@@ -135,8 +135,8 @@ def audit(directory: Path, compute_details: bool) -> None:
 	'-t',
 	'job_time',
 	help='Time limit for each sbatch job (default: 01:00:00)',
-    default='01:00:00',
-    show_default=True,
+	default='01:00:00',
+	show_default=True,
 )
 def full_audit(project_group: str, compute_details: bool, job_time: str) -> None:
 	"""Run a full audit for the specified project group.
@@ -152,7 +152,9 @@ def full_audit(project_group: str, compute_details: bool, job_time: str) -> None
 VALID_PROJECT_GROUPS = {'bhklab', 'radiomics'}
 
 
-def run_full_audit(project_group: str, compute_details: bool = False, job_time: str = '01:00:00') -> None:
+def run_full_audit(
+	project_group: str, compute_details: bool = False, job_time: str = '01:00:00'
+) -> None:
 	"""Run a full audit for the specified project group.
 
 	NOTE: THIS IS MEANT TO BE USED ON A COMPUTE NODE! NOT THE LOGIN NODE!
@@ -171,6 +173,7 @@ def run_full_audit(project_group: str, compute_details: bool = False, job_time: 
 	# do we have access to the base directory?
 	if not root.exists() or not root.is_dir():
 		msg = f'Base directory {root} does not exist or is not a directory.'
+		msg += ' Are you sure you are running this on a compute node?'
 		raise OutsideProjectPathError(msg)
 
 	logger.info(f'Starting full audit for project group: {project_group}')
@@ -209,11 +212,11 @@ def run_full_audit(project_group: str, compute_details: bool = False, job_time: 
 			'--output',
 			str(log_dir / f'{job_name}_%j.out'),
 			'--time',
-            job_time,
+			job_time,
 			'--mem',
 			'4G',
 			'--wrap',
-			f'damply audit {directory} {compute_details_arg}',
+			f'DAMPLY_LOG_LEVEL=DEBUG damply audit {directory} {compute_details_arg}',
 		]
 		logger.debug(f'Submitting job with command: {cmd}')
 
@@ -240,7 +243,6 @@ def get_directories(root: Path) -> list[Path]:
 		return dirs
 
 	############################################################################
-
 	# radiomics is more complex:
 	############################################################################
 	# get the first level of directories in the root
