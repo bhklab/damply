@@ -3,7 +3,7 @@
 #__________________________________________________________________________________________________#
 [project]
 name = "damply"
-version = "0.25.0"
+version = "0.26.0"
 description = "Data Management Plan made simple."
 license = "MIT"
 readme = "README.md"
@@ -164,6 +164,7 @@ hatch = "*"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
 
 
 

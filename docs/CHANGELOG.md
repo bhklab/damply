@@ -1,6 +1,27 @@
 # CHANGELOG
 
 
+## v0.26.0 (2025-06-26)
+
+### Build System
+
+- Add H4H docs pages and some theme and extensions stuff
+  ([`0771446`](https://github.com/bhklab/damply/commit/0771446e60fec8afed34634dca206624570bf04d))
+
+- Update damply
+  ([`2feac96`](https://github.com/bhklab/damply/commit/2feac96c36bf03ba37ab060eaf07299c75000984))
+
+### Documentation
+
+- Add page on group permission querying functions
+  ([`6c99707`](https://github.com/bhklab/damply/commit/6c997078b4f266556da7e901150f5ffa9f982398))
+
+### Features
+
+- Add instructions for running audits on H4H
+  ([`7c51cb0`](https://github.com/bhklab/damply/commit/7c51cb0b436d90b67981f7ed4acea4d7730dbc4f))
+
+
 ## v0.25.0 (2025-06-23)
 
 ### Chores
