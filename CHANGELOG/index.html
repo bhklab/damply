@@ -1,0 +1,3627 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Package documentation for damply">
+      
+      
+        <meta name="author" content="Jermiah Joseph">
+      
+      
+      
+        <link rel="prev" href="../HPC4Health/group_permissions/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Changelog - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#changelog" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Changelog
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/bhklab/damply" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    damply
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/bhklab/damply" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    damply
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dmpdirs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DMP Directories
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    H4H
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            H4H
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HPC4Health/audit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Audit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HPC4Health/group_permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Group Permissions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Changelog
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Changelog
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#v0250-2025-06-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.25.0 (2025-06-23)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.25.0 (2025-06-23)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0240-2025-06-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.24.0 (2025-06-23)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.24.0 (2025-06-23)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chores_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0231-2025-06-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.23.1 (2025-06-23)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.23.1 (2025-06-23)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chores_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0230-2025-06-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.23.0 (2025-06-20)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.23.0 (2025-06-20)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chores_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0220-2025-06-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.22.0 (2025-06-20)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.22.0 (2025-06-20)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chores_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0210-2025-06-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.21.0 (2025-06-20)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.21.0 (2025-06-20)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0200-2025-06-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.20.0 (2025-06-20)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.20.0 (2025-06-20)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chores_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0190-2025-06-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.19.0 (2025-06-20)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.19.0 (2025-06-20)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chores_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0182-2025-06-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.18.2 (2025-06-19)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.18.2 (2025-06-19)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chores_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0181-2025-06-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.18.1 (2025-06-19)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.18.1 (2025-06-19)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0180-2025-06-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.18.0 (2025-06-19)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.18.0 (2025-06-19)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chores_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0170-2025-06-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.17.0 (2025-06-13)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.17.0 (2025-06-13)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chores_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0160-2025-06-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.16.0 (2025-06-13)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.16.0 (2025-06-13)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chores_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#continuous-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0150-2025-06-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.15.0 (2025-06-13)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.15.0 (2025-06-13)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chores_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0140-2025-06-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.14.0 (2025-06-13)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.14.0 (2025-06-13)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chores_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0130-2025-06-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.13.0 (2025-06-13)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.13.0 (2025-06-13)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chores_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0120-2025-06-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.12.0 (2025-06-13)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.12.0 (2025-06-13)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chores_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refactoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refactoring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0110-2025-05-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.11.0 (2025-05-26)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.11.0 (2025-05-26)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chores_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refactoring_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refactoring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0100-2025-05-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.10.0 (2025-05-20)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.10.0 (2025-05-20)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chores_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Style
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#continuous-integration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refactoring_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refactoring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v090-2024-08-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.9.0 (2024-08-20)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.9.0 (2024-08-20)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chores_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v080-2024-08-01" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.8.0 (2024-08-01)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.8.0 (2024-08-01)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chores_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v071-2024-07-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.7.1 (2024-07-31)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.7.1 (2024-07-31)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v070-2024-07-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.7.0 (2024-07-31)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.7.0 (2024-07-31)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v060-2024-05-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.6.0 (2024-05-31)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.6.0 (2024-05-31)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v050-2024-05-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.5.0 (2024-05-31)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.5.0 (2024-05-31)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chores_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v041-2024-05-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.4.1 (2024-05-31)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.4.1 (2024-05-31)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chores_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v040-2024-05-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.4.0 (2024-05-31)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.4.0 (2024-05-31)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v030-2024-05-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.3.0 (2024-05-31)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.3.0 (2024-05-31)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chores_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v020-2024-05-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.2.0 (2024-05-31)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.2.0 (2024-05-31)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v011-2024-05-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.1.1 (2024-05-31)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.1.1 (2024-05-31)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v010-2024-05-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.1.0 (2024-05-31)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.1.0 (2024-05-31)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#v0250-2025-06-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.25.0 (2025-06-23)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.25.0 (2025-06-23)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0240-2025-06-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.24.0 (2025-06-23)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.24.0 (2025-06-23)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chores_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0231-2025-06-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.23.1 (2025-06-23)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.23.1 (2025-06-23)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chores_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0230-2025-06-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.23.0 (2025-06-20)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.23.0 (2025-06-20)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chores_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0220-2025-06-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.22.0 (2025-06-20)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.22.0 (2025-06-20)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chores_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0210-2025-06-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.21.0 (2025-06-20)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.21.0 (2025-06-20)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0200-2025-06-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.20.0 (2025-06-20)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.20.0 (2025-06-20)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chores_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0190-2025-06-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.19.0 (2025-06-20)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.19.0 (2025-06-20)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chores_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0182-2025-06-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.18.2 (2025-06-19)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.18.2 (2025-06-19)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chores_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0181-2025-06-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.18.1 (2025-06-19)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.18.1 (2025-06-19)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0180-2025-06-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.18.0 (2025-06-19)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.18.0 (2025-06-19)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chores_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0170-2025-06-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.17.0 (2025-06-13)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.17.0 (2025-06-13)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chores_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0160-2025-06-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.16.0 (2025-06-13)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.16.0 (2025-06-13)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chores_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#continuous-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0150-2025-06-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.15.0 (2025-06-13)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.15.0 (2025-06-13)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chores_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0140-2025-06-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.14.0 (2025-06-13)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.14.0 (2025-06-13)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chores_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0130-2025-06-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.13.0 (2025-06-13)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.13.0 (2025-06-13)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chores_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0120-2025-06-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.12.0 (2025-06-13)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.12.0 (2025-06-13)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chores_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refactoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refactoring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0110-2025-05-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.11.0 (2025-05-26)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.11.0 (2025-05-26)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chores_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refactoring_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refactoring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v0100-2025-05-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.10.0 (2025-05-20)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.10.0 (2025-05-20)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chores_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Style
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#continuous-integration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refactoring_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refactoring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v090-2024-08-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.9.0 (2024-08-20)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.9.0 (2024-08-20)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chores_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v080-2024-08-01" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.8.0 (2024-08-01)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.8.0 (2024-08-01)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chores_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v071-2024-07-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.7.1 (2024-07-31)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.7.1 (2024-07-31)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v070-2024-07-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.7.0 (2024-07-31)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.7.0 (2024-07-31)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v060-2024-05-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.6.0 (2024-05-31)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.6.0 (2024-05-31)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v050-2024-05-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.5.0 (2024-05-31)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.5.0 (2024-05-31)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chores_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v041-2024-05-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.4.1 (2024-05-31)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.4.1 (2024-05-31)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chores_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v040-2024-05-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.4.0 (2024-05-31)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.4.0 (2024-05-31)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v030-2024-05-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.3.0 (2024-05-31)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.3.0 (2024-05-31)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chores_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v020-2024-05-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.2.0 (2024-05-31)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.2.0 (2024-05-31)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v011-2024-05-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.1.1 (2024-05-31)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.1.1 (2024-05-31)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v010-2024-05-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.1.0 (2024-05-31)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.1.0 (2024-05-31)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bug Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="changelog">CHANGELOG</h1>
+<h2 id="v0250-2025-06-23">v0.25.0 (2025-06-23)</h2>
+<h3 id="chores">Chores</h3>
+<ul>
+<li>Update lockfile
+  (<a href="https://github.com/bhklab/damply/commit/5e51e82467c9313ef55b33d15e920c6b8cabd828"><code>5e51e82</code></a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li>
+<p>Update ci
+  (<a href="https://github.com/bhklab/damply/commit/c1e3248d9f656da34a9a05da7a003a86b7348433"><code>c1e3248</code></a>)</p>
+</li>
+<li>
+<p>Update ci
+  (<a href="https://github.com/bhklab/damply/commit/8e82a4c8d96bb030ccb04550f74d766131ef095d"><code>8e82a4c</code></a>)</p>
+</li>
+</ul>
+<h2 id="v0240-2025-06-23">v0.24.0 (2025-06-23)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li>
+<p>Lint
+  (<a href="https://github.com/bhklab/damply/commit/747eed0a7276dbf43279d9e95e87c974b693bc30"><code>747eed0</code></a>)</p>
+</li>
+<li>
+<p>Only cache invalidate on major version upgrade
+  (<a href="https://github.com/bhklab/damply/commit/533469bc768f5aa72df14db658ea7ba80a8b3df0"><code>533469b</code></a>)</p>
+</li>
+<li>
+<p>Update sbatch to use DEBUG logging
+  (<a href="https://github.com/bhklab/damply/commit/6adbe63dc2df3be79d1a768dcc6ac34e31755948"><code>6adbe63</code></a>)</p>
+</li>
+</ul>
+<h3 id="chores_1">Chores</h3>
+<ul>
+<li>Format and lint
+  (<a href="https://github.com/bhklab/damply/commit/575e099542ba0e8a2c26ddebc55d3be656bdab43"><code>575e099</code></a>)</li>
+</ul>
+<h3 id="features_1">Features</h3>
+<ul>
+<li>
+<p>Add ability to specify job time when running full-audit
+  (<a href="https://github.com/bhklab/damply/commit/c2dc63058e4a779082bdaafe8f2824f378535d2d"><code>c2dc630</code></a>)</p>
+</li>
+<li>
+<p>Functioning collect-audit and plot
+  (<a href="https://github.com/bhklab/damply/commit/9ad2749764ca77a690104f8ab6190e04a501ff7c"><code>9ad2749</code></a>)</p>
+</li>
+</ul>
+<h2 id="v0231-2025-06-23">v0.23.1 (2025-06-23)</h2>
+<h3 id="bug-fixes_1">Bug Fixes</h3>
+<ul>
+<li>Update size_gb calculation to use ByteSize helper for better precision
+  (<a href="https://github.com/bhklab/damply/commit/aac73fb4e223eda9d0f2f792f0c4327c8fcc4dac"><code>aac73fb</code></a>)</li>
+</ul>
+<h3 id="chores_2">Chores</h3>
+<ul>
+<li>
+<p>Add plotly and kaleido dependencies for enhanced plotting capabilities
+  (<a href="https://github.com/bhklab/damply/commit/558b173a08bcc4f809e21a514d2e3cdcd1d720a0"><code>558b173</code></a>)</p>
+</li>
+<li>
+<p>Reintroduced plotly dependency with version constraints. - Added kaleido for static image
+  generation in plots.</p>
+</li>
+<li>
+<p>Add plotly dependency
+  (<a href="https://github.com/bhklab/damply/commit/0e984808cd963bb0793b3bf00efe3e2bcb09da7d"><code>0e98480</code></a>)</p>
+</li>
+<li>
+<p>Setup plot module
+  (<a href="https://github.com/bhklab/damply/commit/2b33cf5d027a5482265263de65795209cd464307"><code>2b33cf5</code></a>)</p>
+</li>
+</ul>
+<h2 id="v0230-2025-06-20">v0.23.0 (2025-06-20)</h2>
+<h3 id="bug-fixes_2">Bug Fixes</h3>
+<ul>
+<li>Add force option to project cli
+  (<a href="https://github.com/bhklab/damply/commit/05c4d849736a2a9873fbb7d05fb645d29ec74ae1"><code>05c4d84</code></a>)</li>
+</ul>
+<h3 id="chores_3">Chores</h3>
+<ul>
+<li>
+<p>Format and lint
+  (<a href="https://github.com/bhklab/damply/commit/1f99f3856587fca1284698b679ade8e95c934b01"><code>1f99f38</code></a>)</p>
+</li>
+<li>
+<p>Format and lint
+  (<a href="https://github.com/bhklab/damply/commit/3afc6aff16e243d850ee4dde9506c5a690d07cf9"><code>3afc6af</code></a>)</p>
+</li>
+</ul>
+<h3 id="features_2">Features</h3>
+<ul>
+<li>
+<p>Add collect_audits
+  (<a href="https://github.com/bhklab/damply/commit/584e989a60af0a059127cf0be1f804d033930764"><code>584e989</code></a>)</p>
+</li>
+<li>
+<p>Add collect_audits to cli
+  (<a href="https://github.com/bhklab/damply/commit/fabeb53cc41c260d2c204ec42113e5f35ca42461"><code>fabeb53</code></a>)</p>
+</li>
+</ul>
+<h2 id="v0220-2025-06-20">v0.22.0 (2025-06-20)</h2>
+<h3 id="chores_4">Chores</h3>
+<ul>
+<li>Format
+  (<a href="https://github.com/bhklab/damply/commit/1bff79f00170db59100a555822feb40a4fe0fd18"><code>1bff79f</code></a>)</li>
+</ul>
+<h3 id="features_3">Features</h3>
+<ul>
+<li>Audit submission across both projects groups
+  (<a href="https://github.com/bhklab/damply/commit/d6590b30f759224cadb1c48fd4404b5d109fe8d9"><code>d6590b3</code></a>)</li>
+</ul>
+<h2 id="v0210-2025-06-20">v0.21.0 (2025-06-20)</h2>
+<h3 id="features_4">Features</h3>
+<ul>
+<li>
+<p>Ensure working audit
+  (<a href="https://github.com/bhklab/damply/commit/b61cbf4fc4095e4bc05334876f8d3195400d5812"><code>b61cbf4</code></a>)</p>
+</li>
+<li>
+<p>Started audit
+  (<a href="https://github.com/bhklab/damply/commit/58511e409492b33568723ca25fe19e6346bf0f8f"><code>58511e4</code></a>)</p>
+</li>
+</ul>
+<h2 id="v0200-2025-06-20">v0.20.0 (2025-06-20)</h2>
+<h3 id="chores_5">Chores</h3>
+<ul>
+<li>
+<p>Rearrange
+  (<a href="https://github.com/bhklab/damply/commit/c489eb5101b81ecd95ef060fa2109d87f430fcb0"><code>c489eb5</code></a>)</p>
+</li>
+<li>
+<p>Update module imports
+  (<a href="https://github.com/bhklab/damply/commit/797cd1203cb66381e3aa5fcf7071ed773c5b59c1"><code>797cd12</code></a>)</p>
+</li>
+</ul>
+<h3 id="features_5">Features</h3>
+<ul>
+<li>
+<p>Add find readme utilitiy
+  (<a href="https://github.com/bhklab/damply/commit/bbd4fd66c8cf3c573f89523a4cf8ed5b0759a369"><code>bbd4fd6</code></a>)</p>
+</li>
+<li>
+<p>Add find readme utilitiy to project and update cli to not show compuuted details
+  (<a href="https://github.com/bhklab/damply/commit/bd6e1eb5c3b67de9cd21652edbf14a47e0d2389c"><code>bd6e1eb</code></a>)</p>
+</li>
+</ul>
+<h2 id="v0190-2025-06-20">v0.19.0 (2025-06-20)</h2>
+<h3 id="bug-fixes_3">Bug Fixes</h3>
+<ul>
+<li>Limit suffixes to 3 parts
+  (<a href="https://github.com/bhklab/damply/commit/2432717b6f69378c1581196f7c9780d80c9c4d49"><code>2432717</code></a>)</li>
+</ul>
+<h3 id="chores_6">Chores</h3>
+<ul>
+<li>Add packaging
+  (<a href="https://github.com/bhklab/damply/commit/485fba723b74db4053933613708b5dac79279e32"><code>485fba7</code></a>)</li>
+</ul>
+<h3 id="features_6">Features</h3>
+<ul>
+<li>Validate against package version
+  (<a href="https://github.com/bhklab/damply/commit/53259a64ecd6bb67b937e973ec6cfbb82a45669e"><code>53259a6</code></a>)</li>
+</ul>
+<h2 id="v0182-2025-06-19">v0.18.2 (2025-06-19)</h2>
+<h3 id="bug-fixes_4">Bug Fixes</h3>
+<ul>
+<li>
+<p>Better handling of cache
+  (<a href="https://github.com/bhklab/damply/commit/3b9c3bbde8f50721c31ba22789a11f9e3de089cc"><code>3b9c3bb</code></a>)</p>
+</li>
+<li>
+<p>Wrong mmethod
+  (<a href="https://github.com/bhklab/damply/commit/bd6d08c304fcd569ed9c31944262aa25334e045b"><code>bd6d08c</code></a>)</p>
+</li>
+</ul>
+<h3 id="chores_7">Chores</h3>
+<ul>
+<li>Update lockfile
+  (<a href="https://github.com/bhklab/damply/commit/2d0fefb6296286bdb96bc2b5542f463e05769d02"><code>2d0fefb</code></a>)</li>
+</ul>
+<h2 id="v0181-2025-06-19">v0.18.1 (2025-06-19)</h2>
+<h3 id="bug-fixes_5">Bug Fixes</h3>
+<ul>
+<li>Numbers arent suffixes
+  (<a href="https://github.com/bhklab/damply/commit/3076b4fb3d8a979adaaf1d9b93d9131460c09647"><code>3076b4f</code></a>)</li>
+</ul>
+<h2 id="v0180-2025-06-19">v0.18.0 (2025-06-19)</h2>
+<h3 id="bug-fixes_6">Bug Fixes</h3>
+<ul>
+<li>Remove last accessed, useless info
+  (<a href="https://github.com/bhklab/damply/commit/22f9d52d7b70d38f6166049450b9508ac2bb98e8"><code>22f9d52</code></a>)</li>
+</ul>
+<h3 id="chores_8">Chores</h3>
+<ul>
+<li>Update lockfile
+  (<a href="https://github.com/bhklab/damply/commit/7d2b43fd4fca7e0602147893a803d915142dfac4"><code>7d2b43f</code></a>)</li>
+</ul>
+<h3 id="features_7">Features</h3>
+<ul>
+<li>
+<p>Add file types and fix caching
+  (<a href="https://github.com/bhklab/damply/commit/6514bf63188e93e096d70582d64e02bc24a5c18b"><code>6514bf6</code></a>)</p>
+</li>
+<li>
+<p>Update default groups and refactor table building
+  (<a href="https://github.com/bhklab/damply/commit/764d0121300df94ea1962aff5d563db334d42885"><code>764d012</code></a>)</p>
+</li>
+</ul>
+<h2 id="v0170-2025-06-13">v0.17.0 (2025-06-13)</h2>
+<h3 id="chores_9">Chores</h3>
+<ul>
+<li>
+<p>Merge
+  (<a href="https://github.com/bhklab/damply/commit/3a7017b2e778998f526be65cca608e65cbbcbb71"><code>3a7017b</code></a>)</p>
+</li>
+<li>
+<p>Update lockfile
+  (<a href="https://github.com/bhklab/damply/commit/b78ce267eb47316f95e369d075970633fc645f3c"><code>b78ce26</code></a>)</p>
+</li>
+</ul>
+<h2 id="v0160-2025-06-13">v0.16.0 (2025-06-13)</h2>
+<h3 id="bug-fixes_7">Bug Fixes</h3>
+<ul>
+<li>Merge
+  (<a href="https://github.com/bhklab/damply/commit/f91b94a7c8f55ae6d038c8d1b4c8ea2bc26f858b"><code>f91b94a</code></a>)</li>
+</ul>
+<h3 id="chores_10">Chores</h3>
+<ul>
+<li>
+<p>Fix ruff lint
+  (<a href="https://github.com/bhklab/damply/commit/573fb38a6de6572d7ed5267ac4d9be729d0165e5"><code>573fb38</code></a>)</p>
+</li>
+<li>
+<p>Ruff format
+  (<a href="https://github.com/bhklab/damply/commit/05d0b18ef680b0bf44a11a9b3dd466a81ef91a3e"><code>05d0b18</code></a>)</p>
+</li>
+<li>
+<p>Ruff format
+  (<a href="https://github.com/bhklab/damply/commit/93d71b2a7ffd93dbf09b2c9dc7d79d15a49267d0"><code>93d71b2</code></a>)</p>
+</li>
+<li>
+<p>Ruff format
+  (<a href="https://github.com/bhklab/damply/commit/957ebc6e3291e03729367b9601a2a750f9561158"><code>957ebc6</code></a>)</p>
+</li>
+<li>
+<p>Ruff lint
+  (<a href="https://github.com/bhklab/damply/commit/3886c94604834e95c082c8a54e3b1e72003c8c92"><code>3886c94</code></a>)</p>
+</li>
+<li>
+<p>Ruff lint
+  (<a href="https://github.com/bhklab/damply/commit/77bf13a620af4ce61b03ee52da8013323793ea35"><code>77bf13a</code></a>)</p>
+</li>
+<li>
+<p>Update lockfile
+  (<a href="https://github.com/bhklab/damply/commit/8946fd8659eba2814a91a18f75340893103de669"><code>8946fd8</code></a>)</p>
+</li>
+</ul>
+<h3 id="continuous-integration">Continuous Integration</h3>
+<ul>
+<li>Fix actions workflow
+  (<a href="https://github.com/bhklab/damply/commit/b01bbcb97f6a8015ef36d2a4252c6aeb8d2a208a"><code>b01bbcb</code></a>)</li>
+</ul>
+<h3 id="features_8">Features</h3>
+<ul>
+<li>
+<p>Add file count and est time zone
+  (<a href="https://github.com/bhklab/damply/commit/dda9e24be2019ecd6ffa95edf2dbfdce1a9a9d25"><code>dda9e24</code></a>)</p>
+</li>
+<li>
+<p>Add platformdis
+  (<a href="https://github.com/bhklab/damply/commit/52610efbda31dc580a5d3c4b87bebc6c7a0458b2"><code>52610ef</code></a>)</p>
+</li>
+<li>
+<p>Setup cache dir
+  (<a href="https://github.com/bhklab/damply/commit/bf189a0e98585d2223bf12bb31f5fcf04a03bd8e"><code>bf189a0</code></a>)</p>
+</li>
+<li>
+<p>Setup directory audit to use user cache
+  (<a href="https://github.com/bhklab/damply/commit/08e18bf54771d2c8744e8cabf590ef78b12926b5"><code>08e18bf</code></a>)</p>
+</li>
+<li>
+<p>Validate
+  (<a href="https://github.com/bhklab/damply/commit/7674759fc4c3d8785d5e3e97dd88cc107544538c"><code>7674759</code></a>)</p>
+</li>
+</ul>
+<h2 id="v0150-2025-06-13">v0.15.0 (2025-06-13)</h2>
+<h3 id="chores_11">Chores</h3>
+<ul>
+<li>
+<p>Address ruff lint error
+  (<a href="https://github.com/bhklab/damply/commit/278208060c7f402a8f5d2895e25e5961c92f837e"><code>2782080</code></a>)</p>
+</li>
+<li>
+<p>Fix import order
+  (<a href="https://github.com/bhklab/damply/commit/6e4d44b4ea149984704b2ca96663ed9c96fa9347"><code>6e4d44b</code></a>)</p>
+</li>
+<li>
+<p>Ruff format
+  (<a href="https://github.com/bhklab/damply/commit/d686334a9b1a1221c499e4262962bb2b420c8e38"><code>d686334</code></a>)</p>
+</li>
+<li>
+<p>Ruff lint fix
+  (<a href="https://github.com/bhklab/damply/commit/0b3d627ce00dc3b9f8e332ba12bb76ebcfcdc05c"><code>0b3d627</code></a>)</p>
+</li>
+<li>
+<p>Suppress ruff lint
+  (<a href="https://github.com/bhklab/damply/commit/f2039867b7d19c7dd08232f6269ee25d66785aac"><code>f203986</code></a>)</p>
+</li>
+</ul>
+<h3 id="features_9">Features</h3>
+<ul>
+<li>
+<p>Cleanup deps
+  (<a href="https://github.com/bhklab/damply/commit/d7cc3c3443551077e0e4f3abb56015bc3f756e82"><code>d7cc3c3</code></a>)</p>
+</li>
+<li>
+<p>Update deps and style env
+  (<a href="https://github.com/bhklab/damply/commit/28954d4c255144a114f41496fb184142beb6882d"><code>28954d4</code></a>)</p>
+</li>
+</ul>
+<h2 id="v0140-2025-06-13">v0.14.0 (2025-06-13)</h2>
+<h3 id="chores_12">Chores</h3>
+<ul>
+<li>Downgrade click version
+  (<a href="https://github.com/bhklab/damply/commit/e63ee3118c6089901ba1b8112ce9b9df62abb23a"><code>e63ee31</code></a>)</li>
+</ul>
+<h3 id="features_10">Features</h3>
+<ul>
+<li>Add click dependency
+  (<a href="https://github.com/bhklab/damply/commit/5fe93629c8a8a12b4df97bfe58366563df19e5f6"><code>5fe9362</code></a>)</li>
+</ul>
+<h2 id="v0130-2025-06-13">v0.13.0 (2025-06-13)</h2>
+<h3 id="chores_13">Chores</h3>
+<ul>
+<li>
+<p>Deprecate old metadata
+  (<a href="https://github.com/bhklab/damply/commit/b5349e56e6c56a3b3a1efdc947fe2b007b20517e"><code>b5349e5</code></a>)</p>
+</li>
+<li>
+<p>Deprecate old whose
+  (<a href="https://github.com/bhklab/damply/commit/9a82ea1c6bd3646501dce7c4e9074e3861370622"><code>9a82ea1</code></a>)</p>
+</li>
+</ul>
+<h3 id="documentation">Documentation</h3>
+<ul>
+<li>Update README
+  (<a href="https://github.com/bhklab/damply/commit/96a844eef3a48623b267fb70a5d1597f97615f5b"><code>96a844e</code></a>)</li>
+</ul>
+<h3 id="features_11">Features</h3>
+<ul>
+<li>Add whose cli entry point
+  (<a href="https://github.com/bhklab/damply/commit/bcbe058d54b7dbe9474f4345018835513a883159"><code>bcbe058</code></a>)</li>
+</ul>
+<h2 id="v0120-2025-06-13">v0.12.0 (2025-06-13)</h2>
+<h3 id="bug-fixes_8">Bug Fixes</h3>
+<ul>
+<li>
+<p>Add command and close docstring
+  (<a href="https://github.com/bhklab/damply/commit/c315c136c50a753044e4938af0e4cfe54dc0be12"><code>c315c13</code></a>)</p>
+</li>
+<li>
+<p>Cli main error
+  (<a href="https://github.com/bhklab/damply/commit/aa0e319ca627683b1cc82569a5ddacaeb74b58af"><code>aa0e319</code></a>)</p>
+</li>
+</ul>
+<p>fix: add command and close docstring</p>
+<h3 id="chores_14">Chores</h3>
+<ul>
+<li>
+<p>Cleanup
+  (<a href="https://github.com/bhklab/damply/commit/80e6016097385cfd3b0cec36a535da71e9b0b677"><code>80e6016</code></a>)</p>
+</li>
+<li>
+<p>Fix tests
+  (<a href="https://github.com/bhklab/damply/commit/3aa876aa081ad3d864c37aa2cf1abefa9d6ba055"><code>3aa876a</code></a>)</p>
+</li>
+<li>
+<p>Update deps
+  (<a href="https://github.com/bhklab/damply/commit/dd11ff0db645f789256f03863068e1549969c86b"><code>dd11ff0</code></a>)</p>
+</li>
+<li>
+<p>Update lockfile
+  (<a href="https://github.com/bhklab/damply/commit/9efa8beab9063c3b5d6b6d91312d8d8fbde25793"><code>9efa8be</code></a>)</p>
+</li>
+</ul>
+<h3 id="features_12">Features</h3>
+<ul>
+<li>
+<p>Add logging config
+  (<a href="https://github.com/bhklab/damply/commit/06f2a3324172ad6c57bdf063ae19df0e425c3870"><code>06f2a33</code></a>)</p>
+</li>
+<li>
+<p>Full refactor
+  (<a href="https://github.com/bhklab/damply/commit/b8811c3001605bd0278e58eab87179966e220843"><code>b8811c3</code></a>)</p>
+</li>
+<li>
+<p>Full refactor
+  (<a href="https://github.com/bhklab/damply/commit/b3055973636327d5a16648bf63d95e94245ef0ea"><code>b305597</code></a>)</p>
+</li>
+</ul>
+<p>feat: full refactor, simplifying CLI</p>
+<ul>
+<li>
+<p>Refactor to work
+  (<a href="https://github.com/bhklab/damply/commit/b71c9cf486ad860b2ac0899da3fdace6dc0e8773"><code>b71c9cf</code></a>)</p>
+</li>
+<li>
+<p>Small fix
+  (<a href="https://github.com/bhklab/damply/commit/5459162bf5eef85df916bf696a4c60a66ba9d033"><code>5459162</code></a>)</p>
+</li>
+<li>
+<p>Update directory_list mod
+  (<a href="https://github.com/bhklab/damply/commit/60387569ea4750863bc0802d2b7047544456fa69"><code>6038756</code></a>)</p>
+</li>
+</ul>
+<h3 id="refactoring">Refactoring</h3>
+<ul>
+<li>Cleanup
+  (<a href="https://github.com/bhklab/damply/commit/0aa11eef476f90df9de47794c7467b854391d8f2"><code>0aa11ee</code></a>)</li>
+</ul>
+<h2 id="v0110-2025-05-26">v0.11.0 (2025-05-26)</h2>
+<h3 id="bug-fixes_9">Bug Fixes</h3>
+<ul>
+<li>
+<p>Add custom exception for unset environment variables
+  (<a href="https://github.com/bhklab/damply/commit/784080a42b927e6f9dc5bf94b1e940ddc283e045"><code>784080a</code></a>)</p>
+</li>
+<li>
+<p>Adjust test for Windows path handling to set strict mode explicitly
+  (<a href="https://github.com/bhklab/damply/commit/57db00a24484b857a5d7674942c587a4e34c75af"><code>57db00a</code></a>)</p>
+</li>
+<li>
+<p>Restore assertion for Windows file owner retrieval test
+  (<a href="https://github.com/bhklab/damply/commit/9986a7989e061c108d4e09d55de779753871ffba"><code>9986a79</code></a>)</p>
+</li>
+<li>
+<p>Update sha256 checksum for damply package version 0.10.0
+  (<a href="https://github.com/bhklab/damply/commit/0be695117bbe86d476753edc2a7cde339a29faba"><code>0be6951</code></a>)</p>
+</li>
+</ul>
+<h3 id="chores_15">Chores</h3>
+<ul>
+<li>Update version and checksum in pixi.lock; modify README metadata
+  (<a href="https://github.com/bhklab/damply/commit/b480d2babb75c0226e00dc8174a3fdc86f0a77b1"><code>b480d2b</code></a>)</li>
+</ul>
+<h3 id="documentation_1">Documentation</h3>
+<ul>
+<li>
+<p>Clean up index.md
+  (<a href="https://github.com/bhklab/damply/commit/3b1d489aa0f41e12f083f826c9d041e451a0541c"><code>3b1d489</code></a>)</p>
+</li>
+<li>
+<p>Remove about page
+  (<a href="https://github.com/bhklab/damply/commit/c960dbdd9211c08b56d8cea175d6332bf3457200"><code>c960dbd</code></a>)</p>
+</li>
+<li>
+<p>Update to mkdocs
+  (<a href="https://github.com/bhklab/damply/commit/6f8c456f49917d8fe8233ee3ede81f03fc40d308"><code>6f8c456</code></a>)</p>
+</li>
+</ul>
+<h3 id="features_13">Features</h3>
+<ul>
+<li>
+<p>Add documentation for DamplyDirs module and its usage
+  (<a href="https://github.com/bhklab/damply/commit/74d9c7987d8bdf8affbdef12b6985c8382432b0a"><code>74d9c79</code></a>)</p>
+</li>
+<li>
+<p>Add Windows support to CI workflow matrix
+  (<a href="https://github.com/bhklab/damply/commit/650c19286021844586937c3d11ecb2b916f82c48"><code>650c192</code></a>)</p>
+</li>
+<li>
+<p>Implement DamplyDirs singleton initialization and add comprehensive tests
+  (<a href="https://github.com/bhklab/damply/commit/c48deb97837259542950c1ab6d31831ee911c31a"><code>c48deb9</code></a>)</p>
+</li>
+<li>
+<p>Refactor damplydirs logic, include documentation, and add comprehensive tests
+  (<a href="https://github.com/bhklab/damply/commit/cf026d4ff0351af3cc109e2d802ddc14c9b1c78e"><code>cf026d4</code></a>)</p>
+</li>
+</ul>
+<p>feat: refactor damplydirs logic, include documentation, and add comprehensive tests</p>
+<h3 id="refactoring_1">Refactoring</h3>
+<ul>
+<li>
+<p>Streamline directory structure handling and improve error management
+  (<a href="https://github.com/bhklab/damply/commit/00ad73dd79d364b7950410c39898c39c04aebd42"><code>00ad73d</code></a>)</p>
+</li>
+<li>
+<p>Update file owner tests for platform-specific handling and improve readability
+  (<a href="https://github.com/bhklab/damply/commit/860d04fb8d1a30928c08e7633b494d1be3f7087c"><code>860d04f</code></a>)</p>
+</li>
+</ul>
+<h2 id="v0100-2025-05-20">v0.10.0 (2025-05-20)</h2>
+<h3 id="bug-fixes_10">Bug Fixes</h3>
+<ul>
+<li>
+<p>Update pypi references from '.' to './' for consistency
+  (<a href="https://github.com/bhklab/damply/commit/bc1715f7b692b5ea8f6ab239df1c698c7e419f0d"><code>bc1715f</code></a>)</p>
+</li>
+<li>
+<p>Update repository references and descriptions from jjjermiah to bhklab
+  (<a href="https://github.com/bhklab/damply/commit/ad73779b06649b2e1f173eea26f2d508b871ab15"><code>ad73779</code></a>)</p>
+</li>
+</ul>
+<h3 id="chores_16">Chores</h3>
+<ul>
+<li>
+<p>Comment out Test-PyPi-Installation and Publish-To-Test-PyPi jobs in CI workflow
+  (<a href="https://github.com/bhklab/damply/commit/2ed0229f43e0b0a3b46cf52a77478840afcf305b"><code>2ed0229</code></a>)</p>
+</li>
+<li>
+<p>Format and lint
+  (<a href="https://github.com/bhklab/damply/commit/5130657f3fd937dd4e0ea15079df9e1473adeac6"><code>5130657</code></a>)</p>
+</li>
+<li>
+<p>Move ruff config out and update deps
+  (<a href="https://github.com/bhklab/damply/commit/2f5a3fe4defebcb19bfcf7abc0643ce405787523"><code>2f5a3fe</code></a>)</p>
+</li>
+<li>
+<p>Reformat
+  (<a href="https://github.com/bhklab/damply/commit/7a275c772c8d86f8223c746625fc35f621fc4f05"><code>7a275c7</code></a>)</p>
+</li>
+<li>
+<p>Remove empty <strong>init</strong>.py file from dmpdirs directory
+  (<a href="https://github.com/bhklab/damply/commit/47ff2cd9916039b8397fd02141d8a1a422a657b6"><code>47ff2cd</code></a>)</p>
+</li>
+<li>
+<p>Update lockfile
+  (<a href="https://github.com/bhklab/damply/commit/aa9e4d93ceeaed09c559f2e71ff9e7af8a9675da"><code>aa9e4d9</code></a>)</p>
+</li>
+</ul>
+<h3 id="code-style">Code Style</h3>
+<ul>
+<li>Standardize indentation and formatting in whose.py
+  (<a href="https://github.com/bhklab/damply/commit/07e495f9a54c366abee030a832e7f92662a6e073"><code>07e495f</code></a>)</li>
+</ul>
+<h3 id="continuous-integration_1">Continuous Integration</h3>
+<ul>
+<li>
+<p>Disable fail-fast in job strategy for improved stability across OS matrix
+  (<a href="https://github.com/bhklab/damply/commit/f84c26e43579614623633649967e5aa310adf0bf"><code>f84c26e</code></a>)</p>
+</li>
+<li>
+<p>Streamline Codecov integration by removing redundant steps and ensuring coverage tracking
+  (<a href="https://github.com/bhklab/damply/commit/eb1fdef4fa4f776d0c5d26a243863dd23fa02831"><code>eb1fdef</code></a>)</p>
+</li>
+<li>
+<p>Update actions versions
+  (<a href="https://github.com/bhklab/damply/commit/5e341a83e909251f756d33eebf4d16b59759aa24"><code>5e341a8</code></a>)</p>
+</li>
+</ul>
+<h3 id="features_14">Features</h3>
+<ul>
+<li>
+<p>Add dmpdirs module for standardized project directory access
+  (<a href="https://github.com/bhklab/damply/commit/dc324e612f72d4cde802377dd9ae98d421705afd"><code>dc324e6</code></a>)</p>
+</li>
+<li>
+<p>Add dmpdirs module for standardized project directory access
+  (<a href="https://github.com/bhklab/damply/commit/0eeb8c58a35ae3b81c41a843567092acc76931f5"><code>0eeb8c5</code></a>)</p>
+</li>
+<li>
+<p>Update dependencies and refactor codebase
+  (<a href="https://github.com/bhklab/damply/commit/6b9905c1acf8e09d60b3812f3206b909d38178c1"><code>6b9905c</code></a>)</p>
+</li>
+<li>
+<p>Added <code>pybytesize</code> dependency to <code>pyproject.toml</code>. - Refactored <code>DirectoryAudit</code> to use
+  <code>path.stat()</code> instead of <code>os.stat()</code>. - Enhanced documentation in <code>DamplyDirs</code> class for better
+  clarity on usage and available directories. - Renamed <code>DirectoryNotFoundError</code> to
+  <code>DirectoryNameNotFoundError</code> for better accuracy. - Updated import statement for <code>ByteSize</code> to use
+  the new package location. - Refactored <code>damplyplot</code> function to improve variable naming and
+  clarity. - Removed obsolete <code>ByteSize</code> class and related tests. - Improved type hints across
+  various modules for better code clarity. - Updated exception handling in <code>whose.py</code> for better
+  error messages. - Cleaned up unused imports and improved code formatting.</p>
+</li>
+</ul>
+<h3 id="refactoring_2">Refactoring</h3>
+<ul>
+<li>
+<p>Comment out Codecov steps in CI workflow for clarity
+  (<a href="https://github.com/bhklab/damply/commit/368671c326a809871d7c6636ae5b90691e3753dd"><code>368671c</code></a>)</p>
+</li>
+<li>
+<p>Organize imports and improve formatting across multiple files
+  (<a href="https://github.com/bhklab/damply/commit/6d3d97af3440659f73bf8672d318ffc1327e5760"><code>6d3d97a</code></a>)</p>
+</li>
+<li>
+<p>Rename DirectoryNotFoundError to DirectoryNameNotFoundError for clarity; remove unused test
+  (<a href="https://github.com/bhklab/damply/commit/b3bd8334ad4ce25f85fab2a7e087e2dc60277013"><code>b3bd833</code></a>)</p>
+</li>
+<li>
+<p>Restore and enable Codecov steps in CI workflow for coverage tracking
+  (<a href="https://github.com/bhklab/damply/commit/6c7e4ee59544b4f1ed06c2a3df09ccfe89cbd44b"><code>6c7e4ee</code></a>)</p>
+</li>
+</ul>
+<h2 id="v090-2024-08-20">v0.9.0 (2024-08-20)</h2>
+<h3 id="bug-fixes_11">Bug Fixes</h3>
+<ul>
+<li>
+<p>Minor fixes
+  (<a href="https://github.com/bhklab/damply/commit/ed09859ed2db399600c710efaf9b34a7e130548a"><code>ed09859</code></a>)</p>
+</li>
+<li>
+<p>Minor updates
+  (<a href="https://github.com/bhklab/damply/commit/1a1d60cabf9f3987cc4ac16a01e1cd6cc18afbd0"><code>1a1d60c</code></a>)</p>
+</li>
+</ul>
+<h3 id="chores_17">Chores</h3>
+<ul>
+<li>Update
+  (<a href="https://github.com/bhklab/damply/commit/9c129ff220177921bfb1f78639f0d35129beebe0"><code>9c129ff</code></a>)</li>
+</ul>
+<h3 id="features_15">Features</h3>
+<ul>
+<li>Field adding
+  (<a href="https://github.com/bhklab/damply/commit/b9780c512425fecd20cbe7b04991ae9b05e93480"><code>b9780c5</code></a>)</li>
+</ul>
+<h2 id="v080-2024-08-01">v0.8.0 (2024-08-01)</h2>
+<h3 id="bug-fixes_12">Bug Fixes</h3>
+<ul>
+<li>
+<p>Add tests and fix common root
+  (<a href="https://github.com/bhklab/damply/commit/3cb4199966275374bbb8b5ab4a93e3a8ba695946"><code>3cb4199</code></a>)</p>
+</li>
+<li>
+<p>Merge
+  (<a href="https://github.com/bhklab/damply/commit/e6ae53385aad671164427d75edfbe1cb3c1851e4"><code>e6ae533</code></a>)</p>
+</li>
+<li>
+<p>Tests for whose command
+  (<a href="https://github.com/bhklab/damply/commit/f08d6c2de2df8a79cd7320aaada18b44c5608c82"><code>f08d6c2</code></a>)</p>
+</li>
+</ul>
+<h3 id="chores_18">Chores</h3>
+<ul>
+<li>Format and clean
+  (<a href="https://github.com/bhklab/damply/commit/26bfaf3b22ed4eaa0c51ab856ff4e1459f1617fb"><code>26bfaf3</code></a>)</li>
+</ul>
+<h3 id="features_16">Features</h3>
+<ul>
+<li>
+<p>Add basic audit
+  (<a href="https://github.com/bhklab/damply/commit/e8c307e3f5e6f5133d1efeabd18f8243f30d82e5"><code>e8c307e</code></a>)</p>
+</li>
+<li>
+<p>Added size check
+  (<a href="https://github.com/bhklab/damply/commit/219b6534ba92f42e3e734924e4c2c571c16837ae"><code>219b653</code></a>)</p>
+</li>
+<li>
+<p>Init and config subcommands
+  (<a href="https://github.com/bhklab/damply/commit/578dfdaa7ba73d5d865ab2c3a6eea2e2f059cf04"><code>578dfda</code></a>)</p>
+</li>
+<li>
+<p>Organize cli commands
+  (<a href="https://github.com/bhklab/damply/commit/e25a9664810b385404bb4f2e4ad293db9e1b15b9"><code>e25a966</code></a>)</p>
+</li>
+</ul>
+<h2 id="v071-2024-07-31">v0.7.1 (2024-07-31)</h2>
+<h3 id="bug-fixes_13">Bug Fixes</h3>
+<ul>
+<li>Update cli tool
+  (<a href="https://github.com/bhklab/damply/commit/9ea8c5a9dde55366f2014027dc753f79d9955744"><code>9ea8c5a</code></a>)</li>
+</ul>
+<h2 id="v070-2024-07-31">v0.7.0 (2024-07-31)</h2>
+<h3 id="bug-fixes_14">Bug Fixes</h3>
+<ul>
+<li>
+<p>Fix arrangement
+  (<a href="https://github.com/bhklab/damply/commit/3e94e4aff321a5b4fec8e388084565609294b56a"><code>3e94e4a</code></a>)</p>
+</li>
+<li>
+<p>Gha to not use locked
+  (<a href="https://github.com/bhklab/damply/commit/1233f00e3ad0e0404ab6513643d3be77c694800c"><code>1233f00</code></a>)</p>
+</li>
+<li>
+<p>Lint and format and cleanup
+  (<a href="https://github.com/bhklab/damply/commit/c877847d18b2f9623b1c963b6f84c7fba4cfba59"><code>c877847</code></a>)</p>
+</li>
+<li>
+<p>Update gha to not use locked pixi
+  (<a href="https://github.com/bhklab/damply/commit/189294e4883e8fbd65f794461d1ed92e95a12476"><code>189294e</code></a>)</p>
+</li>
+<li>
+<p>Update gha to not use locked pixi, add plot to cli
+  (<a href="https://github.com/bhklab/damply/commit/255e08ef8dfaa583ed8946dc41b724759409754d"><code>255e08e</code></a>)</p>
+</li>
+</ul>
+<h3 id="features_17">Features</h3>
+<ul>
+<li>Add damply plotting
+  (<a href="https://github.com/bhklab/damply/commit/dcc72e1bbcd69fe2b4cdc0e9abac8a443f06ca1e"><code>dcc72e1</code></a>)</li>
+</ul>
+<h2 id="v060-2024-05-31">v0.6.0 (2024-05-31)</h2>
+<h3 id="bug-fixes_15">Bug Fixes</h3>
+<ul>
+<li>
+<p>Lint
+  (<a href="https://github.com/bhklab/damply/commit/b0abdf46b416c20f0fb148dd59fadc70761a8815"><code>b0abdf4</code></a>)</p>
+</li>
+<li>
+<p>Lock
+  (<a href="https://github.com/bhklab/damply/commit/41683662fe792097f017e70013c73d38ded5bf34"><code>4168366</code></a>)</p>
+</li>
+</ul>
+<h3 id="features_18">Features</h3>
+<ul>
+<li>Major refactoring of cli
+  (<a href="https://github.com/bhklab/damply/commit/5998541bf75be1e7d2fcf8536d1d230dae4919bb"><code>5998541</code></a>)</li>
+</ul>
+<h2 id="v050-2024-05-31">v0.5.0 (2024-05-31)</h2>
+<h3 id="chores_19">Chores</h3>
+<ul>
+<li>Add tests
+  (<a href="https://github.com/bhklab/damply/commit/79044effb782111c2b1cbccfc21b4a77431d9f5c"><code>79044ef</code></a>)</li>
+</ul>
+<h3 id="features_19">Features</h3>
+<ul>
+<li>
+<p>Add lazy loading for images in README view
+  (<a href="https://github.com/bhklab/damply/commit/7d1e053b18f63fbc8c27e6abf813b67eb7f3955d"><code>7d1e053</code></a>)</p>
+</li>
+<li>
+<p>Add whose and file size
+  (<a href="https://github.com/bhklab/damply/commit/04772d49bb4a4ae7656dbb3bb1931a3c76ec544a"><code>04772d4</code></a>)</p>
+</li>
+</ul>
+<h2 id="v041-2024-05-31">v0.4.1 (2024-05-31)</h2>
+<h3 id="bug-fixes_16">Bug Fixes</h3>
+<ul>
+<li>
+<p>Format
+  (<a href="https://github.com/bhklab/damply/commit/e153b30f32108b0a9750f1a4b0c7e0b00116c152"><code>e153b30</code></a>)</p>
+</li>
+<li>
+<p>Update metadata table title in cli.py
+  (<a href="https://github.com/bhklab/damply/commit/a63c36bba26d880abf433cf06690faecb1537d3d"><code>a63c36b</code></a>)</p>
+</li>
+<li>
+<p>Version
+  (<a href="https://github.com/bhklab/damply/commit/ecefaafab444f70ace8a8185240d6577fe4db0a3"><code>ecefaaf</code></a>)</p>
+</li>
+</ul>
+<h3 id="chores_20">Chores</h3>
+<ul>
+<li>Update navigation links in mkdocs.yaml
+  (<a href="https://github.com/bhklab/damply/commit/931524b39f8ca9edb971c8a43b84dc858b4a2de8"><code>931524b</code></a>)</li>
+</ul>
+<h2 id="v040-2024-05-31">v0.4.0 (2024-05-31)</h2>
+<h3 id="bug-fixes_17">Bug Fixes</h3>
+<ul>
+<li>
+<p>Lint
+  (<a href="https://github.com/bhklab/damply/commit/64944d3025cc20721aa5415c882b42e737daa3da"><code>64944d3</code></a>)</p>
+</li>
+<li>
+<p>Refactor get_file_owner_full_name function for improved error handling and platform compatibility
+  (<a href="https://github.com/bhklab/damply/commit/f4fca58d63e4667f8c3fc60b51776a038757c669"><code>f4fca58</code></a>)</p>
+</li>
+</ul>
+<h3 id="features_20">Features</h3>
+<ul>
+<li>
+<p>Add cli whose
+  (<a href="https://github.com/bhklab/damply/commit/b15ec32b551533aab892b3b3227e2091c643dfe1"><code>b15ec32</code></a>)</p>
+</li>
+<li>
+<p>Update CLI help messages and add 'whose' command
+  (<a href="https://github.com/bhklab/damply/commit/620f209656ab91d5f8ae4e11608eaa6aef05e3f9"><code>620f209</code></a>)</p>
+</li>
+</ul>
+<h2 id="v030-2024-05-31">v0.3.0 (2024-05-31)</h2>
+<h3 id="chores_21">Chores</h3>
+<ul>
+<li>Delete config/.pypackage-builder-answers.yml
+  (<a href="https://github.com/bhklab/damply/commit/a04cabd468901e3b47e236a31d9eb867feea7719"><code>a04cabd</code></a>)</li>
+</ul>
+<h3 id="features_21">Features</h3>
+<ul>
+<li>
+<p>Add cli
+  (<a href="https://github.com/bhklab/damply/commit/1e825d1e71293cb46fcb8abe6498b5a695982e39"><code>1e825d1</code></a>)</p>
+</li>
+<li>
+<p>Add cli tool
+  (<a href="https://github.com/bhklab/damply/commit/077e52bf1e3c529685a631aee6978e59676b0165"><code>077e52b</code></a>)</p>
+</li>
+</ul>
+<h2 id="v020-2024-05-31">v0.2.0 (2024-05-31)</h2>
+<h3 id="bug-fixes_18">Bug Fixes</h3>
+<ul>
+<li>Tests so it makes file
+  (<a href="https://github.com/bhklab/damply/commit/69d4e54ea76ef75dde242e28261ee79b60bc2093"><code>69d4e54</code></a>)</li>
+</ul>
+<h3 id="features_22">Features</h3>
+<ul>
+<li>
+<p>Add tests and major class
+  (<a href="https://github.com/bhklab/damply/commit/569177b476047cadb22ae84d0eeb92ad1fb370ea"><code>569177b</code></a>)</p>
+</li>
+<li>
+<p>Refactor metadata.py for improved readability and maintainability
+  (<a href="https://github.com/bhklab/damply/commit/cf909e0f1824fdc9275171d10c3c2a87049521e7"><code>cf909e0</code></a>)</p>
+</li>
+</ul>
+<h2 id="v011-2024-05-31">v0.1.1 (2024-05-31)</h2>
+<h3 id="bug-fixes_19">Bug Fixes</h3>
+<ul>
+<li>Some pypi issues
+  (<a href="https://github.com/bhklab/damply/commit/c6f810ea4859a45b4d9f1b3432cca1f45dc29f30"><code>c6f810e</code></a>)</li>
+</ul>
+<h2 id="v010-2024-05-31">v0.1.0 (2024-05-31)</h2>
+<h3 id="bug-fixes_20">Bug Fixes</h3>
+<ul>
+<li>Update gitignore
+  (<a href="https://github.com/bhklab/damply/commit/97e8fde80ab3a6f38f62a231ffe5fc189983fe05"><code>97e8fde</code></a>)</li>
+</ul>
+<h3 id="features_23">Features</h3>
+<ul>
+<li>
+<p>Add docs and test
+  (<a href="https://github.com/bhklab/damply/commit/76e92ff24b5e8febb361df0f01d1d063d26ef703"><code>76e92ff</code></a>)</p>
+</li>
+<li>
+<p>Add github actions
+  (<a href="https://github.com/bhklab/damply/commit/85891c4fcd221f3c61874a2c6cec9edc059e94af"><code>85891c4</code></a>)</p>
+</li>
+<li>
+<p>First commit
+  (<a href="https://github.com/bhklab/damply/commit/8ed31c972b3ac76f4def1b02bb50c6fee84a2172"><code>8ed31c9</code></a>)</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
