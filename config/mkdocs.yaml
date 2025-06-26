@@ -25,12 +25,18 @@ dev_addr: 127.0.0.1:8000
 nav:
     - Home: index.md
     - DMP Directories: dmpdirs.md
+    - H4H: 
+        - Audit: HPC4Health/audit.md
+        - Group Permissions: HPC4Health/group_permissions.md
     - Changelog: CHANGELOG.md
 
 markdown_extensions:
+    - admonition
     - pymdownx.superfences
     - pymdownx.tabbed:
         alternate_style: true
     - pymdownx.details
 theme:
   name: material
+  features:
+    - content.code.copy
