@@ -12,15 +12,21 @@ from damply.logging_config import logger
 
 
 def find_readme(directory: Path) -> Path | None:
-	"""Find any README file in the given directory or its 'docs' subdirectory."""
+	"""Find any README file in the given directory or its 'docs' subdirectory.
 
-	readmes = [
-		f for f in directory.glob('readme*', case_sensitive=False) if f.is_file()
-	] + [
-		f
-		for f in (directory / 'docs').glob('readme*', case_sensitive=False)
-		if f.is_file()
-	]
+	This implementation avoids relying on ``Path.glob(case_sensitive=...)`` which
+	may not be available in all supported Python versions. Instead, it performs a
+	case-insensitive check on filenames.
+	"""
+
+	def _collect(dir_path: Path) -> list[Path]:
+		if not dir_path.exists() or not dir_path.is_dir():
+			return []
+		return [
+			p for p in dir_path.iterdir() if p.is_file() and p.name.lower().startswith('readme')
+		]
+
+	readmes = _collect(directory) + _collect(directory / 'docs')
 
 	if not readmes:
 		return None
