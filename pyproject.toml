@@ -10,7 +10,7 @@ readme = "README.md"
 keywords = ["damply", "pixi", "python", "package"]
 authors = [{ name = "Jermiah Joseph", email = "jermiahjoseph98@gmail.com" }]
 maintainers = [{ name = "Jermiah Joseph", email = "jermiahjoseph98@gmail.com" }]
-requires-python = ">= 3.11"
+requires-python = ">= 3.12"
 dependencies = [
     "rich",
     "platformdirs>=4.3,<5",
@@ -30,9 +30,8 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Natural Language :: English",
     "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
 ]
 
 [project.urls]
@@ -70,14 +69,10 @@ damply = { path = ".", editable = true }
 style = { features = ["style"], solve-group = "default" }
 dev = { features = ["test", "style", "docs"], solve-group = "default" }
 publish = { features = ["build", "release"], solve-group = "default" }
-py311 = ["py311", "test"]
 py312 = ["py312", "test"]
 py313 = ["py313", "test"]
 
 ############################################## python ###############################################
-[tool.pixi.feature.py311.dependencies]
-python = "3.11.*"
-
 [tool.pixi.feature.py312.dependencies]
 python = "3.12.*"
 
