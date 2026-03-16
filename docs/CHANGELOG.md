@@ -1,6 +1,24 @@
 # CHANGELOG
 
 
+## v0.26.1 (2026-03-16)
+
+### Bug Fixes
+
+- Avoid case_sensitive in Path.glob by manual case-insensitive match
+  ([`52b8fde`](https://github.com/bhklab/damply/commit/52b8fde8e271b0d4a75ba0bac9804a764299a9a9))
+
+### Continuous Integration
+
+- Update pixi.lock to match workspace for locked installs
+  ([`7e5ba9d`](https://github.com/bhklab/damply/commit/7e5ba9d57f32f0967b719611c934b9132786b692))
+
+### Testing
+
+- Add coverage for case-insensitive README discovery in root and docs
+  ([`b0222a3`](https://github.com/bhklab/damply/commit/b0222a39e2ea9acb132e1e890625b865d1537dd5))
+
+
 ## v0.26.0 (2025-06-26)
 
 ### Build System
